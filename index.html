@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Evy Tapia — Psicóloga. Sessões online. Agendamento e contacto." />
+  <title>Evy Tapia — Psicóloga</title>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#0f1621;
+      --text:#e8eef6;
+      --muted:#a7b3c2;
+      --line:rgba(255,255,255,.10);
+      --btn:#e8eef6;
+      --btnText:#0b0f14;
+      --chip:rgba(255,255,255,.06);
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 20px;
+      --max: 980px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(120,140,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(80,220,190,.12), transparent 55%),
+        radial-gradient(900px 500px at 50% 90%, rgba(255,170,90,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px 60px;}
+    .top{
+      display:flex; justify-content:space-between; align-items:center; gap:16px;
+      padding:10px 0 24px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .dot{
+      width:12px; height:12px; border-radius:99px;
+      background: linear-gradient(135deg, rgba(120,140,255,.95), rgba(80,220,190,.85));
+      box-shadow: 0 0 0 6px rgba(255,255,255,.03);
+    }
+    .brand small{color:var(--muted)}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:10px 14px; border:1px solid var(--line);
+      border-radius:999px; background: rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:14px;
+      text-decoration:none;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .top{flex-direction:column; align-items:flex-start}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:34px 28px 26px;
+    }
+    h1{
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height:1.1;
+      margin:0 0 10px;
+      letter-spacing:-.02em;
+    }
+    .role{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .lead{
+      margin:0 0 18px;
+      font-size: 16.5px;
+      color: rgba(232,238,246,.92);
+      max-width: 62ch;
+    }
+
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin: 18px 0 20px;
+    }
+    .chip{
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top: 16px;
+    }
+    .btn{
+      appearance:none; border:0;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius: 14px;
+      font-weight: 650;
+      text-decoration:none;
+      cursor:pointer;
+      transition: transform .08s ease, opacity .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform: scale(.99)}
+    .btnPrimary{
+      background: var(--btn);
+      color: var(--btnText);
+    }
+    .btnGhost{
+      background: transparent;
+      border:1px solid var(--line);
+      color: var(--text);
+    }
+
+    .side{
+      padding:22px;
+    }
+    .side h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .list{
+      margin:0; padding:0; list-style:none;
+      display:grid; gap:10px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.12);
+    }
+    .li b{display:block; font-size:14.5px}
+    .li span{display:block; color:var(--muted); font-size:14px}
+    .icon{
+      width:18px; height:18px; border-radius:6px;
+      background: rgba(255,255,255,.10);
+      flex: 0 0 18px;
+      margin-top:2px;
+    }
+
+    .section{
+      padding:22px 28px 26px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.10);
+    }
+    .section h3{
+      margin:0 0 10px;
+      font-size: 16px;
+      color: rgba(232,238,246,.88);
+    }
+    .section p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.8px;
+      max-width: 75ch;
+    }
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px){
+      .contactGrid{grid-template-columns:1fr}
+    }
+    .contactItem{
+      padding:14px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.10);
+      text-decoration:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .contactItem small{color:var(--muted)}
+    .arrow{opacity:.75}
+
+    footer{
+      margin-top: 22px;
+      color: rgba(167,179,194,.85);
+      font-size: 13px;
+      padding: 0 6px;
+    }
+    footer .row{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <div><strong>Evy Tapia</strong></div>
+          <small>Psicóloga · Sessões online</small>
+        </div>
+      </div>
+
+      <!-- Se quiseres, podes pôr aqui o teu Instagram -->
+      <a class="pill" href="#" id="igLink" aria-label="Instagram (opcional)">
+        Instagram (opcional)
+      </a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="hero">
+          <h1>Evy Tapia</h1>
+          <div class="role">Psicóloga</div>
+
+          <p class="lead">
+            Psicoterapia baseada em evidência para pessoas que procuram compreender os seus padrões
+            emocionais e relacionais, num espaço ético, seguro e profissional.
+          </p>
+
+          <div class="chips" aria-label="Informação prática">
+            <div class="chip">Sessões online</div>
+            <div class="chip">50 minutos</div>
+            <div class="chip">Atendimento em espanhol</div>
+          </div>
+
+          <div class="cta">
+            <!-- 1) Coloca aqui o teu link do Calendly -->
+            <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
+              Agendar consulta
+            </a>
+
+            <!-- 2) Contacto por email -->
+            <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
+              Enviar email
+            </a>
+
+            <!-- 3) WhatsApp (opcional): substitui pelo teu número em formato internacional -->
+            <!-- Exemplo: https://wa.me/51999999999 -->
+            <a class="btn btnGhost" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noreferrer">
+              WhatsApp (opcional)
+            </a>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Como funciona</h3>
+          <p>
+            As sessões decorrem online, com duração aproximada de 50 minutos. Caso tenha dúvidas antes
+            de agendar, pode contactar por email.
+          </p>
+        </div>
+
+        <div class="section">
+          <h3>Contacto</h3>
+
+          <div class="contactGrid">
+            <a class="contactItem" href="mailto:evytapia.psicologia@email.com">
+              <div>
+                <div><strong>Email</strong></div>
+                <small>evytapia.psicologia@email.com</small>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+
+            <!-- Opcional: substitui por número real -->
+            <a class="contactItem" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noreferrer">
+              <div>
+                <div><strong>WhatsApp</strong></div>
+                <small>Mensagem direta (opcional)</small>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="side">
+          <h2>Detalhes</h2>
+          <ul class="list">
+            <li class="li">
+              <div class="icon" aria-hidden="true"></div>
+              <div>
+                <b>Modalidade</b>
+                <span>Online</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true"></div>
+              <div>
+                <b>Duração</b>
+                <span>50 minutos</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true"></div>
+              <div>
+                <b>Idioma</b>
+                <span>Espanhol</span>
+              </div>
+            </li>
+          </ul>
+
+          <div style="height:14px"></div>
+
+          <h2>Nota</h2>
+          <p style="margin:0;color:var(--muted);font-size:14.5px">
+            Este site é informativo. Agendamento e contacto são feitos pelos links acima.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="row">
+        <div>© <span id="year"></span> Evy Tapia</div>
+        <div style="opacity:.9">Sem publicidade · GitHub Pages</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Opcional: se não quiseres Instagram, deixa o link como "#"
+    // e o botão fica sem ação (ou apaga o botão no topo).
+    const ig = document.getElementById("igLink");
+    const IG_URL = "#"; // ex: "https://instagram.com/SEU_USER"
+    ig.setAttribute("href", IG_URL);
+    if (IG_URL === "#") ig.style.opacity = "0.5";
+  </script>
+</body>
+</html>
