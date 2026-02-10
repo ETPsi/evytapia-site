@@ -1,685 +1,190 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Evy Tapia — Psicoterapeuta online. Agendamiento y contacto." />
-  <title>Evy Tapia — Psicoterapeuta online</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Evy Tapia — Psicoterapeuta online. Agendamiento y contacto."/>
+<title>Evy Tapia — Psicoterapeuta online</title>
 
-  <style>
-    :root{
-      /* Fundo (mantém o teu) */
-      --bgBase:#f2e9df;
+<style>
+:root{
+  --bgBase:#f2e9df;
+  --text:#2b1f27;
+  --muted:#5d4a57;
+  --accentDark:#7a3f63;
+  --accentLight:#c7a6bd;
 
-      /* Texto (agora escuro para ler bem) */
-      --text:#2b1f27;          /* texto principal */
-      --muted:#5d4a57;         /* texto secundário */
+  --line:rgba(122,63,99,.18);
+  --chip:rgba(199,166,189,.18);
+  --cardTop: rgba(255,255,255,.28);
+  --cardBot: rgba(255,255,255,.12);
+  --shadow:0 20px 60px rgba(33,18,28,.22);
+  --radius:20px;
+  --max:980px;
 
-      /* “Rojo/roxo” da imagem (escuro e claro) */
-      --accentDark:#7a3f63;    /* para títulos e negritos */
-      --accentLight:#c7a6bd;   /* para realces (chips/hover/linhas suaves) */
+  --btn:#7a3f63;
+  --btnText:#fff;
+}
 
-      /* UI */
-      --line:rgba(122,63,99,.18);
-      --chip:rgba(199,166,189,.18);
-      --cardTop: rgba(255,255,255,.28);
-      --cardBot: rgba(255,255,255,.12);
-      --cardBg:  rgba(255,255,255,.14);
+*{box-sizing:border-box}
+html,body{height:100%}
 
-      --shadow: 0 20px 60px rgba(33,18,28,.22);
-      --radius: 20px;
-      --max: 980px;
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  background:
+    radial-gradient(1200px 700px at 15% 20%, rgba(214,191,216,.55), transparent 65%),
+    radial-gradient(1000px 600px at 85% 25%, rgba(230,207,220,.60), transparent 60%),
+    radial-gradient(900px 600px at 30% 85%, rgba(154,100,136,.35), transparent 65%),
+    radial-gradient(1100px 700px at 70% 75%, rgba(214,191,216,.45), transparent 65%),
+    var(--bgBase);
+  color:var(--text);
+}
 
-      --btn:#7a3f63;
-      --btnText:#ffffff;
-      --btnGhostBg:rgba(255,255,255,.10);
-    }
+h1,h2,h3,strong,b{color:var(--accentDark)}
+a{color:inherit;text-decoration:none}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+.wrap{max-width:var(--max);margin:auto;padding:40px 20px 60px}
 
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      /* FUNDO (mantido como estava) */
-      background:
-        radial-gradient(1200px 700px at 15% 20%, rgba(214, 191, 216, 0.55), transparent 65%),
-        radial-gradient(1000px 600px at 85% 25%, rgba(230, 207, 220, 0.60), transparent 60%),
-        radial-gradient(900px 600px at 30% 85%, rgba(154, 100, 136, 0.35), transparent 65%),
-        radial-gradient(1100px 700px at 70% 75%, rgba(214, 191, 216, 0.45), transparent 65%),
-        var(--bgBase);
-      color:var(--text);
-      line-height:1.55;
-    }
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    a{color:inherit}
+.brand{display:flex;gap:12px;align-items:center}
+.dot{
+  width:12px;height:12px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--accentLight), var(--accentDark));
+}
 
-    /* Títulos e negritos com o “rojo/roxo” escuro */
-    h1,h2,h3,strong,b{color:var(--accentDark)}
-    .role, .metaLine, .noteLines, .bullets, .chip, .pill, .tab{color:var(--muted)}
-    .lead{color:rgba(43,31,39,.92)}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.22);
+  transition:.2s;
+}
 
-    .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px 60px;}
+.pill:hover{background:rgba(255,255,255,.32)}
 
-    .top{
-      display:flex; justify-content:space-between; align-items:center; gap:16px;
-      padding:10px 0 14px;
-    }
-    .brand{display:flex; align-items:center; gap:12px;}
+.icon-svg{
+  width:20px;
+  height:20px;
+  stroke:var(--accentDark);
+  fill:none;
+  stroke-width:1.8;
+}
 
-    .dot{
-      width:12px; height:12px; border-radius:99px;
-      background: radial-gradient(circle at 30% 30%, rgba(199,166,189,.95), rgba(122,63,99,.80));
-      box-shadow: 0 0 0 6px rgba(255,255,255,.22);
-    }
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:22px;
+}
 
-    .brand small{color:var(--muted)}
+@media(max-width:860px){
+  .grid{grid-template-columns:1fr}
+}
 
-    .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:10px 14px; border:1px solid var(--line);
-      border-radius:999px; background: rgba(255,255,255,.22);
-      font-size:14px;
-      text-decoration:none;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-    }
-    .pill:hover{
-      background: rgba(255,255,255,.30);
-      border-color: rgba(122,63,99,.25);
-    }
-    .pill:active{transform:scale(.99)}
+.card{
+  background:linear-gradient(180deg,var(--cardTop),var(--cardBot));
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+}
 
-    /* TABS */
-    .tabs{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin: 0 0 18px;
-    }
-    .tab{
-      background: rgba(255,255,255,.20);
-      border: 1px solid var(--line);
-      padding: 10px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: opacity .2s ease, transform .08s ease, background .2s ease, border-color .2s ease;
-    }
-    .tab:active{transform: scale(.99)}
-    .tab:hover{opacity:.95}
-    .tab.isActive{
-      background: rgba(122,63,99,.12);
-      color: var(--accentDark);
-      border-color: rgba(122,63,99,.28);
-      font-weight: 700;
-    }
+.hero{padding:34px 28px}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:22px;
-      align-items:start;
-    }
-    @media (max-width: 860px){
-      .grid{grid-template-columns:1fr}
-      .top{flex-direction:column; align-items:flex-start}
-    }
+/* BOTÕES */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:14px;
+  font-weight:700;
+}
 
-    .card{
-      background: linear-gradient(180deg, var(--cardTop), var(--cardBot));
-      border:1px solid rgba(122,63,99,.18);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      backdrop-filter: blur(10px);
-    }
+.btnPrimary{
+  background:var(--btn);
+  color:var(--btnText);
+}
 
-    .hero{padding:34px 28px 26px;}
+.btnGhost{
+  background:rgba(255,255,255,.18);
+  border:1px solid var(--line);
+  color:var(--accentDark);
+}
 
-    h1{
-      font-size: clamp(30px, 3.6vw, 44px);
-      line-height:1.1;
-      margin:0 0 10px;
-      letter-spacing:-.02em;
-    }
-
-    .role{
-      margin:0 0 18px;
-      font-size: 16px;
-    }
-
-    .lead{
-      margin:0 0 18px;
-      font-size: 16.5px;
-      max-width: 75ch;
-    }
-
-    .metaLine{
-      margin: 0 0 14px;
-      font-size: 14.5px;
-    }
-    .metaLine b{color: var(--accentDark); font-weight: 800;}
-
-    .chips{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin: 18px 0 20px;
-    }
-    .chip{
-      padding:8px 12px;
-      border:1px solid rgba(122,63,99,.18);
-      border-radius:999px;
-      background: var(--chip);
-      font-size: 14px;
-    }
-
-    .cta{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin-top: 16px;
-    }
-    .btn{
-      appearance:none; border:0;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px;
-      border-radius: 14px;
-      font-weight: 750;
-      text-decoration:none;
-      cursor:pointer;
-      transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:active{transform: scale(.99)}
-
-    .btnPrimary{
-      background: var(--btn);
-      color: var(--btnText);
-      box-shadow: 0 10px 30px rgba(122,63,99,.25);
-    }
-    .btnPrimary:hover{opacity:.95}
-
-    .btnGhost{
-      background: var(--btnGhostBg);
-      border:1px solid rgba(122,63,99,.18);
-      color: var(--accentDark);
-    }
-    .btnGhost:hover{
-      background: rgba(255,255,255,.20);
-      border-color: rgba(122,63,99,.26);
-    }
-
-    .section{
-      padding:22px 28px 26px;
-      border-top:1px solid rgba(122,63,99,.14);
-      background: rgba(255,255,255,.10);
-    }
-    .section.noTop{border-top:0}
-    .section h3{
-      margin:0 0 10px;
-      font-size: 16px;
-    }
-    .section p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14.8px;
-      max-width: 85ch;
-    }
-
-    .bullets{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
-    .bullets li{margin: 8px 0}
-
-    .noteLines{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
-
-    .eduCard{
-      margin-top: 14px;
-      padding: 14px 14px;
-      border: 1px solid rgba(122,63,99,.18);
-      border-radius: 14px;
-      background: rgba(255,255,255,.12);
-    }
-    .eduTitle{
-      margin:0 0 10px;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--accentDark);
-    }
-    .eduList{
-      margin:0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14.6px;
-    }
-    .eduList li{margin: 8px 0}
-
-    .cols3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px 18px;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
-    @media (max-width: 860px){
-      .cols3{grid-template-columns: repeat(2, 1fr);}
-    }
-    @media (max-width: 520px){
-      .cols3{grid-template-columns: 1fr;}
-    }
-    .item{display:flex; gap:10px; align-items:flex-start;}
-    .chev{margin-top: 2px; opacity: .9; color: var(--accentDark);}
-
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 560px){
-      .contactGrid{grid-template-columns:1fr}
-    }
-    .contactItem{
-      padding:14px 14px;
-      border:1px solid rgba(122,63,99,.18);
-      border-radius:14px;
-      background: rgba(255,255,255,.12);
-      text-decoration:none;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      transition: background .2s ease, border-color .2s ease, transform .08s ease;
-    }
-    .contactItem:hover{
-      background: rgba(255,255,255,.18);
-      border-color: rgba(122,63,99,.26);
-    }
-    .contactItem:active{transform:scale(.995)}
-    .contactItem small{color:var(--muted)}
-    .arrow{opacity:.75; color: var(--accentDark);}
-
-    aside .side{padding:22px;}
-    aside .side h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.02em;
-      text-transform: uppercase;
-      color: var(--accentDark);
-      opacity: .85;
-    }
-    .list{
-      margin:0; padding:0; list-style:none;
-      display:grid; gap:10px;
-    }
-    .li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border:1px solid rgba(122,63,99,.18);
-      border-radius:14px;
-      background: rgba(255,255,255,.12);
-    }
-    .li b{display:block; font-size:14.5px; color: var(--accentDark)}
-    .li span{display:block; color:var(--muted); font-size:14px}
-    .icon{
-      width:18px; height:18px; border-radius:6px;
-      background: rgba(122,63,99,.14);
-      flex: 0 0 18px;
-      margin-top:2px;
-    }
-
-    footer{
-      margin-top: 22px;
-      color: rgba(93,74,87,.92);
-      font-size: 13px;
-      padding: 0 6px;
-    }
-    footer .row{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      border-top:1px solid rgba(122,63,99,.16);
-      padding-top: 14px;
-    }
-
-    /* Panels */
-    .panel{display:none;}
-    .panel.isActive{display:block;}
-  </style>
+/* ÍCONES NOS BOTÕES */
+.btn svg{
+  width:18px;
+  height:18px;
+  stroke:var(--accentDark);
+  fill:none;
+  stroke-width:1.8;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="top">
-      <div class="brand">
-        <div class="dot" aria-hidden="true"></div>
-        <div>
-          <div><strong>Evy Tapia</strong></div>
-          <small>Psicoterapeuta online</small>
-        </div>
-      </div>
-
-      <a class="pill" href="https://www.instagram.com/evytapia.psicologa/" target="_blank" rel="noopener" id="igLink" aria-label="Instagram">
-        Instagram
-      </a>
+<!-- TOPO -->
+<div class="top">
+  <div class="brand">
+    <div class="dot"></div>
+    <div>
+      <strong>Evy Tapia</strong><br>
+      <small>Psicoterapeuta online</small>
     </div>
-
-    <!-- 5 SEPARADORES -->
-    <nav class="tabs" aria-label="Navegación">
-      <button class="tab isActive" data-tab="inicio" type="button">Inicio</button>
-      <button class="tab" data-tab="terapias" type="button">Terapias</button>
-      <button class="tab" data-tab="sobre" type="button">Sobre mí</button>
-      <button class="tab" data-tab="tratamientos" type="button">Tratamientos</button>
-      <button class="tab" data-tab="contacto" type="button">Contacto</button>
-    </nav>
-
-    <div class="grid">
-      <div class="card">
-
-        <!-- PANEL: INICIO (contenido del sitio antiguo, sin cambiar) -->
-        <div class="panel isActive" id="tab-inicio">
-          <div class="hero">
-            <h1>Evy Tapia</h1>
-            <div class="role">Psicoterapeuta online</div>
-
-            <div class="metaLine">
-              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
-            </div>
-
-            <p class="lead">
-              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
-              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
-              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
-            </p>
-
-            <ul class="bullets">
-              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
-              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
-              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
-              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
-              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
-            </ul>
-
-            <div class="noteLines">
-              * Te ayudo a construir una vida valiosa y con sentido para ti, una vida que valga la pena ser vivida.<br/>
-              * Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.<br/>
-              * Sesiones online a nivel nacional y mundial
-            </div>
-
-            <div class="chips" aria-label="Información práctica">
-              <div class="chip">Sesiones online</div>
-              <div class="chip">50 minutos</div>
-              <div class="chip">Atención en español</div>
-            </div>
-
-            <div class="cta">
-              <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
-                Agendar cita
-              </a>
-
-              <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
-                Enviar email
-              </a>
-
-              <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
-                WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- PANEL: TERAPIAS -->
-        <div class="panel" id="tab-terapias">
-          <div class="section noTop">
-            <h3>Terapias</h3>
-            <p>
-              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
-            </p>
-          </div>
-
-          <div class="section">
-            <h3>Enfoque</h3>
-            <p>
-              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
-              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
-              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
-            </p>
-
-            <ul class="bullets">
-              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
-              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
-              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
-              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
-              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- PANEL: SOBRE MÍ + FORMACIÓN -->
-        <div class="panel" id="tab-sobre">
-          <div class="section noTop">
-            <h3>Sobre mí</h3>
-            <p>
-              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
-              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
-              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
-            </p>
-
-            <ul class="bullets">
-              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
-              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
-              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
-              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
-              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
-            </ul>
-
-            <div class="noteLines">
-              * Te ayudo a construir una vida valiosa y con sentido para ti, una vida que valga la pena ser vivida.
-            </div>
-
-            <div class="eduCard" aria-label="Formación">
-              <div class="eduTitle">Formación</div>
-              <ul class="eduList">
-                <li>ESPECIALISTA EN TERAPIAS CONTEXTUALES - Universidad de Almería (España)</li>
-                <li>ESPECIALISTA EN TERAPIA COGNITIVO-CONDUCTUAL de niños y adolescentes - Ipsicoc (Perú)</li>
-                <li>FORMACIÓN EN TERAPIA DE ACEPTACIÓN Y COMPROMISO - Instituto Liceo por el Dr. Fabián Oláz</li>
-                <li>ENTRENAMIENTO EN ACTIVACIÓN CONDUCTUAL PARA LA DEPRESIÓN CON EL Dr. Jorge Barraca en España y Perú - Almería y por el Instituto peruano de análisis conductual.</li>
-                <li>ENTRENAMIENTO EN PSICOTERAPIA ANALÍTICA FUNCIONAL con el Dr. Michel Reyes - Instituto Liceo</li>
-                <li>CURSO INTERNACIONAL DE TERAPIA DE ACEPTACIÓN Y COMPROMISO EN ADOLESCENTES con el Ps. Javier Mandil.</li>
-                <li>CURSO INTERNACIONAL TERAPIA DIALÉCTICA CONDUCTUAL PARA NIÑOS Y ADOLESCENTES - Edilibros</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- PANEL: TRATAMIENTOS + ESPECIALIDADES -->
-        <div class="panel" id="tab-tratamientos">
-          <div class="section noTop">
-            <h3>Tratamientos</h3>
-
-            <div class="cols3" aria-label="Tratamientos">
-              <div class="item"><span class="chev">›</span><span>Angustia</span></div>
-              <div class="item"><span class="chev">›</span><span>Divorcio</span></div>
-              <div class="item"><span class="chev">›</span><span>Miedo a Hablar en Público</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Ansiedad</span></div>
-              <div class="item"><span class="chev">›</span><span>Duelos y pérdidas</span></div>
-              <div class="item"><span class="chev">›</span><span>Pánico</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Autolesiones</span></div>
-              <div class="item"><span class="chev">›</span><span>Enfermedades crónicas</span></div>
-              <div class="item"><span class="chev">›</span><span>rumia compleja</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Bullying</span></div>
-              <div class="item"><span class="chev">›</span><span>Estrés Postraumático</span></div>
-              <div class="item"><span class="chev">›</span><span>Timidez</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Dependencia emocional</span></div>
-              <div class="item"><span class="chev">›</span><span>Estrés y agotamiento</span></div>
-              <div class="item"><span class="chev">›</span><span>Trastorno Obsesivo Compulsivo (TOC)</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Depresión</span></div>
-              <div class="item"><span class="chev">›</span><span>Fibromialgia - Fatiga crónica</span></div>
-              <div class="item"><span class="chev">›</span><span>Trastornos del sueño - Insomnio</span></div>
-
-              <div class="item"><span class="chev">›</span><span>Desregulación emocional</span></div>
-              <div class="item"><span class="chev">›</span><span>Fobias</span></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Especialidades</h3>
-            <div class="cols3" aria-label="Especialidades">
-              <div class="item"><span class="chev">›</span><span>Activación conductual para la depresión</span></div>
-              <div class="item"><span class="chev">›</span><span>Terapia cognitivo conductual</span></div>
-              <div class="item"><span class="chev">›</span><span>Terapia de aceptación y compromiso (ACT)</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PANEL: CONTACTO -->
-        <div class="panel" id="tab-contacto">
-          <div class="section noTop">
-            <h3>Contacto</h3>
-
-            <div class="contactGrid">
-              <a class="contactItem" href="mailto:evytapia.psicologia@email.com">
-                <div>
-                  <div><strong>Email</strong></div>
-                  <small>evytapia.psicologia@email.com</small>
-                </div>
-                <div class="arrow">↗</div>
-              </a>
-
-              <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
-                <div>
-                  <div><strong>WhatsApp</strong></div>
-                  <small>Mensaje directo</small>
-                </div>
-                <div class="arrow">↗</div>
-              </a>
-            </div>
-          </div>
-
-          <div class="section">
-            <h3>Agendar cita</h3>
-            <p>
-              * Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.
-            </p>
-            <div style="height:10px"></div>
-            <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
-              Ir al enlace de agendamiento
-            </a>
-          </div>
-
-          <div class="section">
-            <h3>Sesiones online</h3>
-            <p>
-              * Sesiones online a nivel nacional y mundial
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Coluna lateral -->
-      <aside class="card">
-        <div class="side">
-          <h2>Detalles</h2>
-          <ul class="list">
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Terapia</b>
-                <span>Familiar, Individual</span>
-              </div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Dirigido a</b>
-                <span>Adolescentes y jóvenes, Adultos</span>
-              </div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Modalidad</b>
-                <span>Online</span>
-              </div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Duración</b>
-                <span>50 minutos</span>
-              </div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Idioma</b>
-                <span>Español</span>
-              </div>
-            </li>
-          </ul>
-
-          <div style="height:14px"></div>
-
-          <h2>Nota</h2>
-          <p style="margin:0;color:var(--muted);font-size:14.5px">
-            Sitio informativo. Agendamiento y contacto a través de los enlaces.
-          </p>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div class="row">
-        <div>© <span id="year"></span> Evy Tapia</div>
-        <div style="opacity:.9">Sin publicidad · GitHub Pages</div>
-      </div>
-    </footer>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <!-- INSTAGRAM ÍCONE -->
+  <a class="pill" href="https://www.instagram.com/evytapia.psicologa/" target="_blank" aria-label="Instagram">
+    <svg class="icon-svg" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1"/>
+    </svg>
+  </a>
+</div>
 
-    // Instagram
-    const ig = document.getElementById("igLink");
-    const IG_URL = "https://www.instagram.com/evytapia.psicologa/";
-    ig.setAttribute("href", IG_URL);
-    ig.setAttribute("target","_blank");
-    ig.setAttribute("rel","noopener");
+<!-- CONTEÚDO -->
+<div class="grid" style="margin-top:30px">
 
-    // Tabs / Panels
-    const tabs = document.querySelectorAll(".tab");
-    const panels = {
-      inicio: document.getElementById("tab-inicio"),
-      terapias: document.getElementById("tab-terapias"),
-      sobre: document.getElementById("tab-sobre"),
-      tratamientos: document.getElementById("tab-tratamientos"),
-      contacto: document.getElementById("tab-contacto"),
-    };
+<div class="card">
+  <div class="hero">
+    <h1>Evy Tapia</h1>
+    <p><strong>Terapia:</strong> Familiar, Individual</p>
 
-    function setActive(name){
-      tabs.forEach(t => t.classList.toggle("isActive", t.dataset.tab === name));
-      Object.keys(panels).forEach(k => panels[k].classList.toggle("isActive", k === name));
-    }
+    <div style="margin-top:20px;display:flex;gap:12px">
 
-    tabs.forEach(t => {
-      t.addEventListener("click", () => {
-        const name = t.dataset.tab;
-        setActive(name);
-        location.hash = name;
-      });
-    });
+      <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank">
+        Agendar cita
+      </a>
 
-    const initial = (location.hash || "#inicio").replace("#","");
-    if (panels[initial]) setActive(initial);
-  </script>
+      <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 11.5a8.5 8.5 0 1 1-16.1 3.7L3 21l5.9-1.8A8.5 8.5 0 0 1 21 11.5z"/>
+          <path d="M9.5 9.5c.3-.6.6-.6.9-.6.2 0 .4 0 .6.1.2.1.5.6.6.9.1.2.1.4 0 .6-.1.2-.3.5-.5.7-.2.2-.4.4-.2.7.2.3.8 1.3 1.8 2 .9.7 1.7.9 2 .9.3 0 .5-.1.7-.3.2-.2.9-1 .9-1 .2-.2.4-.2.6-.1.2.1 1.3.6 1.5.7.2.1.4.2.4.3 0 .1 0 .7-.4 1.3-.4.6-1.2 1.1-2 1.1-.5 0-1.3-.1-2.7-.8-1.7-.8-2.8-2.2-3-2.5-.2-.3-.7-1-.7-1.9 0-.9.5-1.4.7-1.6z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="card"></div>
+
+</div>
+</div>
 </body>
 </html>
-
