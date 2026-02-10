@@ -1,15 +1,14 @@
 <!doctype html>
-<html lang="pt-PT">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Evy Tapia — Psicóloga. Sessões online. Agendamento e contacto." />
-  <title>Evy Tapia — Psicóloga</title>
+  <meta name="description" content="Evy Tapia — Psicoterapeuta online. Agendamiento y contacto." />
+  <title>Evy Tapia — Psicoterapeuta online</title>
 
   <style>
     :root{
       --bg:#0b0f14;
-      --panel:#0f1621;
       --text:#e8eef6;
       --muted:#a7b3c2;
       --line:rgba(255,255,255,.10);
@@ -37,13 +36,12 @@
 
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px 60px;}
+
     .top{
       display:flex; justify-content:space-between; align-items:center; gap:16px;
       padding:10px 0 14px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-    }
+    .brand{display:flex; align-items:center; gap:12px;}
     .dot{
       width:12px; height:12px; border-radius:99px;
       background: linear-gradient(135deg, rgba(120,140,255,.95), rgba(80,220,190,.85));
@@ -103,9 +101,7 @@
       overflow:hidden;
     }
 
-    .hero{
-      padding:34px 28px 26px;
-    }
+    .hero{padding:34px 28px 26px;}
     h1{
       font-size: clamp(30px, 3.6vw, 44px);
       line-height:1.1;
@@ -121,8 +117,15 @@
       margin:0 0 18px;
       font-size: 16.5px;
       color: rgba(232,238,246,.92);
-      max-width: 62ch;
+      max-width: 75ch;
     }
+
+    .metaLine{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+    .metaLine b{color: rgba(232,238,246,.92); font-weight: 650;}
 
     .chips{
       display:flex; flex-wrap:wrap; gap:10px;
@@ -164,10 +167,107 @@
       color: var(--text);
     }
 
-    .side{
-      padding:22px;
+    .section{
+      padding:22px 28px 26px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.10);
     }
-    .side h2{
+    .section.noTop{border-top:0}
+    .section h3{
+      margin:0 0 10px;
+      font-size: 16px;
+      color: rgba(232,238,246,.88);
+    }
+    .section p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.8px;
+      max-width: 85ch;
+    }
+
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.8px;
+    }
+    .bullets li{margin: 8px 0}
+
+    .noteLines{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14.8px;
+    }
+
+    /* Formación box (estilo tarjeta) */
+    .eduCard{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(0,0,0,.12);
+    }
+    .eduTitle{
+      margin:0 0 10px;
+      font-size: 15px;
+      color: rgba(232,238,246,.88);
+      font-weight: 700;
+    }
+    .eduList{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.6px;
+    }
+    .eduList li{margin: 8px 0}
+
+    /* Listas em colunas (Tratamientos / Especialidades) */
+    .cols3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px 18px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14.8px;
+    }
+    @media (max-width: 860px){
+      .cols3{grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 520px){
+      .cols3{grid-template-columns: 1fr;}
+    }
+    .item{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .chev{
+      margin-top: 2px;
+      opacity: .9;
+    }
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px){
+      .contactGrid{grid-template-columns:1fr}
+    }
+    .contactItem{
+      padding:14px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.10);
+      text-decoration:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .contactItem small{color:var(--muted)}
+    .arrow{opacity:.75}
+
+    aside .side{padding:22px;}
+    aside .side h2{
       margin:0 0 10px;
       font-size:16px;
       letter-spacing:.02em;
@@ -194,44 +294,6 @@
       margin-top:2px;
     }
 
-    .section{
-      padding:22px 28px 26px;
-      border-top:1px solid var(--line);
-      background: rgba(0,0,0,.10);
-    }
-    .section.noTop{border-top:0}
-    .section h3{
-      margin:0 0 10px;
-      font-size: 16px;
-      color: rgba(232,238,246,.88);
-    }
-    .section p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14.8px;
-      max-width: 75ch;
-    }
-
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 560px){
-      .contactGrid{grid-template-columns:1fr}
-    }
-    .contactItem{
-      padding:14px 14px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background: rgba(0,0,0,.10);
-      text-decoration:none;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .contactItem small{color:var(--muted)}
-    .arrow{opacity:.75}
-
     footer{
       margin-top: 22px;
       color: rgba(167,179,194,.85);
@@ -244,7 +306,7 @@
       padding-top: 14px;
     }
 
-    /* PANELS (conteúdo dos tabs) */
+    /* Panels */
     .panel{display:none;}
     .panel.isActive{display:block;}
   </style>
@@ -258,7 +320,7 @@
         <div class="dot" aria-hidden="true"></div>
         <div>
           <div><strong>Evy Tapia</strong></div>
-          <small>Psicóloga · Sessões online</small>
+          <small>Psicoterapeuta online</small>
         </div>
       </div>
 
@@ -267,47 +329,66 @@
       </a>
     </div>
 
-    <!-- MENU DE 5 SEPARADORES -->
-    <nav class="tabs" aria-label="Navegação">
-      <button class="tab isActive" data-tab="inicio" type="button">Início</button>
-      <button class="tab" data-tab="como" type="button">Como funciona</button>
-      <button class="tab" data-tab="sobre" type="button">Sobre mim</button>
-      <button class="tab" data-tab="areas" type="button">Especialidades</button>
+    <!-- 5 SEPARADORES -->
+    <nav class="tabs" aria-label="Navegación">
+      <button class="tab isActive" data-tab="inicio" type="button">Inicio</button>
+      <button class="tab" data-tab="terapias" type="button">Terapias</button>
+      <button class="tab" data-tab="sobre" type="button">Sobre mí</button>
+      <button class="tab" data-tab="tratamientos" type="button">Tratamientos</button>
       <button class="tab" data-tab="contacto" type="button">Contacto</button>
     </nav>
 
     <div class="grid">
       <div class="card">
 
-        <!-- PAINEL: INÍCIO -->
+        <!-- PANEL: INICIO (contenido del sitio antiguo, sin cambiar) -->
         <div class="panel isActive" id="tab-inicio">
           <div class="hero">
             <h1>Evy Tapia</h1>
-            <div class="role">Psicóloga</div>
+            <div class="role">Psicoterapeuta online</div>
+
+            <div class="metaLine">
+              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
+            </div>
 
             <p class="lead">
-              Psicoterapia baseada em evidência para pessoas que procuram compreender os seus padrões
-              emocionais e relacionais, num espaço ético, seguro e profissional.
+              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
+              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
+              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
             </p>
 
-            <div class="chips" aria-label="Informação prática">
-              <div class="chip">Sessões online</div>
+            <ul class="bullets">
+              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
+              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
+              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
+              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
+              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
+            </ul>
+
+            <div class="noteLines">
+              * Te ayudo a construir una vida valiosa y con sentido para ti, una vida que valga la pena ser vivida.<br/>
+              * Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.<br/>
+              * Sesiones online a nivel nacional y mundial
+            </div>
+
+            <div class="chips" aria-label="Información práctica">
+              <div class="chip">Sesiones online</div>
               <div class="chip">50 minutos</div>
-              <div class="chip">Atendimento em espanhol</div>
+              <div class="chip">Atención en español</div>
             </div>
 
             <div class="cta">
-              <!-- 1) Coloca aqui o teu link do Calendly -->
+              <!-- 1) Pon aquí tu link real (Calendly u otro) -->
               <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
-                Agendar consulta
+                Agendar cita
               </a>
 
-              <!-- 2) Contacto por email -->
+              <!-- 2) Email -->
               <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
                 Enviar email
               </a>
 
-              <!-- 3) WhatsApp (opcional): substitui pelo teu número em formato internacional -->
+              <!-- 3) WhatsApp -->
               <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
                 WhatsApp
               </a>
@@ -315,64 +396,117 @@
           </div>
         </div>
 
-        <!-- PAINEL: COMO FUNCIONA -->
-        <div class="panel" id="tab-como">
+        <!-- PANEL: TERAPIAS (copiado del bloque superior del sitio antiguo) -->
+        <div class="panel" id="tab-terapias">
           <div class="section noTop">
-            <h3>Como funciona</h3>
+            <h3>Terapias</h3>
             <p>
-              As sessões decorrem online, com duração aproximada de 50 minutos. Caso tenha dúvidas antes
-              de agendar, pode contactar por email.
+              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
             </p>
           </div>
 
           <div class="section">
-            <h3>Antes de agendar</h3>
+            <h3>Enfoque</h3>
             <p>
-              Se não tiver a certeza se a terapia é adequada para o seu caso, pode enviar uma mensagem por email
-              com uma breve descrição do motivo de consulta e eu respondo com orientação sobre os próximos passos.
+              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
+              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
+              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
             </p>
+
+            <ul class="bullets">
+              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
+              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
+              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
+              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
+              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
+            </ul>
           </div>
         </div>
 
-        <!-- PAINEL: SOBRE MIM -->
+        <!-- PANEL: SOBRE MÍ + FORMACIÓN (tal cual del sitio antiguo) -->
         <div class="panel" id="tab-sobre">
           <div class="section noTop">
-            <h3>Sobre mim</h3>
+            <h3>Sobre mí</h3>
             <p>
-              (Escreve aqui 4–6 linhas sobre ti: formação, enfoque, experiência e o teu estilo de trabalho.
-              Se quiseres, eu escrevo isto por ti com um tom profissional e humano.)
+              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
+              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
+              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
             </p>
-          </div>
 
-          <div class="section">
-            <h3>O meu enfoque</h3>
-            <p>
-              Trabalho com uma abordagem baseada em evidência, adaptando o processo terapêutico às necessidades e objetivos
-              de cada pessoa, num espaço seguro, ético e colaborativo.
-            </p>
+            <ul class="bullets">
+              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
+              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
+              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
+              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
+              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
+            </ul>
+
+            <div class="noteLines">
+              * Te ayudo a construir una vida valiosa y con sentido para ti, una vida que valga la pena ser vivida.
+            </div>
+
+            <div class="eduCard" aria-label="Formación">
+              <div class="eduTitle">Formación</div>
+              <ul class="eduList">
+                <li>ESPECIALISTA EN TERAPIAS CONTEXTUALES - Universidad de Almería (España)</li>
+                <li>ESPECIALISTA EN TERAPIA COGNITIVO-CONDUCTUAL de niños y adolescentes - Ipsicoc (Perú)</li>
+                <li>FORMACIÓN EN TERAPIA DE ACEPTACIÓN Y COMPROMISO - Instituto Liceo por el Dr. Fabián Oláz</li>
+                <li>ENTRENAMIENTO EN ACTIVACIÓN CONDUCTUAL PARA LA DEPRESIÓN CON EL Dr. Jorge Barraca en España y Perú - Almería y por el Instituto peruano de análisis conductual.</li>
+                <li>ENTRENAMIENTO EN PSICOTERAPIA ANALÍTICA FUNCIONAL con el Dr. Michel Reyes - Instituto Liceo</li>
+                <li>CURSO INTERNACIONAL DE TERAPIA DE ACEPTACIÓN Y COMPROMISO EN ADOLESCENTES con el Ps. Javier Mandil.</li>
+                <li>CURSO INTERNACIONAL TERAPIA DIALÉCTICA CONDUCTUAL PARA NIÑOS Y ADOLESCENTES - Edilibros</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- PAINEL: ESPECIALIDADES -->
-        <div class="panel" id="tab-areas">
+        <!-- PANEL: TRATAMIENTOS + ESPECIALIDADES (tal cual) -->
+        <div class="panel" id="tab-tratamientos">
           <div class="section noTop">
-            <h3>Especialidades</h3>
-            <p>
-              (Podes colocar aqui uma lista curta e clara. Ex.: ansiedade, regulação emocional, relações, autoestima,
-              stress, padrões de pensamento, etc. Eu também posso organizar isto por temas.)
-            </p>
+            <h3>Tratamientos</h3>
+
+            <div class="cols3" aria-label="Tratamientos">
+              <div class="item"><span class="chev">›</span><span>Angustia</span></div>
+              <div class="item"><span class="chev">›</span><span>Divorcio</span></div>
+              <div class="item"><span class="chev">›</span><span>Miedo a Hablar en Público</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Ansiedad</span></div>
+              <div class="item"><span class="chev">›</span><span>Duelos y pérdidas</span></div>
+              <div class="item"><span class="chev">›</span><span>Pánico</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Autolesiones</span></div>
+              <div class="item"><span class="chev">›</span><span>Enfermedades crónicas</span></div>
+              <div class="item"><span class="chev">›</span><span>rumia compleja</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Bullying</span></div>
+              <div class="item"><span class="chev">›</span><span>Estrés Postraumático</span></div>
+              <div class="item"><span class="chev">›</span><span>Timidez</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Dependencia emocional</span></div>
+              <div class="item"><span class="chev">›</span><span>Estrés y agotamiento</span></div>
+              <div class="item"><span class="chev">›</span><span>Trastorno Obsesivo Compulsivo (TOC)</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Depresión</span></div>
+              <div class="item"><span class="chev">›</span><span>Fibromialgia - Fatiga crónica</span></div>
+              <div class="item"><span class="chev">›</span><span>Trastornos del sueño - Insomnio</span></div>
+
+              <div class="item"><span class="chev">›</span><span>Desregulación emocional</span></div>
+              <div class="item"><span class="chev">›</span><span>Fobias</span></div>
+              <div></div>
+            </div>
           </div>
 
           <div class="section">
-            <h3>Para quem é</h3>
-            <p>
-              Para pessoas que procuram compreender padrões emocionais e relacionais, ganhar ferramentas práticas e construir
-              mudanças sustentáveis no dia a dia.
-            </p>
+            <h3>Especialidades</h3>
+            <div class="cols3" aria-label="Especialidades">
+              <div class="item"><span class="chev">›</span><span>Activación conductual para la depresión</span></div>
+              <div class="item"><span class="chev">›</span><span>Terapia cognitivo conductual</span></div>
+              <div class="item"><span class="chev">›</span><span>Terapia de aceptación y compromiso (ACT)</span></div>
+            </div>
           </div>
         </div>
 
-        <!-- PAINEL: CONTACTO -->
+        <!-- PANEL: CONTACTO -->
         <div class="panel" id="tab-contacto">
           <div class="section noTop">
             <h3>Contacto</h3>
@@ -389,7 +523,7 @@
               <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
                 <div>
                   <div><strong>WhatsApp</strong></div>
-                  <small>Mensagem direta</small>
+                  <small>Mensaje directo</small>
                 </div>
                 <div class="arrow">↗</div>
               </a>
@@ -397,30 +531,55 @@
           </div>
 
           <div class="section">
-            <h3>Agendamento</h3>
+            <h3>Agendar cita</h3>
             <p>
-              O agendamento é feito pelo link “Agendar consulta”. Se preferir, também pode contactar por email para esclarecer
-              dúvidas antes de marcar.
+              * Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.
+            </p>
+            <div style="height:10px"></div>
+            <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
+              Ir al enlace de agendamiento
+            </a>
+          </div>
+
+          <div class="section">
+            <h3>Sesiones online</h3>
+            <p>
+              * Sesiones online a nivel nacional y mundial
             </p>
           </div>
         </div>
       </div>
 
+      <!-- Coluna lateral (resumo) -->
       <aside class="card">
         <div class="side">
-          <h2>Detalhes</h2>
+          <h2>Detalles</h2>
           <ul class="list">
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
               <div>
-                <b>Modalidade</b>
+                <b>Terapia</b>
+                <span>Familiar, Individual</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true"></div>
+              <div>
+                <b>Dirigido a</b>
+                <span>Adolescentes y jóvenes, Adultos</span>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true"></div>
+              <div>
+                <b>Modalidad</b>
                 <span>Online</span>
               </div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
               <div>
-                <b>Duração</b>
+                <b>Duración</b>
                 <span>50 minutos</span>
               </div>
             </li>
@@ -428,7 +587,7 @@
               <div class="icon" aria-hidden="true"></div>
               <div>
                 <b>Idioma</b>
-                <span>Espanhol</span>
+                <span>Español</span>
               </div>
             </li>
           </ul>
@@ -437,7 +596,7 @@
 
           <h2>Nota</h2>
           <p style="margin:0;color:var(--muted);font-size:14.5px">
-            Este site é informativo. Agendamento e contacto são feitos pelos links acima.
+            Sitio informativo. Agendamiento y contacto a través de los enlaces.
           </p>
         </div>
       </aside>
@@ -446,16 +605,16 @@
     <footer>
       <div class="row">
         <div>© <span id="year"></span> Evy Tapia</div>
-        <div style="opacity:.9">Sem publicidade · GitHub Pages</div>
+        <div style="opacity:.9">Sin publicidad · GitHub Pages</div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Ano automático no footer
+    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Instagram (garante que abre fora do site)
+    // Instagram (abre fuera del sitio)
     const ig = document.getElementById("igLink");
     const IG_URL = "https://www.instagram.com/evytapia.psicologa/";
     ig.setAttribute("href", IG_URL);
@@ -466,9 +625,9 @@
     const tabs = document.querySelectorAll(".tab");
     const panels = {
       inicio: document.getElementById("tab-inicio"),
-      como: document.getElementById("tab-como"),
+      terapias: document.getElementById("tab-terapias"),
       sobre: document.getElementById("tab-sobre"),
-      areas: document.getElementById("tab-areas"),
+      tratamientos: document.getElementById("tab-tratamientos"),
       contacto: document.getElementById("tab-contacto"),
     };
 
@@ -477,16 +636,14 @@
       Object.keys(panels).forEach(k => panels[k].classList.toggle("isActive", k === name));
     }
 
-    // Clique nas tabs
     tabs.forEach(t => {
       t.addEventListener("click", () => {
         const name = t.dataset.tab;
         setActive(name);
-        location.hash = name; // permite link direto (#sobre, #contacto, etc.)
+        location.hash = name; // links directos: #sobre, #contacto, etc.
       });
     });
 
-    // Abre tab via hash (quando entra no site)
     const initial = (location.hash || "#inicio").replace("#","");
     if (panels[initial]) setActive(initial);
   </script>
