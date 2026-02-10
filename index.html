@@ -75,6 +75,34 @@
 
     .brand small{color:var(--muted)}
 
+    .iconSvg{
+      width: 18px;
+      height: 18px;
+      display: block;              /* tira “saltos” e espaços */
+      flex: 0 0 18px;              /* impede o flex de esticar/encolher */
+      stroke: var(--accentDark);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Se tiveres botões quadrados pequenos (tipo só ícone), garante área mínima */
+    .iconBtn{
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Para o contactItem (linha grande), alinha melhor o bloco do lado direito */
+    .contactItem .arrow,
+    .contactItem .iconSvg{
+      align-self: center;
+    }
+    
     .pill{
       display:inline-flex; gap:8px; align-items:center;
       padding:10px 14px; border:1px solid var(--line);
@@ -722,3 +750,4 @@
   </script>
 </body>
 </html>
+
