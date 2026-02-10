@@ -86,6 +86,13 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    /* Força o tamanho em qualquer sítio (mesmo que o SVG tenha “mania” de crescer) */
+    .pill svg, .btn svg, .contactItem svg{
+      width: 18px !important;
+      height: 18px !important;
+      flex: 0 0 18px !important;
+      display: block !important;
+    }
 
     /* Se tiveres botões quadrados pequenos (tipo só ícone), garante área mínima */
     .iconBtn{
@@ -750,4 +757,5 @@
   </script>
 </body>
 </html>
+
 
