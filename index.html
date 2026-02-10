@@ -39,7 +39,7 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px 60px;}
     .top{
       display:flex; justify-content:space-between; align-items:center; gap:16px;
-      padding:10px 0 24px;
+      padding:10px 0 14px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
@@ -58,6 +58,32 @@
       font-size:14px;
       text-decoration:none;
     }
+
+    /* TABS */
+    .tabs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 0 0 18px;
+    }
+    .tab{
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: opacity .2s ease, transform .08s ease;
+    }
+    .tab:active{transform: scale(.99)}
+    .tab:hover{opacity:.95}
+    .tab.isActive{
+      background: rgba(232,238,246,.14);
+      color: var(--text);
+      border-color: rgba(232,238,246,.22);
+    }
+
     .grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
@@ -173,6 +199,7 @@
       border-top:1px solid var(--line);
       background: rgba(0,0,0,.10);
     }
+    .section.noTop{border-top:0}
     .section h3{
       margin:0 0 10px;
       font-size: 16px;
@@ -216,6 +243,10 @@
       border-top:1px solid var(--line);
       padding-top: 14px;
     }
+
+    /* PANELS (conteúdo dos tabs) */
+    .panel{display:none;}
+    .panel.isActive{display:block;}
   </style>
 </head>
 
@@ -231,76 +262,146 @@
         </div>
       </div>
 
-      <!-- Se quiseres, podes pôr aqui o teu Instagram -->
       <a class="pill" href="https://www.instagram.com/evytapia.psicologa/" target="_blank" rel="noopener" id="igLink" aria-label="Instagram">
         Instagram
       </a>
     </div>
 
+    <!-- MENU DE 5 SEPARADORES -->
+    <nav class="tabs" aria-label="Navegação">
+      <button class="tab isActive" data-tab="inicio" type="button">Início</button>
+      <button class="tab" data-tab="como" type="button">Como funciona</button>
+      <button class="tab" data-tab="sobre" type="button">Sobre mim</button>
+      <button class="tab" data-tab="areas" type="button">Especialidades</button>
+      <button class="tab" data-tab="contacto" type="button">Contacto</button>
+    </nav>
+
     <div class="grid">
       <div class="card">
-        <div class="hero">
-          <h1>Evy Tapia</h1>
-          <div class="role">Psicóloga</div>
 
-          <p class="lead">
-            Psicoterapia baseada em evidência para pessoas que procuram compreender os seus padrões
-            emocionais e relacionais, num espaço ético, seguro e profissional.
-          </p>
+        <!-- PAINEL: INÍCIO -->
+        <div class="panel isActive" id="tab-inicio">
+          <div class="hero">
+            <h1>Evy Tapia</h1>
+            <div class="role">Psicóloga</div>
 
-          <div class="chips" aria-label="Informação prática">
-            <div class="chip">Sessões online</div>
-            <div class="chip">50 minutos</div>
-            <div class="chip">Atendimento em espanhol</div>
-          </div>
+            <p class="lead">
+              Psicoterapia baseada em evidência para pessoas que procuram compreender os seus padrões
+              emocionais e relacionais, num espaço ético, seguro e profissional.
+            </p>
 
-          <div class="cta">
-            <!-- 1) Coloca aqui o teu link do Calendly -->
-            <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
-              Agendar consulta
-            </a>
+            <div class="chips" aria-label="Informação prática">
+              <div class="chip">Sessões online</div>
+              <div class="chip">50 minutos</div>
+              <div class="chip">Atendimento em espanhol</div>
+            </div>
 
-            <!-- 2) Contacto por email -->
-            <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
-              Enviar email
-            </a>
+            <div class="cta">
+              <!-- 1) Coloca aqui o teu link do Calendly -->
+              <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
+                Agendar consulta
+              </a>
 
-            <!-- 3) WhatsApp (opcional): substitui pelo teu número em formato internacional -->
-            <!-- Exemplo: https://wa.me/51999999999 -->
-            <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
+              <!-- 2) Contacto por email -->
+              <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
+                Enviar email
+              </a>
+
+              <!-- 3) WhatsApp (opcional): substitui pelo teu número em formato internacional -->
+              <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="section">
-          <h3>Como funciona</h3>
-          <p>
-            As sessões decorrem online, com duração aproximada de 50 minutos. Caso tenha dúvidas antes
-            de agendar, pode contactar por email.
-          </p>
+        <!-- PAINEL: COMO FUNCIONA -->
+        <div class="panel" id="tab-como">
+          <div class="section noTop">
+            <h3>Como funciona</h3>
+            <p>
+              As sessões decorrem online, com duração aproximada de 50 minutos. Caso tenha dúvidas antes
+              de agendar, pode contactar por email.
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>Antes de agendar</h3>
+            <p>
+              Se não tiver a certeza se a terapia é adequada para o seu caso, pode enviar uma mensagem por email
+              com uma breve descrição do motivo de consulta e eu respondo com orientação sobre os próximos passos.
+            </p>
+          </div>
         </div>
 
-        <div class="section">
-          <h3>Contacto</h3>
+        <!-- PAINEL: SOBRE MIM -->
+        <div class="panel" id="tab-sobre">
+          <div class="section noTop">
+            <h3>Sobre mim</h3>
+            <p>
+              (Escreve aqui 4–6 linhas sobre ti: formação, enfoque, experiência e o teu estilo de trabalho.
+              Se quiseres, eu escrevo isto por ti com um tom profissional e humano.)
+            </p>
+          </div>
 
-          <div class="contactGrid">
-            <a class="contactItem" href="mailto:evytapia.psicologia@email.com">
-              <div>
-                <div><strong>Email</strong></div>
-                <small>evytapia.psicologia@email.com</small>
-              </div>
-              <div class="arrow">↗</div>
-            </a>
+          <div class="section">
+            <h3>O meu enfoque</h3>
+            <p>
+              Trabalho com uma abordagem baseada em evidência, adaptando o processo terapêutico às necessidades e objetivos
+              de cada pessoa, num espaço seguro, ético e colaborativo.
+            </p>
+          </div>
+        </div>
 
-            <!-- Opcional: substitui por número real -->
-            <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
-              <div>
-                <div><strong>WhatsApp</strong></div>
-                <small>Mensagem direta</small>
-              </div>
-              <div class="arrow">↗</div>
-            </a>
+        <!-- PAINEL: ESPECIALIDADES -->
+        <div class="panel" id="tab-areas">
+          <div class="section noTop">
+            <h3>Especialidades</h3>
+            <p>
+              (Podes colocar aqui uma lista curta e clara. Ex.: ansiedade, regulação emocional, relações, autoestima,
+              stress, padrões de pensamento, etc. Eu também posso organizar isto por temas.)
+            </p>
+          </div>
+
+          <div class="section">
+            <h3>Para quem é</h3>
+            <p>
+              Para pessoas que procuram compreender padrões emocionais e relacionais, ganhar ferramentas práticas e construir
+              mudanças sustentáveis no dia a dia.
+            </p>
+          </div>
+        </div>
+
+        <!-- PAINEL: CONTACTO -->
+        <div class="panel" id="tab-contacto">
+          <div class="section noTop">
+            <h3>Contacto</h3>
+
+            <div class="contactGrid">
+              <a class="contactItem" href="mailto:evytapia.psicologia@email.com">
+                <div>
+                  <div><strong>Email</strong></div>
+                  <small>evytapia.psicologia@email.com</small>
+                </div>
+                <div class="arrow">↗</div>
+              </a>
+
+              <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
+                <div>
+                  <div><strong>WhatsApp</strong></div>
+                  <small>Mensagem direta</small>
+                </div>
+                <div class="arrow">↗</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Agendamento</h3>
+            <p>
+              O agendamento é feito pelo link “Agendar consulta”. Se preferir, também pode contactar por email para esclarecer
+              dúvidas antes de marcar.
+            </p>
           </div>
         </div>
       </div>
@@ -351,19 +452,43 @@
   </div>
 
   <script>
+    // Ano automático no footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Opcional: se não quiseres Instagram, deixa o link como "#"
-    // e o botão fica sem ação (ou apaga o botão no topo).
+    // Instagram (garante que abre fora do site)
     const ig = document.getElementById("igLink");
-    const IG_URL = "https://www.instagram.com/evytapia.psicologa/"; // ex: "https://instagram.com/SEU_USER"
+    const IG_URL = "https://www.instagram.com/evytapia.psicologa/";
     ig.setAttribute("href", IG_URL);
-    if (IG_URL === "#") ig.style.opacity = "0.5";
+    ig.setAttribute("target","_blank");
+    ig.setAttribute("rel","noopener");
+
+    // Tabs / Panels
+    const tabs = document.querySelectorAll(".tab");
+    const panels = {
+      inicio: document.getElementById("tab-inicio"),
+      como: document.getElementById("tab-como"),
+      sobre: document.getElementById("tab-sobre"),
+      areas: document.getElementById("tab-areas"),
+      contacto: document.getElementById("tab-contacto"),
+    };
+
+    function setActive(name){
+      tabs.forEach(t => t.classList.toggle("isActive", t.dataset.tab === name));
+      Object.keys(panels).forEach(k => panels[k].classList.toggle("isActive", k === name));
+    }
+
+    // Clique nas tabs
+    tabs.forEach(t => {
+      t.addEventListener("click", () => {
+        const name = t.dataset.tab;
+        setActive(name);
+        location.hash = name; // permite link direto (#sobre, #contacto, etc.)
+      });
+    });
+
+    // Abre tab via hash (quando entra no site)
+    const initial = (location.hash || "#inicio").replace("#","");
+    if (panels[initial]) setActive(initial);
   </script>
 </body>
 </html>
-
-
-
-
-
