@@ -8,37 +8,57 @@
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --text:#e8eef6;
-      --muted:#a7b3c2;
-      --line:rgba(255,255,255,.10);
-      --btn:#e8eef6;
-      --btnText:#0b0f14;
-      --chip:rgba(255,255,255,.06);
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      /* Fundo (mantém o teu) */
+      --bgBase:#f2e9df;
+
+      /* Texto (agora escuro para ler bem) */
+      --text:#2b1f27;          /* texto principal */
+      --muted:#5d4a57;         /* texto secundário */
+
+      /* “Rojo/roxo” da imagem (escuro e claro) */
+      --accentDark:#7a3f63;    /* para títulos e negritos */
+      --accentLight:#c7a6bd;   /* para realces (chips/hover/linhas suaves) */
+
+      /* UI */
+      --line:rgba(122,63,99,.18);
+      --chip:rgba(199,166,189,.18);
+      --cardTop:rgba(255,255,255,.38);
+      --cardBot:rgba(255,255,255,.18);
+      --cardBg:rgba(255,255,255,.20);
+
+      --shadow: 0 20px 60px rgba(33,18,28,.22);
       --radius: 20px;
       --max: 980px;
+
+      --btn:#7a3f63;
+      --btnText:#ffffff;
+      --btnGhostBg:rgba(255,255,255,.10);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.55;
-
-      /* Fundo inspirado diretamente na imagem abstracta */
+      /* FUNDO (mantido como estava) */
       background:
-        radial-gradient(1200px 800px at 15% 20%, rgba(176, 122, 154, .28), transparent 62%),
-        radial-gradient(1000px 700px at 85% 25%, rgba(226, 201, 221, .55), transparent 60%),
-        radial-gradient(900px 700px at 30% 85%, rgba(140, 88, 120, .35), transparent 65%),
-        radial-gradient(1100px 800px at 70% 75%, rgba(179, 140, 170, .30), transparent 65%),
-        #f3eadf;
-
-      color:#3a2c35;
+        radial-gradient(1200px 700px at 15% 20%, rgba(214, 191, 216, 0.55), transparent 65%),
+        radial-gradient(1000px 600px at 85% 25%, rgba(230, 207, 220, 0.60), transparent 60%),
+        radial-gradient(900px 600px at 30% 85%, rgba(154, 100, 136, 0.35), transparent 65%),
+        radial-gradient(1100px 700px at 70% 75%, rgba(214, 191, 216, 0.45), transparent 65%),
+        var(--bgBase);
+      color:var(--text);
+      line-height:1.55;
     }
 
     a{color:inherit}
+
+    /* Títulos e negritos com o “rojo/roxo” escuro */
+    h1,h2,h3,strong,b{color:var(--accentDark)}
+    .role, .metaLine, .noteLines, .bullets, .chip, .pill, .tab{color:var(--muted)}
+    .lead{color:rgba(43,31,39,.92)}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:40px 20px 60px;}
 
     .top{
@@ -46,20 +66,28 @@
       padding:10px 0 14px;
     }
     .brand{display:flex; align-items:center; gap:12px;}
+
     .dot{
       width:12px; height:12px; border-radius:99px;
-      background: linear-gradient(135deg, rgba(120,140,255,.95), rgba(80,220,190,.85));
-      box-shadow: 0 0 0 6px rgba(255,255,255,.03);
+      background: radial-gradient(circle at 30% 30%, rgba(199,166,189,.95), rgba(122,63,99,.80));
+      box-shadow: 0 0 0 6px rgba(255,255,255,.22);
     }
+
     .brand small{color:var(--muted)}
+
     .pill{
       display:inline-flex; gap:8px; align-items:center;
       padding:10px 14px; border:1px solid var(--line);
-      border-radius:999px; background: rgba(255,255,255,.02);
-      color:var(--muted);
+      border-radius:999px; background: rgba(255,255,255,.22);
       font-size:14px;
       text-decoration:none;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
     }
+    .pill:hover{
+      background: rgba(255,255,255,.30);
+      border-color: rgba(122,63,99,.25);
+    }
+    .pill:active{transform:scale(.99)}
 
     /* TABS */
     .tabs{
@@ -69,21 +97,21 @@
       margin: 0 0 18px;
     }
     .tab{
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.20);
       border: 1px solid var(--line);
-      color: var(--muted);
       padding: 10px 14px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 14px;
-      transition: opacity .2s ease, transform .08s ease;
+      transition: opacity .2s ease, transform .08s ease, background .2s ease, border-color .2s ease;
     }
     .tab:active{transform: scale(.99)}
     .tab:hover{opacity:.95}
     .tab.isActive{
-      background: rgba(232,238,246,.14);
-      color: var(--text);
-      border-color: rgba(232,238,246,.22);
+      background: rgba(122,63,99,.12);
+      color: var(--accentDark);
+      border-color: rgba(122,63,99,.28);
+      font-weight: 700;
     }
 
     .grid{
@@ -98,38 +126,39 @@
     }
 
     .card{
-      background: rgba(255,255,255,.55);
-      border:1px solid rgba(140,88,120,.25);
+      background: linear-gradient(180deg, var(--cardTop), var(--cardBot));
+      border:1px solid rgba(122,63,99,.18);
       border-radius: var(--radius);
-      box-shadow: 0 20px 50px rgba(140,88,120,.25);
+      box-shadow: var(--shadow);
+      overflow:hidden;
       backdrop-filter: blur(10px);
     }
 
     .hero{padding:34px 28px 26px;}
+
     h1{
       font-size: clamp(30px, 3.6vw, 44px);
       line-height:1.1;
       margin:0 0 10px;
       letter-spacing:-.02em;
     }
+
     .role{
       margin:0 0 18px;
-      color: var(--muted);
       font-size: 16px;
     }
+
     .lead{
       margin:0 0 18px;
       font-size: 16.5px;
-      color: rgba(232,238,246,.92);
       max-width: 75ch;
     }
 
     .metaLine{
       margin: 0 0 14px;
-      color: var(--muted);
       font-size: 14.5px;
     }
-    .metaLine b{color: rgba(232,238,246,.92); font-weight: 650;}
+    .metaLine b{color: var(--accentDark); font-weight: 800;}
 
     .chips{
       display:flex; flex-wrap:wrap; gap:10px;
@@ -137,10 +166,9 @@
     }
     .chip{
       padding:8px 12px;
-      border:1px solid var(--line);
+      border:1px solid rgba(122,63,99,.18);
       border-radius:999px;
       background: var(--chip);
-      color: var(--muted);
       font-size: 14px;
     }
 
@@ -153,34 +181,41 @@
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 16px;
       border-radius: 14px;
-      font-weight: 650;
+      font-weight: 750;
       text-decoration:none;
       cursor:pointer;
-      transition: transform .08s ease, opacity .2s ease;
+      transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
       user-select:none;
       white-space:nowrap;
     }
     .btn:active{transform: scale(.99)}
+
     .btnPrimary{
       background: var(--btn);
       color: var(--btnText);
+      box-shadow: 0 10px 30px rgba(122,63,99,.25);
     }
+    .btnPrimary:hover{opacity:.95}
+
     .btnGhost{
-      background: transparent;
-      border:1px solid var(--line);
-      color: var(--text);
+      background: var(--btnGhostBg);
+      border:1px solid rgba(122,63,99,.18);
+      color: var(--accentDark);
+    }
+    .btnGhost:hover{
+      background: rgba(255,255,255,.20);
+      border-color: rgba(122,63,99,.26);
     }
 
     .section{
       padding:22px 28px 26px;
-      border-top:1px solid var(--line);
-      background: rgba(0,0,0,.10);
+      border-top:1px solid rgba(122,63,99,.14);
+      background: rgba(255,255,255,.10);
     }
     .section.noTop{border-top:0}
     .section h3{
       margin:0 0 10px;
       font-size: 16px;
-      color: rgba(232,238,246,.88);
     }
     .section p{
       margin:0;
@@ -203,19 +238,18 @@
       font-size: 14.8px;
     }
 
-    /* Formación box (estilo tarjeta) */
     .eduCard{
       margin-top: 14px;
       padding: 14px 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(122,63,99,.18);
       border-radius: 14px;
-      background: rgba(0,0,0,.12);
+      background: rgba(255,255,255,.12);
     }
     .eduTitle{
       margin:0 0 10px;
       font-size: 15px;
-      color: rgba(232,238,246,.88);
-      font-weight: 700;
+      font-weight: 800;
+      color: var(--accentDark);
     }
     .eduList{
       margin:0;
@@ -225,7 +259,6 @@
     }
     .eduList li{margin: 8px 0}
 
-    /* Listas em colunas (Tratamientos / Especialidades) */
     .cols3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -240,15 +273,8 @@
     @media (max-width: 520px){
       .cols3{grid-template-columns: 1fr;}
     }
-    .item{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .chev{
-      margin-top: 2px;
-      opacity: .9;
-    }
+    .item{display:flex; gap:10px; align-items:flex-start;}
+    .chev{margin-top: 2px; opacity: .9; color: var(--accentDark);}
 
     .contactGrid{
       display:grid;
@@ -261,14 +287,20 @@
     }
     .contactItem{
       padding:14px 14px;
-      border:1px solid var(--line);
+      border:1px solid rgba(122,63,99,.18);
       border-radius:14px;
-      background: rgba(0,0,0,.10);
+      background: rgba(255,255,255,.12);
       text-decoration:none;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
+      transition: background .2s ease, border-color .2s ease, transform .08s ease;
     }
+    .contactItem:hover{
+      background: rgba(255,255,255,.18);
+      border-color: rgba(122,63,99,.26);
+    }
+    .contactItem:active{transform:scale(.995)}
     .contactItem small{color:var(--muted)}
-    .arrow{opacity:.75}
+    .arrow{opacity:.75; color: var(--accentDark);}
 
     aside .side{padding:22px;}
     aside .side h2{
@@ -276,7 +308,8 @@
       font-size:16px;
       letter-spacing:.02em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accentDark);
+      opacity: .85;
     }
     .list{
       margin:0; padding:0; list-style:none;
@@ -285,28 +318,28 @@
     .li{
       display:flex; gap:10px; align-items:flex-start;
       padding:12px 12px;
-      border:1px solid var(--line);
+      border:1px solid rgba(122,63,99,.18);
       border-radius:14px;
-      background: rgba(0,0,0,.12);
+      background: rgba(255,255,255,.12);
     }
-    .li b{display:block; font-size:14.5px}
+    .li b{display:block; font-size:14.5px; color: var(--accentDark)}
     .li span{display:block; color:var(--muted); font-size:14px}
     .icon{
       width:18px; height:18px; border-radius:6px;
-      background: rgba(255,255,255,.10);
+      background: rgba(122,63,99,.14);
       flex: 0 0 18px;
       margin-top:2px;
     }
 
     footer{
       margin-top: 22px;
-      color: rgba(167,179,194,.85);
+      color: rgba(93,74,87,.92);
       font-size: 13px;
       padding: 0 6px;
     }
     footer .row{
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      border-top:1px solid var(--line);
+      border-top:1px solid rgba(122,63,99,.16);
       padding-top: 14px;
     }
 
@@ -382,17 +415,14 @@
             </div>
 
             <div class="cta">
-              <!-- 1) Pon aquí tu link real (Calendly u otro) -->
               <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
                 Agendar cita
               </a>
 
-              <!-- 2) Email -->
               <a class="btn btnGhost" href="mailto:evytapia.psicologia@email.com">
                 Enviar email
               </a>
 
-              <!-- 3) WhatsApp -->
               <a class="btn btnGhost" href="https://wa.me/51999230000" target="_blank" rel="noreferrer">
                 WhatsApp
               </a>
@@ -400,7 +430,7 @@
           </div>
         </div>
 
-        <!-- PANEL: TERAPIAS (copiado del bloque superior del sitio antiguo) -->
+        <!-- PANEL: TERAPIAS -->
         <div class="panel" id="tab-terapias">
           <div class="section noTop">
             <h3>Terapias</h3>
@@ -427,7 +457,7 @@
           </div>
         </div>
 
-        <!-- PANEL: SOBRE MÍ + FORMACIÓN (tal cual del sitio antiguo) -->
+        <!-- PANEL: SOBRE MÍ + FORMACIÓN -->
         <div class="panel" id="tab-sobre">
           <div class="section noTop">
             <h3>Sobre mí</h3>
@@ -464,7 +494,7 @@
           </div>
         </div>
 
-        <!-- PANEL: TRATAMIENTOS + ESPECIALIDADES (tal cual) -->
+        <!-- PANEL: TRATAMIENTOS + ESPECIALIDADES -->
         <div class="panel" id="tab-tratamientos">
           <div class="section noTop">
             <h3>Tratamientos</h3>
@@ -554,7 +584,7 @@
         </div>
       </div>
 
-      <!-- Coluna lateral (resumo) -->
+      <!-- Coluna lateral -->
       <aside class="card">
         <div class="side">
           <h2>Detalles</h2>
@@ -615,10 +645,9 @@
   </div>
 
   <script>
-    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Instagram (abre fuera del sitio)
+    // Instagram
     const ig = document.getElementById("igLink");
     const IG_URL = "https://www.instagram.com/evytapia.psicologa/";
     ig.setAttribute("href", IG_URL);
@@ -644,7 +673,7 @@
       t.addEventListener("click", () => {
         const name = t.dataset.tab;
         setActive(name);
-        location.hash = name; // links directos: #sobre, #contacto, etc.
+        location.hash = name;
       });
     });
 
@@ -653,8 +682,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
