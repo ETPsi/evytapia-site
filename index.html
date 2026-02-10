@@ -8,23 +8,18 @@
 
   <style>
     :root{
-      /* Fondo (se mantiene) */
       --bgBase:#f2e9df;
 
-      /* Texto */
       --text:#2b1f27;
       --muted:#5d4a57;
 
-      /* “Rojo/roxo” */
       --accentDark:#7a3f63;
       --accentLight:#c7a6bd;
 
-      /* UI */
       --line:rgba(122,63,99,.18);
       --chip:rgba(199,166,189,.18);
       --cardTop: rgba(255,255,255,.28);
       --cardBot: rgba(255,255,255,.12);
-      --cardBg:  rgba(255,255,255,.14);
 
       --shadow: 0 20px 60px rgba(33,18,28,.22);
       --radius: 20px;
@@ -53,7 +48,6 @@
 
     a{color:inherit}
 
-    /* Títulos y negritas */
     h1,h2,h3,strong,b{color:var(--accentDark)}
     .role, .metaLine, .noteLines, .bullets, .chip, .pill, .tab{color:var(--muted)}
     .lead{color:rgba(43,31,39,.92)}
@@ -75,13 +69,13 @@
     .brand small{color:var(--muted)}
 
     /* =========================================================
-       ÍCONOS SVG — (FIX REAL) una sola clase coherente
+       ÍCONES SVG — regra única e consistente (corrige WhatsApp)
        ========================================================= */
     .ico, .iconSvg{
       width:18px;
       height:18px;
-      display:block;                 /* evita saltos */
-      flex:0 0 18px;                 /* no se estira */
+      display:block;
+      flex:0 0 18px;
       stroke: var(--accentDark);
       fill: none;
       stroke-width: 1.8;
@@ -90,7 +84,6 @@
       vector-effect: non-scaling-stroke;
     }
 
-    /* Fuerza tamaño en cualquier sitio donde haya SVG */
     a svg, button svg{
       width:18px !important;
       height:18px !important;
@@ -98,48 +91,10 @@
       display:block !important;
     }
 
-    /* Asegura que paths/rect/circle no rellenen negro por defecto */
-    svg.ico path, svg.ico rect, svg.ico circle,
-    svg.iconSvg path, svg.iconSvg rect, svg.iconSvg circle{
-      fill: none;
-      stroke: var(--accentDark);
+    svg.ico path, svg.ico rect, svg.ico circle{
+      fill:none !important;
+      stroke:var(--accentDark) !important;
     }
-
-    /* Pill (si en algún momento lo usas) */
-    .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:10px 14px; border:1px solid var(--line);
-      border-radius:999px; background: rgba(255,255,255,.22);
-      font-size:14px;
-      text-decoration:none;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-    }
-    .pill:hover{
-      background: rgba(255,255,255,.30);
-      border-color: rgba(122,63,99,.25);
-    }
-    .pill:active{transform:scale(.99)}
-    .pillIconOnly{gap:0; padding:10px 12px;}
-
-    /* Botón solo ícono (WhatsApp cuadrado) */
-    .btnIconOnly{
-      width:44px;
-      height:44px;
-      padding:0 !important;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:0 !important;
-    }
-
-    /* ContactItem: alinear bien todo (incluye el WhatsApp grande) */
-    .contactItem{
-      display:flex;
-      align-items:center;             /* <-- importante */
-      justify-content:space-between;
-      gap:12px;
-    }
-    .contactItem .arrow{align-self:center}
 
     /* TABS */
     .tabs{
@@ -196,12 +151,7 @@
     }
 
     .role{margin:0 0 18px; font-size: 16px;}
-
-    .lead{
-      margin:0 0 18px;
-      font-size: 16.5px;
-      max-width: 75ch;
-    }
+    .lead{margin:0 0 18px; font-size: 16.5px; max-width: 75ch;}
 
     .metaLine{margin: 0 0 14px; font-size: 14.5px;}
     .metaLine b{color: var(--accentDark); font-weight: 800;}
@@ -253,6 +203,17 @@
       border-color: rgba(122,63,99,.26);
     }
 
+    /* Botão só ícone (WhatsApp quadrado) */
+    .btnIconOnly{
+      width:44px;
+      height:44px;
+      padding:0 !important;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:0 !important;
+    }
+
     .section{
       padding:22px 28px 26px;
       border-top:1px solid rgba(122,63,99,.14);
@@ -260,19 +221,9 @@
     }
     .section.noTop{border-top:0}
     .section h3{margin:0 0 10px; font-size: 16px;}
-    .section p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14.8px;
-      max-width: 85ch;
-    }
+    .section p{margin:0; color: var(--muted); font-size: 14.8px; max-width: 85ch;}
 
-    .bullets{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
+    .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.8px;}
     .bullets li{margin: 8px 0}
 
     .noteLines{margin-top: 10px; color: var(--muted); font-size: 14.8px;}
@@ -284,18 +235,8 @@
       border-radius: 14px;
       background: rgba(255,255,255,.12);
     }
-    .eduTitle{
-      margin:0 0 10px;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--accentDark);
-    }
-    .eduList{
-      margin:0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14.6px;
-    }
+    .eduTitle{margin:0 0 10px; font-size: 15px; font-weight: 800; color: var(--accentDark);}
+    .eduList{margin:0; padding-left: 18px; color: var(--muted); font-size: 14.6px;}
     .eduList li{margin: 8px 0}
 
     .cols3{
@@ -325,6 +266,10 @@
       border-radius:14px;
       background: rgba(255,255,255,.12);
       text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
       transition: background .2s ease, border-color .2s ease, transform .08s ease;
     }
     .contactItem:hover{
@@ -344,10 +289,7 @@
       color: var(--accentDark);
       opacity: .85;
     }
-    .list{
-      margin:0; padding:0; list-style:none;
-      display:grid; gap:10px;
-    }
+    .list{margin:0; padding:0; list-style:none; display:grid; gap:10px;}
     .li{
       display:flex; gap:10px; align-items:flex-start;
       padding:12px 12px;
@@ -364,59 +306,71 @@
       margin-top:2px;
     }
 
-    /* ===== Redes sociales abajo (como tu imagen) ===== */
-    .socialBar{
-      margin: 18px 0 0;
-      padding: 14px 16px;
-      border:1px solid rgba(122,63,99,.16);
-      border-radius: 16px;
-      background: rgba(255,255,255,.14);
-      backdrop-filter: blur(10px);
+    /* ===== Footer ===== */
+    footer{
+      margin-top: 22px;
+      padding: 0 6px;
+    }
+
+    /* Card das redes (no lugar de “Sin publicidad · GitHub Pages”) */
+    .socialCard{
+      width:100%;
       display:flex;
       align-items:center;
       justify-content:center;
       gap:14px;
       flex-wrap:wrap;
-      box-shadow: 0 12px 30px rgba(33,18,28,.10);
+      padding:18px 18px;
+      border-radius: 16px;
+      border:1px solid rgba(122,63,99,.16);
+      background: rgba(255,255,255,.16);
+      box-shadow: 0 18px 50px rgba(33,18,28,.14);
+      backdrop-filter: blur(10px);
     }
-    .socialLabel{
-      font-weight: 800;
+
+    .socialCard .label{
       color: var(--accentDark);
-      margin-right: 6px;
+      font-weight: 900;
+      letter-spacing:.01em;
     }
+
     .socialIcons{
       display:flex;
       align-items:center;
-      gap:16px;
+      gap:14px;
+      flex-wrap:wrap;
     }
-    .socialLink{
+
+    .socialIcons a{
+      width:34px;
+      height:34px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:40px;
-      height:40px;
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid rgba(122,63,99,.16);
       background: rgba(255,255,255,.10);
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
       text-decoration:none;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
     }
-    .socialLink:hover{
+    .socialIcons a:hover{
       background: rgba(255,255,255,.18);
       border-color: rgba(122,63,99,.24);
     }
-    .socialLink:active{transform: scale(.99)}
+    .socialIcons a:active{transform: scale(.99)}
 
-    footer{
-      margin-top: 22px;
-      color: rgba(93,74,87,.92);
-      font-size: 13px;
-      padding: 0 6px;
-    }
-    footer .row{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    /* Linha e copyright (mantém) */
+    .footerRow{
+      margin-top: 18px;
       border-top:1px solid rgba(122,63,99,.16);
       padding-top: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color: rgba(93,74,87,.92);
+      font-size: 13px;
     }
 
     /* Panels */
@@ -436,12 +390,10 @@
           <small>Psicoterapeuta online</small>
         </div>
       </div>
-
-      <!-- (Quitamos el icono arriba para dejar redes abajo, como pediste) -->
+      <!-- ícone topo removido -->
       <span aria-hidden="true"></span>
     </div>
 
-    <!-- 5 SEPARADORES -->
     <nav class="tabs" aria-label="Navegación">
       <button class="tab isActive" data-tab="inicio" type="button">Inicio</button>
       <button class="tab" data-tab="terapias" type="button">Terapias</button>
@@ -453,7 +405,6 @@
     <div class="grid">
       <div class="card">
 
-        <!-- PANEL: INICIO (contenido del sitio antiguo, sin cambiar) -->
         <div class="panel isActive" id="tab-inicio">
           <div class="hero">
             <h1>Evy Tapia</h1>
@@ -498,7 +449,6 @@
                 Enviar email
               </a>
 
-              <!-- WhatsApp: ícono cuadrado (FIX estable) -->
               <a class="btn btnGhost btnIconOnly" href="https://wa.me/51999230000" target="_blank" rel="noreferrer" aria-label="WhatsApp">
                 <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20 11.6a8.4 8.4 0 0 1-12.8 7.2L4 20l1.3-3.2A8.4 8.4 0 1 1 20 11.6Z"></path>
@@ -509,13 +459,10 @@
           </div>
         </div>
 
-        <!-- PANEL: TERAPIAS -->
         <div class="panel" id="tab-terapias">
           <div class="section noTop">
             <h3>Terapias</h3>
-            <p>
-              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
-            </p>
+            <p><b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos</p>
           </div>
 
           <div class="section">
@@ -536,7 +483,6 @@
           </div>
         </div>
 
-        <!-- PANEL: SOBRE MÍ + FORMACIÓN -->
         <div class="panel" id="tab-sobre">
           <div class="section noTop">
             <h3>Sobre mí</h3>
@@ -573,7 +519,6 @@
           </div>
         </div>
 
-        <!-- PANEL: TRATAMIENTOS + ESPECIALIDADES -->
         <div class="panel" id="tab-tratamientos">
           <div class="section noTop">
             <h3>Tratamientos</h3>
@@ -619,7 +564,6 @@
           </div>
         </div>
 
-        <!-- PANEL: CONTACTO -->
         <div class="panel" id="tab-contacto">
           <div class="section noTop">
             <h3>Contacto</h3>
@@ -633,7 +577,6 @@
                 <div class="arrow">↗</div>
               </a>
 
-              <!-- WhatsApp grande (FIX: icono estable, nada negro, bien alineado) -->
               <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer" aria-label="WhatsApp">
                 <div style="display:flex; align-items:center; gap:10px;">
                   <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
@@ -652,9 +595,7 @@
 
           <div class="section">
             <h3>Agendar cita</h3>
-            <p>
-              * Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.
-            </p>
+            <p>* Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.</p>
             <div style="height:10px"></div>
             <a class="btn btnPrimary" href="https://calendly.com/SEU-LINK-AQUI" target="_blank" rel="noreferrer">
               Ir al enlace de agendamiento
@@ -663,52 +604,34 @@
 
           <div class="section">
             <h3>Sesiones online</h3>
-            <p>
-              * Sesiones online a nivel nacional y mundial
-            </p>
+            <p>* Sesiones online a nivel nacional y mundial</p>
           </div>
         </div>
       </div>
 
-      <!-- Coluna lateral -->
       <aside class="card">
         <div class="side">
           <h2>Detalles</h2>
           <ul class="list">
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Terapia</b>
-                <span>Familiar, Individual</span>
-              </div>
+              <div><b>Terapia</b><span>Familiar, Individual</span></div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Dirigido a</b>
-                <span>Adolescentes y jóvenes, Adultos</span>
-              </div>
+              <div><b>Dirigido a</b><span>Adolescentes y jóvenes, Adultos</span></div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Modalidad</b>
-                <span>Online</span>
-              </div>
+              <div><b>Modalidad</b><span>Online</span></div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Duración</b>
-                <span>50 minutos</span>
-              </div>
+              <div><b>Duración</b><span>50 minutos</span></div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true"></div>
-              <div>
-                <b>Idioma</b>
-                <span>Español</span>
-              </div>
+              <div><b>Idioma</b><span>Español</span></div>
             </li>
           </ul>
 
@@ -722,67 +645,56 @@
       </aside>
     </div>
 
-    <!-- ===== Redes sociales abajo (como tu referencia) ===== -->
-    <div class="socialBar" aria-label="Redes sociales">
-      <div class="socialLabel">Sígueme en redes:</div>
-      <div class="socialIcons">
-        <!-- Instagram -->
-        <a class="socialLink" href="https://www.instagram.com/evytapia.psicologa/" target="_blank" rel="noopener" aria-label="Instagram" id="igLink">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.2" cy="6.8" r="1"></circle>
-          </svg>
-        </a>
-
-        <!-- YouTube (pon aquí tu link real si lo tienes) -->
-        <a class="socialLink" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3.5" y="7" width="17" height="10" rx="3"></rect>
-            <path d="M11 10l4 2-4 2z"></path>
-          </svg>
-        </a>
-
-        <!-- TikTok (opcional) -->
-        <a class="socialLink" href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M14 5c1.2 2 2.7 3 5 3v3c-2 0-3.7-.7-5-2v6.2a5.2 5.2 0 1 1-5.2-5.2c.5 0 1 .1 1.4.2v3.2a2.2 2.2 0 1 0 2.2 2.2V5z"></path>
-          </svg>
-        </a>
-
-        <!-- LinkedIn (opcional) -->
-        <a class="socialLink" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="4" y="9" width="4" height="11" rx="1"></rect>
-            <circle cx="6" cy="6" r="1.2"></circle>
-            <path d="M11 10v10"></path>
-            <path d="M11 14c0-2.2 1.3-3.5 3.2-3.5S18 12 18 14.5V20"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-
     <footer>
-      <div class="row">
+      <!-- ✅ Card “Sígueme en redes” colocado no lugar do antigo texto do footer -->
+      <div class="socialCard">
+        <span class="label">Sígueme en redes:</span>
+
+        <div class="socialIcons">
+          <a href="https://www.instagram.com/evytapia.psicologa/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.2" cy="6.8" r="1"></circle>
+            </svg>
+          </a>
+
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="7" width="17" height="10" rx="3"></rect>
+              <path d="M11 10l4 2-4 2z"></path>
+            </svg>
+          </a>
+
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 5c1.2 2 2.7 3 5 3v3c-2 0-3.7-.7-5-2v6.2a5.2 5.2 0 1 1-5.2-5.2c.5 0 1 .1 1.4.2v3.2a2.2 2.2 0 1 0 2.2 2.2V5z"></path>
+            </svg>
+          </a>
+
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="9" width="4" height="11" rx="1"></rect>
+              <circle cx="6" cy="6" r="1.2"></circle>
+              <path d="M11 10v10"></path>
+              <path d="M11 14c0-2.2 1.3-3.5 3.2-3.5S18 12 18 14.5V20"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ✅ Mantém só “© 2026 Evy Tapia” (remove Sin publicidad · GitHub Pages) -->
+      <div class="footerRow">
         <div>© <span id="year"></span> Evy Tapia</div>
-        <div style="opacity:.9">Sin publicidad · GitHub Pages</div>
+        <div aria-hidden="true"></div>
       </div>
     </footer>
+
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Instagram link (por si lo quieres centralizar)
-    const ig = document.getElementById("igLink");
-    const IG_URL = "https://www.instagram.com/evytapia.psicologa/";
-    if (ig){
-      ig.setAttribute("href", IG_URL);
-      ig.setAttribute("target","_blank");
-      ig.setAttribute("rel","noopener");
-    }
-
-    // Tabs / Panels
     const tabs = document.querySelectorAll(".tab");
     const panels = {
       inicio: document.getElementById("tab-inicio"),
