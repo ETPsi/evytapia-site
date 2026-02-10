@@ -75,27 +75,53 @@
 
     .brand small{color:var(--muted)}
 
-    .iconSvg{
-      width: 18px;
-      height: 18px;
-      display: block;              /* tira “saltos” e espaços */
-      flex: 0 0 18px;              /* impede o flex de esticar/encolher */
-      stroke: var(--accentDark);
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    /* Força o tamanho em qualquer sítio (mesmo que o SVG tenha “mania” de crescer) */
-    .pill svg, .btn svg, .contactItem svg{
-      width: 18px !important;
-      height: 18px !important;
-      flex: 0 0 18px !important;
-      display: block !important;
-    }
+    /* =========================================================
+   ÍCONES SVG — regra única e consistente
+   ========================================================= */
 
-    /* Se tiveres botões quadrados pequenos (tipo só ícone), garante área mínima */
-    .iconBtn{
+/* SVG base (Instagram, WhatsApp, setas, etc.) */
+.iconSvg{
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 18px;
+  stroke: var(--accentDark);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* FORÇA tamanho em qualquer contexto */
+.pill svg,
+.btn svg,
+.contactItem svg{
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  display: block !important;
+}
+
+/* ---------------------------------------------------------
+   Botões / pills que têm ícones
+   --------------------------------------------------------- */
+
+    .pill,
+    .btn,
+    .contactItem{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Pill só com ícone (ex: Instagram no topo) */
+    .pillIconOnly{
+      gap: 0;
+      padding: 10px 12px;
+    }
+    
+    /* Botão só com ícone (ex: WhatsApp quadrado) */
+    .btnIconOnly{
       width: 44px;
       height: 44px;
       padding: 0;
@@ -103,49 +129,16 @@
       align-items: center;
       justify-content: center;
     }
-
-    /* Para o contactItem (linha grande), alinha melhor o bloco do lado direito */
+    
+    /* ContactItem (linha grande) — garante alinhamento vertical */
+    .contactItem{
+      align-items: center;
+    }
     .contactItem .arrow,
     .contactItem .iconSvg{
       align-self: center;
     }
-    
-    .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:10px 14px; border:1px solid var(--line);
-      border-radius:999px; background: rgba(255,255,255,.22);
-      font-size:14px;
-      text-decoration:none;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-    }
-    .pill:hover{
-      background: rgba(255,255,255,.30);
-      border-color: rgba(122,63,99,.25);
-    }
-    .pill:active{transform:scale(.99)}
 
-    /* ✅ ÍCONES (outline, fundo transparente, cor = accentDark) */
-    .ico{
-      width:18px;
-      height:18px;
-      display:inline-block;
-      stroke: var(--accentDark);
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    /* para o pill do topo ficar “só ícone” sem alterar padding */
-    .pillIconOnly{
-      gap:0;
-      padding:10px 12px;
-    }
-    /* botão com ícone-only (WhatsApp) */
-    .btnIconOnly{
-      width:46px;
-      padding:12px 0;
-      justify-content:center;
-    }
 
     /* TABS */
     .tabs{
@@ -757,5 +750,6 @@
   </script>
 </body>
 </html>
+
 
 
