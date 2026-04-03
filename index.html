@@ -17,7 +17,7 @@
       --accentLight:#c7a6bd;
 
       --line:rgba(122,63,99,.18);
-      --chip:rgba(199,166,189,.18);
+      --chip:rgba(199,166,189,.11);
       --cardTop: rgba(255,255,255,.28);
       --cardBot: rgba(255,255,255,.12);
 
@@ -214,7 +214,9 @@
       backdrop-filter: blur(10px);
     }
 
-    .hero{padding:34px 28px 26px;}
+    .hero{
+      padding:40px 30px 34px;
+    }
 
     h1{
       font-size: clamp(30px, 3.6vw, 44px);
@@ -223,23 +225,44 @@
       letter-spacing:-.02em;
     }
 
-    .role{margin:0 0 18px; font-size: 16px;}
-    .lead{margin:0 0 18px; font-size: 16.5px; max-width: 75ch;}
+    .role{
+      margin:0 0 18px;
+      font-size: 16px;
+    }
 
-    .metaLine{margin: 0 0 14px; font-size: 14.5px;}
-    .metaLine b{color: var(--accentDark); font-weight: 800;}
+    .lead{
+      margin:0;
+      font-size: 18px;
+      line-height: 1.9;
+      max-width: 68ch;
+      color: rgba(43,31,39,.96);
+    }
+
+    .metaLine{
+      margin: 26px 0 0;
+      font-size: 14.5px;
+      color: rgba(93,74,87,.95);
+    }
+
+    .metaLine b{
+      color: var(--accentDark);
+      font-weight: 800;
+    }
 
     .chips{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin: 18px 0 20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 24px 0 0;
     }
 
     .chip{
-      padding:8px 12px;
-      border:1px solid rgba(122,63,99,.18);
+      padding:7px 11px;
+      border:1px solid rgba(122,63,99,.12);
       border-radius:999px;
       background: var(--chip);
-      font-size: 14px;
+      font-size: 13px;
+      color: rgba(93,74,87,.88);
     }
 
     .cta{
@@ -362,6 +385,13 @@
 
     @media (max-width: 520px){
       .cols3{grid-template-columns: 1fr;}
+      .hero{
+        padding:32px 22px 28px;
+      }
+      .lead{
+        font-size: 17px;
+        line-height: 1.85;
+      }
     }
 
     .item{display:flex; gap:10px; align-items:flex-start;}
@@ -574,19 +604,23 @@
 
         <div class="panel isActive" id="tab-inicio">
           <div class="hero">
-            <h1>Evy Tapia</h1>
-            <div class="role">Psicoterapeuta online</div>
-
-            <div class="metaLine">
-              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
-            </div>
             <p class="lead">
               "Hola, soy psicoterapeuta especialista en terapias contextuales y en terapia cognitivo - conductual. Más allá de los títulos quiero que sepas que es normal tener dudas y miedo al dar este primer gran paso para iniciar un proceso, pero créeme que el paso más difícil es este, los siguientes serán con acompañamiento, guiado con herramientas que te sirvan y con respaldo científico, comprendiendo el por qué de las dificultades que tienes al fin de que puedas empezar a construir una vida que valga la pena ser vivida, la misma que no tiene que ser perfecta pero si valiosa para ti.
               <br><br>
               Mi compromiso con cada consultante es al 100%, me gustan los resultados pero más importante, me gusta verlos crecer porque sí se puede.
               <br><br>
               Evy Tapia"
-            </p> 
+            </p>
+
+            <div class="metaLine">
+              <b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes y jóvenes, Adultos
+            </div>
+
+            <div class="chips" aria-label="Información práctica">
+              <div class="chip">Sesiones online</div>
+              <div class="chip">50 minutos</div>
+              <div class="chip">Atención en español</div>
+            </div>
           </div>
         </div>
 
@@ -726,7 +760,7 @@
 
           <div class="section">
             <h3>Agendar cita</h3>
-            <p>* Agenda cita enviando un mensaje al wapp al teléfono o desde el enlace de la web.</p>
+            <p>* Agenda cita enviando un mensaje al WhatsApp al teléfono o desde el enlace de la web.</p>
             <div style="height:10px"></div>
             <a class="btn btnPrimary" href="https://outlook.office.com/book/cita@evytapiapsicologa.com/" target="_blank" rel="noreferrer">
               Reservar cita
