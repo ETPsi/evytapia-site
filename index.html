@@ -58,12 +58,25 @@
       display:flex; justify-content:space-between; align-items:center; gap:16px;
       padding:10px 0 14px;
     }
-    .brand{display:flex; align-items:center; gap:12px;}
 
-    .dot{
-      width:12px; height:12px; border-radius:99px;
-      background: radial-gradient(circle at 30% 30%, rgba(199,166,189,.95), rgba(122,63,99,.80));
-      box-shadow: 0 0 0 6px rgba(255,255,255,.22);
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-height:42px;
+    }
+
+    .avatar{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+      flex:0 0 38px;
+      border:1.5px solid rgba(122,63,99,.18);
+      box-shadow:
+        0 0 0 6px rgba(255,255,255,.22),
+        0 8px 20px rgba(122,63,99,.12);
     }
 
     .brand small{color:var(--muted)}
@@ -99,6 +112,7 @@
       gap:10px;
       margin: 0;
     }
+
     .tab{
       background: rgba(255,255,255,.20);
       border: 1px solid var(--line);
@@ -108,8 +122,10 @@
       font-size: 14px;
       transition: opacity .2s ease, transform .08s ease, background .2s ease, border-color .2s ease;
     }
+
     .tab:active{transform: scale(.99)}
     .tab:hover{opacity:.95}
+
     .tab.isActive{
       background: rgba(122,63,99,.12);
       color: var(--accentDark);
@@ -217,6 +233,7 @@
       display:flex; flex-wrap:wrap; gap:10px;
       margin: 18px 0 20px;
     }
+
     .chip{
       padding:8px 12px;
       border:1px solid rgba(122,63,99,.18);
@@ -229,6 +246,7 @@
       display:flex; flex-wrap:wrap; gap:12px;
       margin-top: 16px;
     }
+
     .btn{
       appearance:none; border:0;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -241,6 +259,7 @@
       user-select:none;
       white-space:nowrap;
     }
+
     .btn:active{transform: scale(.99)}
 
     .btnPrimary{
@@ -248,6 +267,7 @@
       color: var(--btnText);
       box-shadow: 0 10px 30px rgba(122,63,99,.25);
     }
+
     .btnPrimary:hover{opacity:.95}
 
     .btnGhost{
@@ -255,6 +275,7 @@
       border:1px solid rgba(122,63,99,.18);
       color: var(--accentDark);
     }
+
     .btnGhost:hover{
       background: rgba(255,255,255,.20);
       border-color: rgba(122,63,99,.26);
@@ -275,14 +296,32 @@
       border-top:1px solid rgba(122,63,99,.14);
       background: rgba(255,255,255,.10);
     }
-    .section.noTop{border-top:0}
-    .section h3{margin:0 0 10px; font-size: 16px;}
-    .section p{margin:0; color: var(--muted); font-size: 14.8px; max-width: 85ch;}
 
-    .bullets{margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.8px;}
+    .section.noTop{border-top:0}
+
+    .section h3{margin:0 0 10px; font-size: 16px;}
+
+    .section p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14.8px;
+      max-width: 85ch;
+    }
+
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.8px;
+    }
+
     .bullets li{margin: 8px 0}
 
-    .noteLines{margin-top: 10px; color: var(--muted); font-size: 14.8px;}
+    .noteLines{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14.8px;
+    }
 
     .eduCard{
       margin-top: 14px;
@@ -291,8 +330,21 @@
       border-radius: 14px;
       background: rgba(255,255,255,.12);
     }
-    .eduTitle{margin:0 0 10px; font-size: 15px; font-weight: 800; color: var(--accentDark);}
-    .eduList{margin:0; padding-left: 18px; color: var(--muted); font-size: 14.6px;}
+
+    .eduTitle{
+      margin:0 0 10px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accentDark);
+    }
+
+    .eduList{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.6px;
+    }
+
     .eduList li{margin: 8px 0}
 
     .cols3{
@@ -303,8 +355,15 @@
       color: var(--muted);
       font-size: 14.8px;
     }
-    @media (max-width: 860px){ .cols3{grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 520px){ .cols3{grid-template-columns: 1fr;} }
+
+    @media (max-width: 860px){
+      .cols3{grid-template-columns: repeat(2, 1fr);}
+    }
+
+    @media (max-width: 520px){
+      .cols3{grid-template-columns: 1fr;}
+    }
+
     .item{display:flex; gap:10px; align-items:flex-start;}
     .chev{margin-top: 2px; opacity: .9; color: var(--accentDark);}
 
@@ -314,7 +373,10 @@
       gap:12px;
       margin-top: 14px;
     }
-    @media (max-width: 560px){ .contactGrid{grid-template-columns:1fr} }
+
+    @media (max-width: 560px){
+      .contactGrid{grid-template-columns:1fr}
+    }
 
     .contactItem{
       padding:14px 14px;
@@ -328,15 +390,18 @@
       gap:12px;
       transition: background .2s ease, border-color .2s ease, transform .08s ease;
     }
+
     .contactItem:hover{
       background: rgba(255,255,255,.18);
       border-color: rgba(122,63,99,.26);
     }
+
     .contactItem:active{transform:scale(.995)}
     .contactItem small{color:var(--muted)}
     .arrow{opacity:.75; color: var(--accentDark);}
 
     aside .side{padding:22px;}
+
     aside .side h2{
       margin:0 0 10px;
       font-size:16px;
@@ -345,18 +410,41 @@
       color: var(--accentDark);
       opacity: .85;
     }
-    .list{margin:0; padding:0; list-style:none; display:grid; gap:10px;}
+
+    .list{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
     .li{
-      display:flex; gap:10px; align-items:flex-start;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
       padding:12px 12px;
       border:1px solid rgba(122,63,99,.18);
       border-radius:14px;
       background: rgba(255,255,255,.12);
     }
-    .li b{display:block; font-size:14.5px; color: var(--accentDark)}
-    .li span{display:block; color:var(--muted); font-size:14px}
+
+    .li b{
+      display:block;
+      font-size:14.5px;
+      color: var(--accentDark);
+    }
+
+    .li span{
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+    }
+
     .icon{
-      width:18px; height:18px; border-radius:6px;
+      width:18px;
+      height:18px;
+      border-radius:6px;
       background: rgba(122,63,99,.14);
       flex: 0 0 18px;
       margin-top:2px;
@@ -407,10 +495,12 @@
       text-decoration:none;
       transition: transform .08s ease, background .2s ease, border-color .2s ease;
     }
+
     .socialIcons a:hover{
       background: rgba(255,255,255,.18);
       border-color: rgba(122,63,99,.24);
     }
+
     .socialIcons a:active{transform: scale(.99)}
 
     .footerRow{
@@ -436,7 +526,11 @@
 
     <div class="top">
       <div class="brand">
-        <div class="dot" aria-hidden="true"></div>
+        <img
+          class="avatar"
+          src="images/evy-avatar.jpg"
+          alt="Foto de perfil de Evy Tapia"
+        />
         <div>
           <div><strong>Evy Tapia</strong></div>
           <small>Psicoterapeuta online</small>
@@ -512,7 +606,6 @@
               <div class="chip">50 minutos</div>
               <div class="chip">Atención en español</div>
             </div>
-
           </div>
         </div>
 
