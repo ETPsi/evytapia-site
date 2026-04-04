@@ -28,6 +28,13 @@
       --btn:#7a3f63;
       --btnText:#ffffff;
       --btnGhostBg:rgba(255,255,255,.10);
+
+      --wa:#25D366;
+      --waDark:#128C7E;
+      --waText:#ffffff;
+      --waBubble:#ffffff;
+      --waBubbleText:#2b2b2b;
+      --waPanel:#e9f0ec;
     }
 
     *{box-sizing:border-box}
@@ -549,60 +556,215 @@
     .panel{display:none;}
     .panel.isActive{display:block;}
 
-    .floatingWhatsapp{
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 9999;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 999px;
-      background: #25D366 !important;
-      color: #ffffff !important;
-      text-decoration: none;
-      box-shadow: 0 14px 32px rgba(37, 211, 102, .32);
-      transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
+    /* WhatsApp widget */
+    .waWidget{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:99999;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:14px;
     }
 
-    .floatingWhatsapp:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(37, 211, 102, .38);
-      opacity: .98;
+    .waToggle{
+      width:60px;
+      height:60px;
+      border:0;
+      border-radius:999px;
+      background:var(--wa);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:0 16px 36px rgba(37, 211, 102, .34);
+      transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+      padding:0;
     }
 
-    .floatingWhatsapp:active{
-      transform: scale(.97);
+    .waToggle:hover{
+      transform:translateY(-2px);
+      box-shadow:0 20px 40px rgba(37, 211, 102, .40);
     }
 
-    .floatingWhatsapp svg{
-      width: 28px !important;
-      height: 28px !important;
-      flex: 0 0 28px !important;
-      display: block !important;
-      transform: translateX(1px) translateY(0.5px);
+    .waToggle:active{
+      transform:scale(.97);
     }
 
-    .floatingWhatsapp svg path{
-      fill: #ffffff !important;
-      stroke: none !important;
+    .waToggle svg{
+      width:30px !important;
+      height:30px !important;
+      min-width:30px;
+      min-height:30px;
+      display:block !important;
+      flex:0 0 30px !important;
     }
 
-    @media (max-width: 520px){
-      .floatingWhatsapp{
-        width: 54px;
-        height: 54px;
-        right: 16px;
-        bottom: 16px;
+    .waToggle svg path{
+      fill:#fff !important;
+      stroke:none !important;
+    }
+
+    .waPanel{
+      width:340px;
+      max-width:calc(100vw - 24px);
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--waPanel);
+      box-shadow:0 24px 60px rgba(0,0,0,.22);
+      transform:translateY(18px) scale(.96);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .22s ease;
+    }
+
+    .waWidget.isOpen .waPanel{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+
+    .waHeader{
+      background:var(--wa);
+      color:var(--waText);
+      padding:18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .waHeaderTitle{
+      font-size:16px;
+      font-weight:800;
+      line-height:1.2;
+      color:#fff;
+    }
+
+    .waClose{
+      width:42px;
+      height:42px;
+      min-width:42px;
+      border:0;
+      border-radius:999px;
+      background:rgba(0,0,0,.18);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      padding:0;
+      transition:background .2s ease, transform .12s ease;
+    }
+
+    .waClose:hover{
+      background:rgba(0,0,0,.26);
+    }
+
+    .waClose:active{
+      transform:scale(.96);
+    }
+
+    .waClose span{
+      font-size:28px;
+      line-height:1;
+      transform:translateY(-1px);
+      display:block;
+      color:#fff;
+    }
+
+    .waBody{
+      padding:18px;
+      background:linear-gradient(180deg, #edf4ef 0%, #e6eeea 100%);
+    }
+
+    .waBubble{
+      position:relative;
+      background:var(--waBubble);
+      color:var(--waBubbleText);
+      border-radius:18px;
+      padding:16px 18px;
+      margin-bottom:14px;
+      box-shadow:0 8px 22px rgba(0,0,0,.10);
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .waBubble:first-child::before{
+      content:"";
+      position:absolute;
+      left:-10px;
+      top:24px;
+      width:18px;
+      height:18px;
+      background:var(--waBubble);
+      border-bottom-right-radius:16px;
+      transform:rotate(45deg);
+      box-shadow:6px 6px 12px rgba(0,0,0,.03);
+    }
+
+    .waAction{
+      display:flex;
+      justify-content:flex-start;
+      margin-top:8px;
+    }
+
+    .waSend{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-width:180px;
+      padding:16px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      background:var(--wa);
+      color:#fff;
+      font-weight:800;
+      font-size:16px;
+      box-shadow:0 12px 26px rgba(37, 211, 102, .26);
+      transition:transform .12s ease, opacity .2s ease, box-shadow .2s ease;
+    }
+
+    .waSend:hover{
+      opacity:.98;
+      transform:translateY(-1px);
+      box-shadow:0 16px 32px rgba(37, 211, 102, .34);
+    }
+
+    .waSend:active{
+      transform:scale(.98);
+    }
+
+    .waSend svg{
+      width:24px !important;
+      height:24px !important;
+      min-width:24px;
+      min-height:24px;
+      flex:0 0 24px !important;
+      display:block !important;
+    }
+
+    .waSend svg path{
+      fill:#fff !important;
+      stroke:none !important;
+    }
+
+    @media (max-width: 640px){
+      .waWidget{
+        right:16px;
+        bottom:16px;
       }
 
-      .floatingWhatsapp svg{
-        width: 26px !important;
-        height: 26px !important;
-        flex: 0 0 26px !important;
-        transform: translateX(1px) translateY(0.5px);
+      .waPanel{
+        width:min(340px, calc(100vw - 16px));
+      }
+
+      .waToggle{
+        width:58px;
+        height:58px;
       }
     }
   </style>
@@ -788,11 +950,16 @@
                 <div class="arrow">↗</div>
               </a>
 
-              <a class="contactItem" href="https://wa.me/51999230000" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <a
+                class="contactItem"
+                href="https://wa.me/51999230000?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20terapia."
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
                 <div style="display:flex; align-items:center; gap:10px;">
-                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20 11.6a8.4 8.4 0 0 1-12.8 7.2L4 20l1.3-3.2A8.4 8.4 0 1 1 20 11.6Z"></path>
-                    <path d="M9.7 9.4c.2-.5.4-.5.7-.5h.5c.1 0 .3.1.4.4l.7 1.6c.1.2.1.4 0 .5l-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9.9.7 1.6.9 1.9 1 .2.1.4 0 .6-.1l.8-.9c.2-.2.3-.2.5-.1l1.7.8c.2.1.3.2.3.3 0 .2-.1.8-.5 1.2-.4.4-1 .7-1.7.7-.7 0-2.1-.2-3.6-1.1-1.7-1-2.8-2.6-3-2.9-.2-.3-.6-.9-.6-1.6 0-.7.3-1.1.5-1.3Z"></path>
+                  <svg viewBox="0 0 32 32" aria-hidden="true" style="width:20px;height:20px;display:block;flex:0 0 20px;">
+                    <path fill="#25D366" d="M19.11 17.21c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.17.27-.68.86-.83 1.04-.15.18-.3.2-.56.07-.27-.13-1.12-.41-2.14-1.3-.79-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.3.41-.45.14-.15.18-.26.27-.43.09-.18.04-.33-.02-.46-.07-.13-.59-1.42-.81-1.95-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2 0 1.29.94 2.54 1.07 2.72.13.18 1.85 2.82 4.48 3.95.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.06-.11-.24-.18-.5-.31zM16.27 27.2h-.01a11.1 11.1 0 0 1-5.65-1.55l-.4-.24-4.2 1.1 1.12-4.09-.26-.42a11.08 11.08 0 1 1 9.4 5.2zm9.44-20.48A13.38 13.38 0 0 0 16.28 2.8C8.94 2.8 2.98 8.76 2.98 16.1c0 2.35.61 4.64 1.78 6.66L2.8 29.2l6.6-1.73a13.29 13.29 0 0 0 6.87 1.89h.01c7.34 0 13.3-5.96 13.3-13.3 0-3.55-1.38-6.88-3.87-9.37z"></path>
                   </svg>
                   <div>
                     <div><strong>WhatsApp</strong></div>
@@ -909,18 +1076,55 @@
 
   </div>
 
-  <a
-    class="floatingWhatsapp"
-    href="https://wa.me/51999230000"
-    target="_blank"
-    rel="noreferrer"
-    aria-label="Abrir WhatsApp"
-    title="Escribir por WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M19.11 17.21c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.17.27-.68.86-.83 1.04-.15.18-.3.2-.56.07-.27-.13-1.12-.41-2.14-1.3-.79-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.3.41-.45.14-.15.18-.26.27-.43.09-.18.04-.33-.02-.46-.07-.13-.59-1.42-.81-1.95-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2 0 1.29.94 2.54 1.07 2.72.13.18 1.85 2.82 4.48 3.95.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.06-.11-.24-.18-.5-.31zM16.27 27.2h-.01a11.1 11.1 0 0 1-5.65-1.55l-.4-.24-4.2 1.1 1.12-4.09-.26-.42a11.08 11.08 0 1 1 9.4 5.2zm9.44-20.48A13.38 13.38 0 0 0 16.28 2.8C8.94 2.8 2.98 8.76 2.98 16.1c0 2.35.61 4.64 1.78 6.66L2.8 29.2l6.6-1.73a13.29 13.29 0 0 0 6.87 1.89h.01c7.34 0 13.3-5.96 13.3-13.3 0-3.55-1.38-6.88-3.87-9.37z"/>
-    </svg>
-  </a>
+  <!-- WhatsApp Widget -->
+  <div class="waWidget" id="waWidget">
+    <div class="waPanel" id="waPanel" aria-hidden="true">
+      <div class="waHeader">
+        <div class="waHeaderTitle">WhatsApp · Evy Tapia</div>
+        <button class="waClose" id="waClose" type="button" aria-label="Cerrar ventana de WhatsApp">
+          <span>×</span>
+        </button>
+      </div>
+
+      <div class="waBody">
+        <div class="waBubble">
+          Hola 👋, bienvenida a <strong>Evy Tapia Psicoterapia</strong>
+        </div>
+
+        <div class="waBubble">
+          ¿En qué puedo ayudarte?
+        </div>
+
+        <div class="waAction">
+          <a
+            class="waSend"
+            href="https://wa.me/51999230000?text=Hola%2C%20necesito%20m%C3%A1s%20informaci%C3%B3n%20sobre%20terapia."
+            target="_blank"
+            rel="noreferrer"
+          >
+            Abrir chat
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 20l17-8L3 4v6l12 2-12 2z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="waToggle"
+      id="waToggle"
+      type="button"
+      aria-label="Abrir WhatsApp"
+      aria-expanded="false"
+      aria-controls="waPanel"
+      title="Escribir por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.21c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.17.27-.68.86-.83 1.04-.15.18-.3.2-.56.07-.27-.13-1.12-.41-2.14-1.3-.79-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.3.41-.45.14-.15.18-.26.27-.43.09-.18.04-.33-.02-.46-.07-.13-.59-1.42-.81-1.95-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2 0 1.29.94 2.54 1.07 2.72.13.18 1.85 2.82 4.48 3.95.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.06-.11-.24-.18-.5-.31zM16.27 27.2h-.01a11.1 11.1 0 0 1-5.65-1.55l-.4-.24-4.2 1.1 1.12-4.09-.26-.42a11.08 11.08 0 1 1 9.4 5.2zm9.44-20.48A13.38 13.38 0 0 0 16.28 2.8C8.94 2.8 2.98 8.76 2.98 16.1c0 2.35.61 4.64 1.78 6.66L2.8 29.2l6.6-1.73a13.29 13.29 0 0 0 6.87 1.89h.01c7.34 0 13.3-5.96 13.3-13.3 0-3.55-1.38-6.88-3.87-9.37z"/>
+      </svg>
+    </button>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -949,6 +1153,47 @@
 
     const initial = (location.hash || "#inicio").replace("#","");
     if (panels[initial]) setActive(initial);
+
+    const waWidget = document.getElementById("waWidget");
+    const waToggle = document.getElementById("waToggle");
+    const waPanel = document.getElementById("waPanel");
+    const waClose = document.getElementById("waClose");
+
+    function openWhatsAppPanel() {
+      waWidget.classList.add("isOpen");
+      waToggle.setAttribute("aria-expanded", "true");
+      waPanel.setAttribute("aria-hidden", "false");
+    }
+
+    function closeWhatsAppPanel() {
+      waWidget.classList.remove("isOpen");
+      waToggle.setAttribute("aria-expanded", "false");
+      waPanel.setAttribute("aria-hidden", "true");
+    }
+
+    function toggleWhatsAppPanel() {
+      if (waWidget.classList.contains("isOpen")) {
+        closeWhatsAppPanel();
+      } else {
+        openWhatsAppPanel();
+      }
+    }
+
+    waToggle.addEventListener("click", toggleWhatsAppPanel);
+    waClose.addEventListener("click", closeWhatsAppPanel);
+
+    document.addEventListener("click", function(e){
+      const clickedInside = waWidget.contains(e.target);
+      if (!clickedInside) {
+        closeWhatsAppPanel();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") {
+        closeWhatsAppPanel();
+      }
+    });
   </script>
 </body>
 </html>
