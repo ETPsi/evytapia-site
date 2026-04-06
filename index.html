@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -142,11 +141,13 @@
 
     .navRow{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
       gap:16px;
       margin: 0 0 18px;
       flex-wrap:wrap;
+      position:relative;
+      z-index:50;
     }
 
     .navRow .tabs{
@@ -155,6 +156,15 @@
 
     .navCta{
       flex:0 0 auto;
+      position:relative;
+    }
+
+    .navActions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      position:relative;
     }
 
     .btnTopCta{
@@ -184,9 +194,154 @@
       stroke: var(--btnText) !important;
     }
 
+    .btn{
+      appearance:none; border:0;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:750;
+      text-decoration:none;
+      cursor:pointer;
+      transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .btn:active{transform: scale(.99)}
+
+    .btnPrimary{
+      background: var(--btn);
+      color: var(--btnText);
+      box-shadow: 0 10px 30px rgba(122,63,99,.25);
+    }
+
+    .btnPrimary:hover{opacity:.95}
+
+    .btnGhost{
+      background: var(--btnGhostBg);
+      border:1px solid rgba(122,63,99,.18);
+      color: var(--accentDark);
+    }
+
+    .btnGhost:hover{
+      background: rgba(255,255,255,.20);
+      border-color: rgba(122,63,99,.26);
+    }
+
+    .btnDetails{
+      background:rgba(255,255,255,.20);
+      border:1px solid var(--line);
+      color:var(--accentDark);
+      font-weight:800;
+      padding:12px 15px;
+      border-radius:16px;
+    }
+
+    .btnDetails:hover{
+      background:rgba(255,255,255,.28);
+      border-color:rgba(122,63,99,.26);
+    }
+
+    .detailsArrow{
+      font-size:12px;
+      line-height:1;
+      transform:translateY(1px);
+    }
+
+    .detailsPopover{
+      position:absolute;
+      top:calc(100% + 12px);
+      right:0;
+      width:360px;
+      max-width:min(92vw, 360px);
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,240,244,.96));
+      border:1px solid rgba(122,63,99,.18);
+      border-radius:22px;
+      box-shadow:0 24px 60px rgba(33,18,28,.20);
+      backdrop-filter: blur(12px);
+      padding:18px;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(8px) scale(.98);
+      transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
+      z-index:80;
+    }
+
+    .detailsPopover.isOpen{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0) scale(1);
+    }
+
+    .detailsPopoverTitle{
+      margin:0 0 12px;
+      font-size:16px;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+      color: var(--accentDark);
+      opacity: .85;
+      font-weight:900;
+    }
+
+    .popupList{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .popupItem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border:1px solid rgba(122,63,99,.18);
+      border-radius:14px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .popupItem b{
+      display:block;
+      font-size:14.5px;
+      color: var(--accentDark);
+    }
+
+    .popupItem span{
+      display:block;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .popupIcon{
+      width:18px;
+      height:18px;
+      border-radius:6px;
+      background: rgba(122,63,99,.14);
+      flex: 0 0 18px;
+      margin-top:2px;
+    }
+
+    .popupNoteTitle{
+      margin:16px 0 8px;
+      color: var(--accentDark);
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+      font-size:16px;
+      opacity:.85;
+    }
+
+    .popupNoteText{
+      margin:0;
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.65;
+    }
+
     .grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1fr;
       gap:22px;
       align-items:start;
     }
@@ -207,18 +362,25 @@
         width:100%;
       }
 
-      .navCta .btn{
+      .navActions{
         width:100%;
       }
     }
 
-    .card{
-      background: linear-gradient(180deg, var(--cardTop), var(--cardBot));
-      border:1px solid rgba(122,63,99,.18);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      backdrop-filter: blur(10px);
+    @media (max-width: 640px){
+      .navActions{
+        display:grid;
+        grid-template-columns: 1fr auto;
+        gap:10px;
+        width:100%;
+      }
+
+      .detailsPopover{
+        left:0;
+        right:auto;
+        width:100%;
+        max-width:none;
+      }
     }
 
     .hero{
@@ -270,55 +432,6 @@
       background: var(--chip);
       font-size:13px;
       color: rgba(93,74,87,.88);
-    }
-
-    .cta{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin-top:16px;
-    }
-
-    .btn{
-      appearance:none; border:0;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      font-weight:750;
-      text-decoration:none;
-      cursor:pointer;
-      transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-
-    .btn:active{transform: scale(.99)}
-
-    .btnPrimary{
-      background: var(--btn);
-      color: var(--btnText);
-      box-shadow: 0 10px 30px rgba(122,63,99,.25);
-    }
-
-    .btnPrimary:hover{opacity:.95}
-
-    .btnGhost{
-      background: var(--btnGhostBg);
-      border:1px solid rgba(122,63,99,.18);
-      color: var(--accentDark);
-    }
-
-    .btnGhost:hover{
-      background: rgba(255,255,255,.20);
-      border-color: rgba(122,63,99,.26);
-    }
-
-    .btnIconOnly{
-      width:44px;
-      height:44px;
-      padding:0 !important;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:0 !important;
     }
 
     .section{
@@ -435,56 +548,6 @@
     .contactItem small{color:var(--muted)}
     .arrow{opacity:.75; color: var(--accentDark);}
 
-    aside .side{padding:22px;}
-
-    aside .side h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.02em;
-      text-transform: uppercase;
-      color: var(--accentDark);
-      opacity:.85;
-    }
-
-    .list{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-
-    .li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding:12px 12px;
-      border:1px solid rgba(122,63,99,.18);
-      border-radius:14px;
-      background: rgba(255,255,255,.12);
-    }
-
-    .li b{
-      display:block;
-      font-size:14.5px;
-      color: var(--accentDark);
-    }
-
-    .li span{
-      display:block;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .icon{
-      width:18px;
-      height:18px;
-      border-radius:6px;
-      background: rgba(122,63,99,.14);
-      flex: 0 0 18px;
-      margin-top:2px;
-    }
-
     .conditionsWrap{
       display:grid;
       gap:18px;
@@ -517,24 +580,6 @@
       font-size:14.8px;
       line-height:1.75;
       max-width:85ch;
-    }
-
-    .conditionsList{
-      margin:10px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:14.8px;
-      line-height:1.75;
-    }
-
-    .conditionsList li{
-      margin:8px 0;
-    }
-
-    .conditionsNote{
-      margin-top:8px;
-      font-size:13.5px;
-      color:rgba(93,74,87,.88);
     }
 
     footer{
@@ -595,9 +640,9 @@
       border-top:1px solid rgba(122,63,99,.16);
       padding-top:14px;
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
-      gap:12px;
+      gap:12px 24px;
       flex-wrap:wrap;
       color: rgba(93,74,87,.92);
       font-size:13px;
@@ -616,27 +661,35 @@
       text-decoration:underline;
     }
 
+    @media (max-width: 560px){
+      .footerRow{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+    }
+
     .panel{display:none;}
     .panel.isActive{display:block;}
 
     .waWidget{
-  position:fixed;
-  right:20px;
-  bottom:32px;
-  z-index:99999;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:14px;
-  pointer-events:none;
-}
+      position:fixed;
+      right:20px;
+      bottom:32px;
+      z-index:99999;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:14px;
+      pointer-events:none;
+    }
 
-.waToggle,
-.waPanel,
-.waClose,
-.waSend{
-  pointer-events:auto;
-}
+    .waToggle,
+    .waPanel,
+    .waClose,
+    .waSend{
+      pointer-events:auto;
+    }
 
     .waToggle{
       width:60px;
@@ -861,23 +914,68 @@
       </nav>
 
       <div class="navCta">
-        <a
-          class="btn btnPrimary btnTopCta"
-          href="https://outlook.office.com/book/cita@evytapiapsicologa.com/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Agendar mi primera sesión"
-        >
-          Agendar mi primera sesión
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect>
-            <line x1="8" y1="3.5" x2="8" y2="7"></line>
-            <line x1="16" y1="3.5" x2="16" y2="7"></line>
-            <line x1="3.5" y1="9" x2="20.5" y2="9"></line>
-            <path d="M8.5 13h3"></path>
-            <path d="M8.5 16h7"></path>
-          </svg>
-        </a>
+        <div class="navActions" id="detailsWrap">
+          <a
+            class="btn btnPrimary btnTopCta"
+            href="https://outlook.office.com/book/cita@evytapiapsicologa.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Agendar mi primera sesión"
+          >
+            Agendar mi primera sesión
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect>
+              <line x1="8" y1="3.5" x2="8" y2="7"></line>
+              <line x1="16" y1="3.5" x2="16" y2="7"></line>
+              <line x1="3.5" y1="9" x2="20.5" y2="9"></line>
+              <path d="M8.5 13h3"></path>
+              <path d="M8.5 16h7"></path>
+            </svg>
+          </a>
+
+          <button
+            class="btn btnDetails"
+            id="detailsToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="detailsPopover"
+          >
+            Detalles
+            <span class="detailsArrow">▽</span>
+          </button>
+
+          <div class="detailsPopover" id="detailsPopover" aria-hidden="true">
+            <div class="detailsPopoverTitle">Detalles</div>
+
+            <ul class="popupList">
+              <li class="popupItem">
+                <div class="popupIcon" aria-hidden="true"></div>
+                <div><b>Terapia</b><span>Familiar, Individual</span></div>
+              </li>
+              <li class="popupItem">
+                <div class="popupIcon" aria-hidden="true"></div>
+                <div><b>Dirigido a</b><span>Adolescentes y jóvenes, Adultos</span></div>
+              </li>
+              <li class="popupItem">
+                <div class="popupIcon" aria-hidden="true"></div>
+                <div><b>Modalidad</b><span>Online</span></div>
+              </li>
+              <li class="popupItem">
+                <div class="popupIcon" aria-hidden="true"></div>
+                <div><b>Duración</b><span>50 minutos</span></div>
+              </li>
+              <li class="popupItem">
+                <div class="popupIcon" aria-hidden="true"></div>
+                <div><b>Idioma</b><span>Español</span></div>
+              </li>
+            </ul>
+
+            <div class="popupNoteTitle">Nota</div>
+            <p class="popupNoteText">
+              Sitio informativo. Agendamiento y contacto a través de los enlaces.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1177,41 +1275,6 @@
           </div>
         </div>
       </div>
-
-      <aside class="card">
-        <div class="side">
-          <h2>Detalles</h2>
-          <ul class="list">
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div><b>Terapia</b><span>Familiar, Individual</span></div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div><b>Dirigido a</b><span>Adolescentes y jóvenes, Adultos</span></div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div><b>Modalidad</b><span>Online</span></div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div><b>Duración</b><span>50 minutos</span></div>
-            </li>
-            <li class="li">
-              <div class="icon" aria-hidden="true"></div>
-              <div><b>Idioma</b><span>Español</span></div>
-            </li>
-          </ul>
-
-          <div style="height:14px"></div>
-
-          <h2>Nota</h2>
-          <p style="margin:0;color:var(--muted);font-size:14.5px">
-            Sitio informativo. Agendamiento y contacto a través de los enlaces.
-          </p>
-        </div>
-      </aside>
     </div>
 
     <footer>
@@ -1236,7 +1299,7 @@
 
           <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14 5c1.2 2 2.7 3 5 3v3c-2 0-3.7-.7-5-2v6.2a5.2 5.2 0 1 1-5.2-5.2c.5 0 .1 1.4.2v3.2a2.2 2.2 0 1 0 2.2 2.2V5z"></path>
+              <path d="M14 5c1.2 2 2.7 3 5 3v3c-2 0-3.7-.7-5-2v6.2a5.2 5.2 0 1 1-5.2-5.2c.5 0 1 .1 1.4.2v3.2a2.2 2.2 0 1 0 2.2 2.2V5z"></path>
             </svg>
           </a>
 
@@ -1253,7 +1316,7 @@
 
       <div class="footerRow">
         <div>© <span id="year"></span> Evy Tapia</div>
-        <div><b>Colegiada nº:</a></b> 25195</div>
+        <div><b>Colegiada nº:</b> 25195</div>
         <a href="#condiciones" class="footerConditionsLink" data-tab-link="condiciones">Condiciones psicoterapia online</a>
       </div>
     </footer>
@@ -1387,6 +1450,56 @@
     document.addEventListener("keydown", function(e){
       if (e.key === "Escape") {
         closeWhatsAppPanel();
+      }
+    });
+
+    const detailsWrap = document.getElementById("detailsWrap");
+    const detailsToggle = document.getElementById("detailsToggle");
+    const detailsPopover = document.getElementById("detailsPopover");
+    const isDesktopHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    function openDetails(){
+      detailsPopover.classList.add("isOpen");
+      detailsToggle.setAttribute("aria-expanded", "true");
+      detailsPopover.setAttribute("aria-hidden", "false");
+    }
+
+    function closeDetails(){
+      detailsPopover.classList.remove("isOpen");
+      detailsToggle.setAttribute("aria-expanded", "false");
+      detailsPopover.setAttribute("aria-hidden", "true");
+    }
+
+    function toggleDetails(){
+      if(detailsPopover.classList.contains("isOpen")){
+        closeDetails();
+      }else{
+        openDetails();
+      }
+    }
+
+    detailsToggle.addEventListener("click", function(e){
+      e.stopPropagation();
+      if(!isDesktopHover.matches){
+        toggleDetails();
+      }
+    });
+
+    if(isDesktopHover.matches){
+      detailsWrap.addEventListener("mouseenter", openDetails);
+      detailsWrap.addEventListener("mouseleave", closeDetails);
+      detailsToggle.addEventListener("focus", openDetails);
+    }
+
+    document.addEventListener("click", function(e){
+      if(!detailsWrap.contains(e.target) && !isDesktopHover.matches){
+        closeDetails();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape"){
+        closeDetails();
       }
     });
   </script>
