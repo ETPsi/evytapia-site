@@ -34,30 +34,31 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 
-  background-color: var(--bgBase);
-
-  /* 👇 AQUI ESTÁ A TUA IMAGEM */
-  background-image: url("images/bg-corner.png");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+  background:
+    url("images/bg-corner.png") no-repeat center top / cover,
+    radial-gradient(1200px 700px at 15% 20%, rgba(244, 214, 234, 0.52), transparent 65%),
+    radial-gradient(1000px 600px at 85% 25%, rgba(232, 220, 248, 0.52), transparent 60%),
+    radial-gradient(900px 600px at 30% 85%, rgba(214, 191, 216, 0.32), transparent 65%),
+    radial-gradient(1100px 700px at 70% 75%, rgba(230, 207, 220, 0.34), transparent 65%),
+    var(--bgBase);
 
   color:var(--text);
   line-height:1.55;
   position:relative;
+  min-height:100vh;
 }
 
-/* 👇 camada para suavizar o fundo */
+/* camada leve para suavizar sem matar o degradê */
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(255,255,255,.42);
+  background:rgba(255,255,255,.10);
   pointer-events:none;
   z-index:0;
 }
 
-/* 👇 garante que o conteúdo fica por cima */
+/* garante que o conteúdo fica por cima */
 .wrap{
   position:relative;
   z-index:1;
