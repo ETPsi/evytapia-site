@@ -1,0 +1,61 @@
+@media (hover: none), (pointer: coarse){
+  .navActions{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:10px;
+    width:100%;
+  }
+
+  .btnDetails{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .detailsPopover{
+    left:0;
+    right:auto;
+    width:100%;
+    max-width:none;
+  }
+}
+
+@media (max-width: 860px){
+  .cols3{grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (max-width: 640px){
+  .waWidget{
+    right:16px;
+    bottom:28px;
+  }
+
+  .waPanel{
+    width:min(340px, calc(100vw - 16px));
+  }
+
+  .waToggle{
+    width:58px;
+    height:58px;
+  }
+}
+
+@media (max-width: 560px){
+  .contactGrid{grid-template-columns:1fr;}
+
+  .footerRow{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+}
+
+@media (max-width: 520px){
+  .cols3{grid-template-columns: 1fr;}
+  .hero{padding:22px 28px 26px;}
+  .lead{
+    font-size:17px;
+    line-height:1.85;
+  }
+}
