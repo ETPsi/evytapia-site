@@ -57,38 +57,26 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   flex-wrap:wrap;
   gap:10px;
   margin:0;
-  padding:10px 12px;
-  border:1px solid rgba(255,255,255,.34);
-  border-radius:999px;
-  background:rgba(255,255,255,.18);
-  box-shadow:0 12px 30px rgba(122,63,99,.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .tab{
-  background: rgba(255,255,255,.24);
-  border: 1px solid rgba(122,63,99,.12);
+  background: rgba(255,255,255,.20);
+  border: 1px solid var(--line);
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
   font-size: 14px;
-  transition: opacity .2s ease, transform .08s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: opacity .2s ease, transform .08s ease, background .2s ease, border-color .2s ease;
 }
 
 .tab:active{transform: scale(.99)}
-.tab:hover{
-  opacity:.98;
-  background: rgba(255,255,255,.38);
-  border-color: rgba(122,63,99,.18);
-}
+.tab:hover{opacity:.95}
 
 .tab.isActive{
-  background: rgba(122,63,99,.16);
+  background: rgba(122,63,99,.12);
   color: var(--accentDark);
-  border-color: rgba(122,63,99,.30);
+  border-color: rgba(122,63,99,.28);
   font-weight: 700;
-  box-shadow: 0 8px 18px rgba(122,63,99,.10);
 }
 
 .navRow{
@@ -154,7 +142,7 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   font-weight:750;
   text-decoration:none;
   cursor:pointer;
-  transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: transform .08s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
   user-select:none;
   white-space:nowrap;
 }
@@ -167,10 +155,7 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   box-shadow: 0 10px 30px rgba(122,63,99,.25);
 }
 
-.btnPrimary:hover{
-  opacity:.96;
-  box-shadow: 0 14px 34px rgba(122,63,99,.28);
-}
+.btnPrimary:hover{opacity:.95}
 
 .btnGhost{
   background: var(--btnGhostBg);
@@ -185,8 +170,8 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
 
 .btnDetails{
   display:none;
-  background:rgba(255,255,255,.24);
-  border:1px solid rgba(255,255,255,.34);
+  background:rgba(255,255,255,.20);
+  border:1px solid var(--line);
   color:var(--accentDark);
   font-weight:800;
   padding:12px 15px;
@@ -195,14 +180,12 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   justify-content:center;
   gap:8px;
   cursor:pointer;
-  transition:background .2s ease, border-color .2s ease, transform .08s ease, box-shadow .2s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  transition:background .2s ease, border-color .2s ease, transform .08s ease;
 }
 
 .btnDetails:hover{
-  background:rgba(255,255,255,.34);
-  border-color:rgba(122,63,99,.20);
+  background:rgba(255,255,255,.28);
+  border-color:rgba(122,63,99,.26);
 }
 
 .btnDetails:active{
@@ -221,12 +204,11 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   right:0;
   width:360px;
   max-width:min(92vw, 360px);
-  background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(247,240,244,.82));
-  border:1px solid rgba(255,255,255,.34);
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,240,244,.96));
+  border:1px solid rgba(122,63,99,.18);
   border-radius:22px;
-  box-shadow:0 24px 60px rgba(33,18,28,.16);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  box-shadow:0 24px 60px rgba(33,18,28,.20);
+  backdrop-filter: blur(12px);
   padding:18px;
   opacity:0;
   visibility:hidden;
@@ -264,9 +246,9 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   gap:10px;
   align-items:flex-start;
   padding:12px 12px;
-  border:1px solid rgba(122,63,99,.14);
+  border:1px solid rgba(122,63,99,.18);
   border-radius:14px;
-  background: rgba(255,255,255,.58);
+  background: rgba(255,255,255,.62);
 }
 
 .popupItem b{
@@ -314,20 +296,19 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   align-items:start;
 }
 
+/* correção mínima importante */
 .card{
-  border:1px solid rgba(255,255,255,.28);
-  border-radius:28px;
-  background: rgba(255,255,255,.14);
-  box-shadow: 0 22px 56px rgba(33,18,28,.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border:1px solid rgba(122,63,99,.10);
+  border-radius:24px;
+  background: rgba(255,255,255,.10);
+  box-shadow:0 18px 50px rgba(33,18,28,.08);
   overflow:hidden;
 }
 
 .hero{
   padding:22px 28px 26px;
   border-top:0;
-  background: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.10);
 }
 
 h1{
@@ -380,8 +361,8 @@ h1{
 
 .section{
   padding:22px 28px 26px;
-  border-top:1px solid rgba(255,255,255,.24);
-  background: rgba(255,255,255,.12);
+  border-top:1px solid rgba(122,63,99,.14);
+  background: rgba(255,255,255,.10);
 }
 
 .section.noTop{border-top:0}
@@ -413,9 +394,9 @@ h1{
 .eduCard{
   margin-top:14px;
   padding:14px 14px;
-  border:1px solid rgba(122,63,99,.14);
+  border:1px solid rgba(122,63,99,.18);
   border-radius:14px;
-  background: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.12);
 }
 
 .eduTitle{
@@ -455,23 +436,20 @@ h1{
 
 .contactItem{
   padding:14px 14px;
-  border:1px solid rgba(122,63,99,.14);
+  border:1px solid rgba(122,63,99,.18);
   border-radius:14px;
-  background: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.12);
   text-decoration:none;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  transition: background .2s ease, border-color .2s ease, transform .08s ease, box-shadow .2s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: background .2s ease, border-color .2s ease, transform .08s ease;
 }
 
 .contactItem:hover{
-  background: rgba(255,255,255,.24);
-  border-color: rgba(122,63,99,.22);
-  box-shadow: 0 10px 24px rgba(122,63,99,.06);
+  background: rgba(255,255,255,.18);
+  border-color: rgba(122,63,99,.26);
 }
 
 .contactItem:active{transform:scale(.995)}
@@ -493,11 +471,9 @@ h1{
 
 .conditionsBlock{
   padding:18px;
-  border:1px solid rgba(122,63,99,.12);
+  border:1px solid rgba(122,63,99,.16);
   border-radius:16px;
-  background:rgba(255,255,255,.16);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background:rgba(255,255,255,.10);
 }
 
 .conditionsBlock h4{
@@ -528,11 +504,10 @@ footer{
   flex-wrap:wrap;
   padding:18px 18px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,.28);
-  background: rgba(255,255,255,.18);
-  box-shadow:0 18px 50px rgba(33,18,28,.10);
+  border:1px solid rgba(122,63,99,.16);
+  background: rgba(255,255,255,.16);
+  box-shadow:0 18px 50px rgba(33,18,28,.14);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .socialCard .label{
@@ -555,23 +530,22 @@ footer{
   align-items:center;
   justify-content:center;
   border-radius:10px;
-  border:1px solid rgba(122,63,99,.14);
-  background: rgba(255,255,255,.14);
+  border:1px solid rgba(122,63,99,.16);
+  background: rgba(255,255,255,.10);
   text-decoration:none;
-  transition: transform .08s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: transform .08s ease, background .2s ease, border-color .2s ease;
 }
 
 .socialIcons a:hover{
-  background: rgba(255,255,255,.22);
-  border-color: rgba(122,63,99,.20);
-  box-shadow: 0 8px 18px rgba(122,63,99,.06);
+  background: rgba(255,255,255,.18);
+  border-color: rgba(122,63,99,.24);
 }
 
 .socialIcons a:active{transform: scale(.99)}
 
 .footerRow{
   margin-top:18px;
-  border-top:1px solid rgba(255,255,255,.24);
+  border-top:1px solid rgba(122,63,99,.16);
   padding-top:14px;
   display:flex;
   align-items:flex-start;
