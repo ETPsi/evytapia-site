@@ -1,0 +1,78 @@
+:root{
+  --bgBase:#f7f1f7;
+
+  --text:#2b1f27;
+  --muted:#5d4a57;
+
+  --accentDark:#7a3f63;
+  --accentLight:#c7a6bd;
+
+  --line:rgba(122,63,99,.18);
+  --chip:rgba(199,166,189,.11);
+  --cardTop: rgba(255,255,255,.55);
+  --cardBot: rgba(255,255,255,.24);
+
+  --shadow: 0 20px 60px rgba(33,18,28,.14);
+  --radius: 20px;
+  --max: 980px;
+
+  --btn:#7a3f63;
+  --btnText:#ffffff;
+  --btnGhostBg:rgba(255,255,255,.30);
+
+  --wa:#25D366;
+  --waText:#ffffff;
+  --waBubble:#ffffff;
+  --waBubbleText:#2b2b2b;
+  --waPanel:#e9f0ec;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background-color: var(--bgBase);
+
+  background-image:
+    url("images/bg-left.png"),
+    url("images/bg-right.png"),
+    url("images/bg-corner.png"),
+    radial-gradient(900px 520px at 20% 12%, rgba(244, 214, 234, 0.42), transparent 70%),
+    radial-gradient(820px 520px at 82% 18%, rgba(224, 214, 247, 0.38), transparent 68%),
+    radial-gradient(900px 620px at 50% 88%, rgba(246, 223, 236, 0.30), transparent 72%);
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+  background-position:
+    left 80px,
+    right 140px,
+    right bottom,
+    left top,
+    right top,
+    center bottom;
+
+  background-size:
+    260px auto,
+    250px auto,
+    360px auto,
+    auto,
+    auto,
+    auto;
+
+  color:var(--text);
+  line-height:1.55;
+}
+
+a{color:inherit}
+
+h1,h2,h3,strong,b{color:var(--accentDark)}
+.role, .metaLine, .noteLines, .bullets, .chip, .pill, .tab{color:var(--muted)}
+.lead{color:rgba(43,31,39,.92)}
