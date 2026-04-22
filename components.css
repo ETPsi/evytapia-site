@@ -4,12 +4,39 @@
   padding:40px 20px 60px;
 }
 
+.siteHeader{
+  position:sticky;
+  top:0;
+  z-index:120;
+  padding-top:10px;
+  background:linear-gradient(180deg, rgba(247,241,247,.96), rgba(247,241,247,.92));
+  backdrop-filter: blur(12px);
+  transition:padding .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.siteHeader.isCompact{
+  padding-top:0;
+  box-shadow:0 10px 28px rgba(33,18,28,.10);
+}
+
 .top{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:16px;
   padding:10px 0 14px;
+  max-height:90px;
+  opacity:1;
+  overflow:hidden;
+  transition:max-height .28s ease, opacity .2s ease, padding .25s ease, margin .25s ease;
+}
+
+.siteHeader.isCompact .top{
+  max-height:0;
+  opacity:0;
+  padding-top:0;
+  padding-bottom:0;
+  margin:0;
 }
 
 .brand{
@@ -95,6 +122,11 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   flex-wrap:wrap;
   position:relative;
   z-index:50;
+  transition:margin .25s ease, padding .25s ease;
+}
+
+.siteHeader.isCompact .navRow{
+  margin-bottom:10px;
 }
 
 .navRow .tabs{
@@ -434,6 +466,15 @@ h1{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap:8px 18px;
+  margin-top:12px;
+  color: var(--muted);
+  font-size:14.8px;
+}
+
+.cols1{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
   margin-top:12px;
   color: var(--muted);
   font-size:14.8px;
