@@ -382,12 +382,13 @@ h1{
   max-width:85ch;
 }
 
-.aboutText p{
+.section .aboutText p{
   margin:0;
+  line-height:1.9;
 }
 
-.aboutText p + p{
-  margin-top:18px;
+.section .aboutText p + p{
+  margin-top:22px;
 }
 
 .bullets{
