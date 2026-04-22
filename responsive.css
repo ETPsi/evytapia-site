@@ -35,7 +35,7 @@
   }
 
   .heroWideTitle{
-    font-size:clamp(34px, 4.6vw, 56px);
+    font-size:clamp(28px, 3.6vw, 44px);
   }
 
   .homeInfoCard{
@@ -58,6 +58,18 @@
 @media (max-width: 860px){
   .cols3{grid-template-columns: repeat(2, 1fr);}
 
+  .siteHeader{
+    position:sticky;
+    top:0;
+  }
+
+  .siteHeader.isCompact .top{
+    max-height:0;
+    opacity:0;
+    padding-top:0;
+    padding-bottom:0;
+  }
+
   .heroWideInner{
     grid-template-columns:1fr;
     gap:30px;
@@ -71,6 +83,7 @@
 
   .heroWideTitle{
     max-width:none;
+    font-size:clamp(28px, 6vw, 42px);
   }
 
   .heroWideDivider{
@@ -144,8 +157,8 @@
   }
 
   .heroWideTitle{
-    font-size:clamp(28px, 9vw, 44px);
-    line-height:1.1;
+    font-size:clamp(26px, 8vw, 38px);
+    line-height:1.12;
   }
 
   .heroWideEyebrow{
@@ -155,11 +168,6 @@
 
   .heroWideDivider{
     width:170px;
-  }
-
-  .heroWideDivider::before,
-  .heroWideDivider::after{
-    width:68px;
   }
 
   .heroWideTag{
@@ -179,6 +187,7 @@
 
 @media (max-width: 520px){
   .cols3{grid-template-columns: 1fr;}
+  .cols1{grid-template-columns: 1fr;}
 
   .hero{
     padding:22px 28px 26px;
