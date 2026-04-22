@@ -23,15 +23,35 @@
 
 @media (max-width: 1100px){
   .heroWideInner{
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns:260px minmax(0, 1fr);
     gap:40px;
     padding:44px 30px;
   }
 
   .heroPhotoCircle{
-    width:240px;
-    height:240px;
-    flex-basis:240px;
+    width:244px;
+    height:244px;
+    flex-basis:244px;
+  }
+
+  .heroWideTitle{
+    font-size:clamp(34px, 4.6vw, 56px);
+  }
+
+  .homeInfoCard{
+    padding-left:170px;
+  }
+
+  .homeInfoCard::before{
+    left:26px;
+    width:96px;
+    height:96px;
+  }
+
+  .homeInfoCard::after{
+    left:49px;
+    width:50px;
+    height:50px;
   }
 }
 
@@ -40,9 +60,9 @@
 
   .heroWideInner{
     grid-template-columns:1fr;
-    gap:28px;
+    gap:30px;
     text-align:center;
-    padding:36px 22px;
+    padding:38px 22px;
   }
 
   .heroWideTextCol{
@@ -61,6 +81,36 @@
   .homeInner{
     padding:0 16px 6px;
   }
+
+  .homeInfoCard{
+    padding:132px 24px 28px;
+    min-height:auto;
+    text-align:center;
+  }
+
+  .homeInfoCard::before{
+    left:50%;
+    top:34px;
+    transform:translateX(-50%);
+    width:92px;
+    height:92px;
+  }
+
+  .homeInfoCard::after{
+    left:50%;
+    top:55px;
+    transform:translateX(-50%);
+    width:44px;
+    height:44px;
+  }
+
+  .homeInfoCard h3{
+    font-size:22px;
+  }
+
+  .homeInfoCard p{
+    max-width:none;
+  }
 }
 
 @media (max-width: 640px){
@@ -78,20 +128,38 @@
     height:58px;
   }
 
+  .heroWideInner{
+    padding:30px 16px;
+  }
+
   .heroPhotoCircle{
     width:210px;
     height:210px;
     flex-basis:210px;
-    border-width:6px;
+    border-width:2px;
+    box-shadow:
+      0 0 0 7px rgba(255,255,255,.18),
+      0 0 0 1px rgba(122,63,99,.05),
+      0 12px 28px rgba(55,33,47,.08);
   }
 
   .heroWideTitle{
-    font-size:clamp(30px, 9vw, 48px);
+    font-size:clamp(28px, 9vw, 44px);
+    line-height:1.1;
   }
 
   .heroWideEyebrow{
     font-size:12px;
     letter-spacing:.09em;
+  }
+
+  .heroWideDivider{
+    width:170px;
+  }
+
+  .heroWideDivider::before,
+  .heroWideDivider::after{
+    width:68px;
   }
 
   .heroWideTag{
@@ -111,23 +179,23 @@
 
 @media (max-width: 520px){
   .cols3{grid-template-columns: 1fr;}
-  .hero{padding:22px 28px 26px;}
+
+  .hero{
+    padding:22px 28px 26px;
+  }
 
   .lead{
     font-size:17px;
     line-height:1.85;
   }
 
-  .heroWideInner{
-    padding:28px 16px;
-  }
-
   .homeInfoCard{
     border-radius:18px;
+    padding:126px 18px 24px;
   }
 
   .homeInfoCard h3{
-    font-size:18px;
+    font-size:20px;
   }
 
   .homeInfoCard p{
