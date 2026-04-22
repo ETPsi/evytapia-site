@@ -5,7 +5,7 @@
 }
 
 .headerSpacer{
-  height:0;
+  height:170px !important;
 }
 
 .siteHeader{
@@ -13,9 +13,10 @@
   top:0;
   left:0;
   right:0;
+  width:100%;
   z-index:120;
   background:linear-gradient(180deg, rgba(247,241,247,.97), rgba(247,241,247,.93));
-  backdrop-filter: blur(12px);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(122,63,99,.10);
   box-shadow:0 10px 26px rgba(33,18,28,.08);
 }
@@ -27,6 +28,7 @@
   margin-right:auto;
   padding-left:20px;
   padding-right:20px;
+  box-sizing:border-box;
 }
 
 .top{
