@@ -21,26 +21,45 @@
   }
 }
 
+@media (max-width: 1100px){
+  .heroWideInner{
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap:40px;
+    padding:44px 30px;
+  }
+
+  .heroPhotoCircle{
+    width:240px;
+    height:240px;
+    flex-basis:240px;
+  }
+}
+
 @media (max-width: 860px){
   .cols3{grid-template-columns: repeat(2, 1fr);}
 
-  .introHeroWide{
-    grid-template-columns: 1fr;
+  .heroWideInner{
+    grid-template-columns:1fr;
     gap:28px;
-    padding:32px 24px;
     text-align:center;
+    padding:36px 22px;
   }
 
-  .introHeroContent{
+  .heroWideTextCol{
     align-items:center;
   }
 
-  .introHeroTitle{
+  .heroWideTitle{
     max-width:none;
   }
 
-  .introHeroImage{
-    max-width:280px;
+  .heroWideDivider{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .homeInner{
+    padding:0 16px 6px;
   }
 }
 
@@ -57,6 +76,26 @@
   .waToggle{
     width:58px;
     height:58px;
+  }
+
+  .heroPhotoCircle{
+    width:210px;
+    height:210px;
+    flex-basis:210px;
+    border-width:6px;
+  }
+
+  .heroWideTitle{
+    font-size:clamp(30px, 9vw, 48px);
+  }
+
+  .heroWideEyebrow{
+    font-size:12px;
+    letter-spacing:.09em;
+  }
+
+  .heroWideTag{
+    font-size:15px;
   }
 }
 
@@ -79,24 +118,20 @@
     line-height:1.85;
   }
 
-  .introHeroWide{
-    padding:24px 18px;
-    border-radius:22px;
+  .heroWideInner{
+    padding:28px 16px;
   }
 
-  .introHeroEyebrow{
-    font-size:13px;
-    letter-spacing:.06em;
+  .homeInfoCard{
+    border-radius:18px;
   }
 
-  .introHeroTag{
-    width:100%;
-    max-width:260px;
-    padding:13px 18px;
-    text-align:center;
+  .homeInfoCard h3{
+    font-size:18px;
   }
 
-  .introHeroImage{
-    max-width:220px;
+  .homeInfoCard p{
+    font-size:15px;
+    line-height:1.8;
   }
 }
