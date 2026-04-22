@@ -296,7 +296,6 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   align-items:start;
 }
 
-/* correção mínima importante */
 .card{
   border:1px solid rgba(122,63,99,.10);
   border-radius:24px;
@@ -571,6 +570,80 @@ footer{
 
 .panel{display:none;}
 .panel.isActive{display:block;}
+
+/* ===== INICIO - HERO ANCHO ===== */
+
+.introHeroWide{
+  display:grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  align-items:center;
+  gap:48px;
+  width:100%;
+  padding:42px 48px;
+  border-top:0;
+  background: rgba(255,255,255,.10);
+}
+
+.introHeroMedia{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.introHeroImage{
+  width:100%;
+  max-width:340px;
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+  box-shadow:0 18px 40px rgba(33,18,28,.14);
+  border:6px solid rgba(255,255,255,.35);
+}
+
+.introHeroContent{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:18px;
+}
+
+.introHeroEyebrow{
+  margin:0;
+  font-size:15px;
+  line-height:1.6;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#a06f2d;
+}
+
+.introHeroTitle{
+  margin:0;
+  font-size:clamp(34px, 4.4vw, 64px);
+  line-height:1.06;
+  letter-spacing:-.03em;
+  color:var(--text);
+  max-width:10ch;
+}
+
+.introHeroTag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 24px;
+  border-radius:999px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(122,63,99,.12);
+  color:var(--muted);
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.02em;
+}
+
+.therapyOnlineCard{
+  margin-top:0;
+}
 
 .waWidget{
   position:fixed;
