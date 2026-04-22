@@ -23,6 +23,25 @@
 
 @media (max-width: 860px){
   .cols3{grid-template-columns: repeat(2, 1fr);}
+
+  .introHeroWide{
+    grid-template-columns: 1fr;
+    gap:28px;
+    padding:32px 24px;
+    text-align:center;
+  }
+
+  .introHeroContent{
+    align-items:center;
+  }
+
+  .introHeroTitle{
+    max-width:none;
+  }
+
+  .introHeroImage{
+    max-width:280px;
+  }
 }
 
 @media (max-width: 640px){
@@ -54,8 +73,30 @@
 @media (max-width: 520px){
   .cols3{grid-template-columns: 1fr;}
   .hero{padding:22px 28px 26px;}
+
   .lead{
     font-size:17px;
     line-height:1.85;
+  }
+
+  .introHeroWide{
+    padding:24px 18px;
+    border-radius:22px;
+  }
+
+  .introHeroEyebrow{
+    font-size:13px;
+    letter-spacing:.06em;
+  }
+
+  .introHeroTag{
+    width:100%;
+    max-width:260px;
+    padding:13px 18px;
+    text-align:center;
+  }
+
+  .introHeroImage{
+    max-width:220px;
   }
 }
