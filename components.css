@@ -382,6 +382,14 @@ h1{
   max-width:85ch;
 }
 
+.aboutText p{
+  margin:0;
+}
+
+.aboutText p + p{
+  margin-top:18px;
+}
+
 .bullets{
   margin:10px 0 0;
   padding-left:18px;
