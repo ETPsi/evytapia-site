@@ -39,7 +39,6 @@ body{
   min-height:100vh;
   overflow-x:hidden;
 
-  /* o degradê fica aqui, sozinho */
   background:
     radial-gradient(1200px 700px at 15% 20%, rgba(244,214,234,.62), transparent 65%),
     radial-gradient(1000px 600px at 85% 25%, rgba(232,220,248,.58), transparent 60%),
@@ -48,7 +47,6 @@ body{
     var(--bgBase);
 }
 
-/* imagem floral separada do fundo */
 body::before{
   content:"";
   position:fixed;
@@ -62,7 +60,6 @@ body::before{
   z-index:0;
 }
 
-/* camada leve para integrar tudo */
 body::after{
   content:"";
   position:fixed;
@@ -72,7 +69,6 @@ body::after{
   z-index:0;
 }
 
-/* conteúdo sempre acima */
 .wrap{
   position:relative;
   z-index:1;
