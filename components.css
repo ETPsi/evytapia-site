@@ -848,190 +848,109 @@ footer{
   max-width:78ch;
 }
 
-
-/* PODEMOS TRABAJAR EN */
-.workHero{
-  padding:34px 28px 18px;
-  text-align:center;
-  background:rgba(255,255,255,.10);
+/* PODEMOS TRABAJAR EN - PNG ICONS */
+#tab-trabajar{
+  display:none;
 }
 
-.workHeroEyebrow{
-  margin:0 0 10px;
-  font-size:13px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#b07d2f;
-  font-weight:700;
-}
-
-.workHeroTitle{
-  margin:0;
-  font-family:Georgia, "Times New Roman", serif;
-  font-size:clamp(30px, 3.2vw, 44px);
-  line-height:1.12;
-  color:#6d3557;
-  font-weight:700;
-}
-
-.workHeroDivider{
-  position:relative;
-  width:190px;
-  height:1px;
-  margin:18px auto 18px;
-  background:linear-gradient(
-    90deg,
-    rgba(186,155,186,.72) 0,
-    rgba(186,155,186,.72) 40%,
-    transparent 40%,
-    transparent 60%,
-    rgba(186,155,186,.72) 60%,
-    rgba(186,155,186,.72) 100%
-  );
-}
-
-.workHeroDivider::after{
-  content:"❦";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -54%);
-  font-size:18px;
-  line-height:1;
-  color:#c9a1bd;
-  background:#f7f1f7;
-  padding:0 9px;
-}
-
-.workHeroText{
-  margin:0 auto;
-  max-width:60ch;
-  color:rgba(93,74,87,.92);
-  font-size:16px;
-  line-height:1.8;
-}
-
-.workCards{
+#tab-trabajar.isActive{
   display:grid;
-  gap:18px;
-  padding:10px 28px 30px;
+  gap:20px;
 }
 
-.workCard{
+#tab-trabajar .section{
   position:relative;
-  display:grid;
-  grid-template-columns:140px minmax(0, 1fr);
-  gap:28px;
-  align-items:center;
-  padding:28px 32px;
+  overflow:hidden;
+  min-height:156px;
+  padding:34px 34px 34px 178px;
   border:1px solid rgba(213,191,212,.62);
   border-radius:26px;
-  background:rgba(255,255,255,.32);
+  background:rgba(255,255,255,.34);
   box-shadow:0 18px 44px rgba(33,18,28,.08);
-  overflow:hidden;
 }
 
-.workCard::before{
+#tab-trabajar .section.noTop{
+  border-top:1px solid rgba(213,191,212,.62);
+}
+
+#tab-trabajar .section::before{
   content:"";
   position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 12% 20%, rgba(255,255,255,.50), transparent 22%),
-    radial-gradient(circle at 86% 78%, rgba(244,214,234,.28), transparent 28%);
+  left:34px;
+  top:50%;
+  transform:translateY(-50%);
+  width:104px;
+  height:104px;
+  border-radius:50%;
+  background:rgba(234,221,235,.9);
+  box-shadow:
+    inset 0 0 0 1px rgba(196,171,196,.36),
+    0 10px 24px rgba(122,63,99,.08);
+}
+
+#tab-trabajar .section::after{
+  content:"";
+  position:absolute;
+  left:50px;
+  top:50%;
+  transform:translateY(-50%);
+  width:72px;
+  height:72px;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
   pointer-events:none;
 }
 
-.workCardIcon,
-.workCardContent{
-  position:relative;
-  z-index:1;
+#tab-trabajar .section:nth-of-type(1)::after{
+  background-image:url("images/Anxiety.png");
 }
 
-.workCardIcon{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+#tab-trabajar .section:nth-of-type(2)::after{
+  background-image:url("images/Depression.png");
 }
 
-.workCardIconCircle{
-  width:112px;
-  height:112px;
-  border-radius:50%;
-  position:relative;
-  background:rgba(234,221,235,.88);
-  border:1px solid rgba(196,171,196,.34);
-  box-shadow:inset 0 0 0 1px rgba(122,63,99,.05);
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:78px 78px;
+#tab-trabajar .section:nth-of-type(3)::after{
+  background-image:url("images/Regulation.png");
 }
 
-.workCardIconCircle::before,
-.workCardIconCircle::after{
-  content:none !important;
-  display:none !important;
+#tab-trabajar .section:nth-of-type(4)::after{
+  background-image:url("images/Grief.png");
 }
 
-.workCardContent h3{
+#tab-trabajar .section:nth-of-type(5)::after{
+  background-image:url("images/Breakup.png");
+}
+
+#tab-trabajar .section h3{
   margin:0 0 10px;
   font-family:Georgia, "Times New Roman", serif;
   font-size:24px;
-  line-height:1.2;
+  line-height:1.22;
   color:#6d3557;
 }
 
-.workCardContent p{
-  margin:0;
-  max-width:70ch;
+#tab-trabajar .cols1{
+  margin-top:0;
+}
+
+#tab-trabajar .item{
+  display:block;
+}
+
+#tab-trabajar .chev{
+  display:none;
+}
+
+#tab-trabajar .item span{
+  display:block;
+  max-width:78ch;
   color:rgba(93,74,87,.95);
   font-size:15.8px;
   line-height:1.85;
 }
 
-.workClosing{
-  padding:2px 28px 34px;
-  text-align:center;
-}
-
-.workClosingIcon{
-  color:#c9a1bd;
-  font-size:24px;
-  line-height:1;
-  margin-bottom:8px;
-}
-
-.workClosing p{
-  margin:0;
-  color:rgba(93,74,87,.95);
-  font-size:16px;
-  line-height:1.7;
-}
-
-.workClosing strong{
-  color:#6d3557;
-}
-
-/* Dibujos correctos — SVG embutido no CSS, sem imagens externas */
-.workIconAnxiety{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 76h34'/%3E%3Cpath d='M39 75c-1-13 3-24 13-31'/%3E%3Cpath d='M48 44c-7-8-5-19 4-25 10-6 23 0 25 12 1 7-1 13-7 17'/%3E%3Cpath d='M47 55l18 20'/%3E%3Cpath d='M58 66h18'/%3E%3Cpath d='M72 21c2-6 10-7 13-2 5-2 10 3 7 9 6 2 5 10-2 11-1 6-9 8-13 3-6 3-12-3-9-9-6-4-3-11 4-12z'/%3E%3C/svg%3E");
-}
-
-.workIconDepression{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M25 28c0-8 7-15 16-15 6 0 11 3 14 8 3-2 6-3 10-3 9 0 16 7 16 16s-7 16-16 16H34c-6 0-11-5-11-11 0-5 4-10 9-10'/%3E%3Cpath d='M37 58c-6 5-9 12-9 20'/%3E%3Cpath d='M42 58c-7 6-11 13-11 20'/%3E%3Cpath d='M30 78h36'/%3E%3Cpath d='M42 64l15 12'/%3E%3Cpath d='M56 76l10 6'/%3E%3Cpath d='M45 55c-4-5-2-10 3-13 6-3 12 0 14 5'/%3E%3Cline x1='36' y1='48' x2='34' y2='54'/%3E%3Cline x1='50' y1='48' x2='48' y2='54'/%3E%3Cline x1='64' y1='48' x2='62' y2='54'/%3E%3C/svg%3E");
-}
-
-.workIconRegulation{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E");
-}
-
-.workIconGrief{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3C/svg%3E");
-}
-
-.workIconBreakup{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E");
-}
-
+/* WHATSAPP */
 .waWidget{
   position:fixed;
   right:20px;
@@ -1227,4 +1146,69 @@ footer{
 .waSend svg path{
   fill:#fff !important;
   stroke:none !important;
+}
+
+@media (max-width:860px){
+  #tab-trabajar.isActive{
+    gap:18px;
+  }
+
+  #tab-trabajar .section{
+    min-height:auto;
+    padding:136px 22px 26px;
+    text-align:center;
+  }
+
+  #tab-trabajar .section::before{
+    left:50%;
+    top:32px;
+    transform:translateX(-50%);
+    width:92px;
+    height:92px;
+  }
+
+  #tab-trabajar .section::after{
+    left:50%;
+    top:42px;
+    transform:translateX(-50%);
+    width:62px;
+    height:62px;
+  }
+
+  #tab-trabajar .section h3{
+    font-size:22px;
+  }
+
+  #tab-trabajar .item span{
+    max-width:none;
+    font-size:15.4px;
+  }
+}
+
+@media (max-width:520px){
+  #tab-trabajar .section{
+    border-radius:20px;
+    padding:126px 18px 24px;
+  }
+
+  #tab-trabajar .section::before{
+    top:30px;
+    width:86px;
+    height:86px;
+  }
+
+  #tab-trabajar .section::after{
+    top:40px;
+    width:58px;
+    height:58px;
+  }
+
+  #tab-trabajar .section h3{
+    font-size:20px;
+  }
+
+  #tab-trabajar .item span{
+    font-size:15px;
+    line-height:1.8;
+  }
 }
