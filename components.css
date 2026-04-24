@@ -960,14 +960,15 @@ footer{
   background:rgba(234,221,235,.88);
   border:1px solid rgba(196,171,196,.34);
   box-shadow:inset 0 0 0 1px rgba(122,63,99,.05);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:78px 78px;
 }
 
 .workCardIconCircle::before,
 .workCardIconCircle::after{
-  content:"";
-  position:absolute;
-  display:block;
-  box-sizing:border-box;
+  content:none !important;
+  display:none !important;
 }
 
 .workCardContent h3{
@@ -1009,106 +1010,25 @@ footer{
   color:#6d3557;
 }
 
-/* Dibujos */
-.workIconAnxiety::before{
-  left:35px;
-  top:35px;
-  width:42px;
-  height:42px;
-  border:2.5px solid #8b5a78;
-  border-radius:50% 50% 46% 46%;
+/* Dibujos correctos — SVG embutido, sin imágenes externas */
+.workIconAnxiety{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 51c-8 6-12 15-11 27'/%3E%3Cpath d='M45 51c-8 7-12 16-13 27'/%3E%3Cpath d='M30 78h36'/%3E%3Cpath d='M41 60l18 14'/%3E%3Cpath d='M58 74l12 8'/%3E%3Cpath d='M40 49c-5-6-4-15 2-20 7-6 17-4 22 3 4 6 4 13 0 18'/%3E%3Cpath d='M63 17c2-5 9-6 12-2 5-3 10 2 8 7 5 2 5 9-1 10 0 6-8 8-12 4-5 3-11-1-10-7-5-3-3-10 3-12z'/%3E%3C/svg%3E");
 }
 
-.workIconAnxiety::after{
-  left:30px;
-  top:22px;
-  width:52px;
-  height:28px;
-  border-top:2.5px solid #8b5a78;
-  border-left:2.5px solid transparent;
-  border-radius:50%;
-  transform:rotate(-12deg);
+.workIconDepression{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 28c0-7 6-13 14-13 6 0 11 3 14 8 2-2 5-3 8-3 8 0 14 6 14 13s-6 13-14 13H35c-5 0-9-4-9-9 0-4 3-8 7-8'/%3E%3Cpath d='M37 55c-7 5-10 13-9 23'/%3E%3Cpath d='M43 56c-8 7-12 15-12 24'/%3E%3Cpath d='M33 78h34'/%3E%3Cpath d='M42 63l16 13'/%3E%3Cpath d='M57 76l11 6'/%3E%3Cpath d='M44 53c-4-5-2-11 3-14 6-3 13 0 15 6'/%3E%3Cpath d='M37 51l-2 7'/%3E%3Cpath d='M51 50l-2 7'/%3E%3Cpath d='M65 51l-2 7'/%3E%3C/svg%3E");
 }
 
-.workIconDepression::before{
-  left:28px;
-  top:28px;
-  width:56px;
-  height:34px;
-  border:2.5px solid #8b5a78;
-  border-radius:30px;
-  border-bottom-color:transparent;
+.workIconRegulation{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M49 43c5-5 12 2 7 7 7-2 10 8 2 10'/%3E%3Cpath d='M42 53c-6 0-8-8-3-11'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E");
 }
 
-.workIconDepression::after{
-  left:37px;
-  top:65px;
-  width:38px;
-  height:18px;
-  border-left:2.5px solid #8b5a78;
-  border-bottom:2.5px solid #8b5a78;
-  border-radius:0 0 0 20px;
-  transform:rotate(-8deg);
+.workIconGrief{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3Cpath d='M37 60c-8 4-12 10-13 18'/%3E%3Cpath d='M41 72c-9 1-15 4-20 10'/%3E%3C/svg%3E");
 }
 
-.workIconRegulation::before{
-  left:28px;
-  top:24px;
-  width:44px;
-  height:58px;
-  border:2.5px solid #8b5a78;
-  border-radius:50%;
-}
-
-.workIconRegulation::after{
-  left:48px;
-  top:32px;
-  width:34px;
-  height:34px;
-  border:2.5px solid #8b5a78;
-  border-radius:50%;
-  box-shadow:
-    -8px 6px 0 -5px #8b5a78,
-    8px -6px 0 -5px #8b5a78;
-}
-
-.workIconGrief::before{
-  left:53px;
-  top:22px;
-  width:2.5px;
-  height:68px;
-  background:#8b5a78;
-  border-radius:4px;
-}
-
-.workIconGrief::after{
-  left:34px;
-  top:38px;
-  width:36px;
-  height:36px;
-  border-left:2.5px solid #8b5a78;
-  border-bottom:2.5px solid #8b5a78;
-  border-radius:0 0 0 28px;
-  transform:rotate(-38deg);
-}
-
-.workIconBreakup::before{
-  left:32px;
-  top:29px;
-  width:48px;
-  height:48px;
-  border:2.5px solid #8b5a78;
-  border-radius:50% 50% 45% 45%;
-  transform:rotate(-45deg);
-}
-
-.workIconBreakup::after{
-  left:54px;
-  top:32px;
-  width:2.5px;
-  height:48px;
-  background:#f4edf2;
-  transform:rotate(20deg);
+.workIconBreakup{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E");
 }
 
 /* WHATSAPP */
@@ -1307,96 +1227,4 @@ footer{
 .waSend svg path{
   fill:#fff !important;
   stroke:none !important;
-}
-
-/* CORREÇÃO FINAL DOS DESENHOS - PODEMOS TRABAJAR EN */
-/* Colar no fim do components.css */
-
-.workCardIconCircle::before,
-.workCardIconCircle::after{
-  content:none !important;
-  display:none !important;
-}
-
-.workCardIconCircle{
-  background-color:rgba(234,221,235,.88) !important;
-  background-repeat:no-repeat !important;
-  background-position:center !important;
-  background-size:74px 74px !important;
-}
-
-/* Ansiedad: persona sentada con pensamiento */
-.workIconAnxiety{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M45 35c8 0 14 6 14 14'/%3E%3Cpath d='M39 48c-8 5-12 14-11 25'/%3E%3Cpath d='M43 50c-7 7-11 15-12 24'/%3E%3Cpath d='M31 75h34'/%3E%3Cpath d='M39 59l18 14'/%3E%3Cpath d='M56 73l12 8'/%3E%3Cpath d='M39 48c-5-6-4-15 2-20 7-6 17-4 22 3 4 5 4 11 1 17'/%3E%3Cpath d='M63 18c2-5 9-6 12-2 5-3 10 2 8 7 5 2 5 9-1 10 0 6-8 8-12 4-5 3-11-1-10-7-5-3-3-10 3-12z'/%3E%3C/svg%3E") !important;
-}
-
-/* Depresión: persona sentada bajo nube */
-.workIconDepression{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 28c0-7 6-13 14-13 6 0 10 3 13 7 2-2 5-3 9-3 8 0 14 6 14 13s-6 13-14 13H35c-5 0-9-4-9-9 0-4 3-8 7-8'/%3E%3Cpath d='M37 55c-7 5-10 13-9 23'/%3E%3Cpath d='M43 56c-8 7-12 15-12 24'/%3E%3Cpath d='M33 78h34'/%3E%3Cpath d='M42 63l16 13'/%3E%3Cpath d='M57 76l11 6'/%3E%3Cpath d='M44 53c-4-5-2-11 3-14 6-3 13 0 15 6'/%3E%3Cpath d='M37 51l-2 7'/%3E%3Cpath d='M51 50l-2 7'/%3E%3Cpath d='M65 51l-2 7'/%3E%3C/svg%3E") !important;
-}
-
-/* Regulación emocional: perfil con nudo mental */
-.workIconRegulation{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M49 43c5-5 12 2 7 7 7-2 10 8 2 10'/%3E%3Cpath d='M42 53c-6 0-8-8-3-11'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E") !important;
-}
-
-/* Duelo: flor caída */
-.workIconGrief{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3Cpath d='M37 60c-8 4-12 10-13 18'/%3E%3Cpath d='M41 72c-9 1-15 4-20 10'/%3E%3C/svg%3E") !important;
-}
-
-/* Rupturas: coração partido */
-.workIconBreakup{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E") !important;
-}
-
-
-/* FORÇAR DESENHOS CORRETOS - COLAR NO FIM DO components.css */
-
-.workCard .workCardIconCircle::after{
-  content:none !important;
-  display:none !important;
-}
-
-.workCard .workCardIconCircle::before{
-  content:"" !important;
-  display:block !important;
-  position:absolute !important;
-  inset:18px !important;
-  width:auto !important;
-  height:auto !important;
-  border:0 !important;
-  border-radius:0 !important;
-  background-color:transparent !important;
-  background-repeat:no-repeat !important;
-  background-position:center !important;
-  background-size:contain !important;
-  transform:none !important;
-  opacity:1 !important;
-  box-shadow:none !important;
-}
-
-/* Ansiedad */
-.workCard .workIconAnxiety::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M38 51c-8 6-12 15-11 27'/%3E%3Cpath d='M43 51c-8 7-12 16-13 27'/%3E%3Cpath d='M30 78h36'/%3E%3Cpath d='M40 60l18 14'/%3E%3Cpath d='M57 74l12 8'/%3E%3Cpath d='M39 49c-5-6-4-15 2-20 7-6 17-4 22 3 4 6 4 13 0 18'/%3E%3Cpath d='M62 17c2-5 9-6 12-2 5-3 10 2 8 7 5 2 5 9-1 10 0 6-8 8-12 4-5 3-11-1-10-7-5-3-3-10 3-12z'/%3E%3C/svg%3E") !important;
-}
-
-/* Depresión */
-.workCard .workIconDepression::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 28c0-7 6-13 14-13 6 0 11 3 14 8 2-2 5-3 8-3 8 0 14 6 14 13s-6 13-14 13H35c-5 0-9-4-9-9 0-4 3-8 7-8'/%3E%3Cpath d='M37 55c-7 5-10 13-9 23'/%3E%3Cpath d='M43 56c-8 7-12 15-12 24'/%3E%3Cpath d='M33 78h34'/%3E%3Cpath d='M42 63l16 13'/%3E%3Cpath d='M57 76l11 6'/%3E%3Cpath d='M44 53c-4-5-2-11 3-14 6-3 13 0 15 6'/%3E%3Cpath d='M37 51l-2 7'/%3E%3Cpath d='M51 50l-2 7'/%3E%3Cpath d='M65 51l-2 7'/%3E%3C/svg%3E") !important;
-}
-
-/* Regulación emocional */
-.workCard .workIconRegulation::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M49 43c5-5 12 2 7 7 7-2 10 8 2 10'/%3E%3Cpath d='M42 53c-6 0-8-8-3-11'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E") !important;
-}
-
-/* Duelo */
-.workCard .workIconGrief::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3Cpath d='M37 60c-8 4-12 10-13 18'/%3E%3Cpath d='M41 72c-9 1-15 4-20 10'/%3E%3C/svg%3E") !important;
-}
-
-/* Ruptura */
-.workCard .workIconBreakup::before{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E") !important;
 }
