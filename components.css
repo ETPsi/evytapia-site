@@ -848,6 +848,7 @@ footer{
   max-width:78ch;
 }
 
+
 /* PODEMOS TRABAJAR EN */
 .workHero{
   padding:34px 28px 18px;
@@ -1010,28 +1011,27 @@ footer{
   color:#6d3557;
 }
 
-/* Dibujos correctos — SVG embutido, sin imágenes externas */
+/* Dibujos correctos — SVG embutido no CSS, sem imagens externas */
 .workIconAnxiety{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 51c-8 6-12 15-11 27'/%3E%3Cpath d='M45 51c-8 7-12 16-13 27'/%3E%3Cpath d='M30 78h36'/%3E%3Cpath d='M41 60l18 14'/%3E%3Cpath d='M58 74l12 8'/%3E%3Cpath d='M40 49c-5-6-4-15 2-20 7-6 17-4 22 3 4 6 4 13 0 18'/%3E%3Cpath d='M63 17c2-5 9-6 12-2 5-3 10 2 8 7 5 2 5 9-1 10 0 6-8 8-12 4-5 3-11-1-10-7-5-3-3-10 3-12z'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 76h34'/%3E%3Cpath d='M39 75c-1-13 3-24 13-31'/%3E%3Cpath d='M48 44c-7-8-5-19 4-25 10-6 23 0 25 12 1 7-1 13-7 17'/%3E%3Cpath d='M47 55l18 20'/%3E%3Cpath d='M58 66h18'/%3E%3Cpath d='M72 21c2-6 10-7 13-2 5-2 10 3 7 9 6 2 5 10-2 11-1 6-9 8-13 3-6 3-12-3-9-9-6-4-3-11 4-12z'/%3E%3C/svg%3E");
 }
 
 .workIconDepression{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 28c0-7 6-13 14-13 6 0 11 3 14 8 2-2 5-3 8-3 8 0 14 6 14 13s-6 13-14 13H35c-5 0-9-4-9-9 0-4 3-8 7-8'/%3E%3Cpath d='M37 55c-7 5-10 13-9 23'/%3E%3Cpath d='M43 56c-8 7-12 15-12 24'/%3E%3Cpath d='M33 78h34'/%3E%3Cpath d='M42 63l16 13'/%3E%3Cpath d='M57 76l11 6'/%3E%3Cpath d='M44 53c-4-5-2-11 3-14 6-3 13 0 15 6'/%3E%3Cpath d='M37 51l-2 7'/%3E%3Cpath d='M51 50l-2 7'/%3E%3Cpath d='M65 51l-2 7'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M25 28c0-8 7-15 16-15 6 0 11 3 14 8 3-2 6-3 10-3 9 0 16 7 16 16s-7 16-16 16H34c-6 0-11-5-11-11 0-5 4-10 9-10'/%3E%3Cpath d='M37 58c-6 5-9 12-9 20'/%3E%3Cpath d='M42 58c-7 6-11 13-11 20'/%3E%3Cpath d='M30 78h36'/%3E%3Cpath d='M42 64l15 12'/%3E%3Cpath d='M56 76l10 6'/%3E%3Cpath d='M45 55c-4-5-2-10 3-13 6-3 12 0 14 5'/%3E%3Cline x1='36' y1='48' x2='34' y2='54'/%3E%3Cline x1='50' y1='48' x2='48' y2='54'/%3E%3Cline x1='64' y1='48' x2='62' y2='54'/%3E%3C/svg%3E");
 }
 
 .workIconRegulation{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M49 43c5-5 12 2 7 7 7-2 10 8 2 10'/%3E%3Cpath d='M42 53c-6 0-8-8-3-11'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E");
 }
 
 .workIconGrief{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3Cpath d='M37 60c-8 4-12 10-13 18'/%3E%3Cpath d='M41 72c-9 1-15 4-20 10'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3C/svg%3E");
 }
 
 .workIconBreakup{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E");
 }
 
-/* WHATSAPP */
 .waWidget{
   position:fixed;
   right:20px;
