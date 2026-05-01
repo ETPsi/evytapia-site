@@ -848,106 +848,267 @@ footer{
   max-width:78ch;
 }
 
-/* PODEMOS TRABAJAR EN - PNG ICONS */
-#tab-trabajar{
-  display:none;
+/* PODEMOS TRABAJAR EN */
+.workHero{
+  padding:34px 28px 18px;
+  text-align:center;
+  background:rgba(255,255,255,.10);
 }
 
-#tab-trabajar.isActive{
-  display:grid;
-  gap:20px;
+.workHeroEyebrow{
+  margin:0 0 10px;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#b07d2f;
+  font-weight:700;
 }
 
-#tab-trabajar .section{
+.workHeroTitle{
+  margin:0;
+  font-family:Georgia, "Times New Roman", serif;
+  font-size:clamp(30px, 3.2vw, 44px);
+  line-height:1.12;
+  color:#6d3557;
+  font-weight:700;
+}
+
+.workHeroDivider{
   position:relative;
-  overflow:hidden;
-  min-height:156px;
-  padding:34px 34px 34px 178px;
+  width:190px;
+  height:1px;
+  margin:18px auto 18px;
+  background:linear-gradient(
+    90deg,
+    rgba(186,155,186,.72) 0,
+    rgba(186,155,186,.72) 40%,
+    transparent 40%,
+    transparent 60%,
+    rgba(186,155,186,.72) 60%,
+    rgba(186,155,186,.72) 100%
+  );
+}
+
+.workHeroDivider::after{
+  content:"❦";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -54%);
+  font-size:18px;
+  line-height:1;
+  color:#c9a1bd;
+  background:#f7f1f7;
+  padding:0 9px;
+}
+
+.workHeroText{
+  margin:0 auto;
+  max-width:60ch;
+  color:rgba(93,74,87,.92);
+  font-size:16px;
+  line-height:1.8;
+}
+
+.workCards{
+  display:grid;
+  gap:18px;
+  padding:10px 28px 30px;
+}
+
+.workCard{
+  position:relative;
+  display:grid;
+  grid-template-columns:140px minmax(0, 1fr);
+  gap:28px;
+  align-items:center;
+  padding:28px 32px;
   border:1px solid rgba(213,191,212,.62);
   border-radius:26px;
-  background:rgba(255,255,255,.34);
+  background:rgba(255,255,255,.32);
   box-shadow:0 18px 44px rgba(33,18,28,.08);
+  overflow:hidden;
 }
 
-#tab-trabajar .section.noTop{
-  border-top:1px solid rgba(213,191,212,.62);
-}
-
-#tab-trabajar .section::before{
+.workCard::before{
   content:"";
   position:absolute;
-  left:34px;
-  top:50%;
-  transform:translateY(-50%);
-  width:104px;
-  height:104px;
-  border-radius:50%;
-  background:rgba(234,221,235,.9);
-  box-shadow:
-    inset 0 0 0 1px rgba(196,171,196,.36),
-    0 10px 24px rgba(122,63,99,.08);
-}
-
-#tab-trabajar .section::after{
-  content:"";
-  position:absolute;
-  left:50px;
-  top:50%;
-  transform:translateY(-50%);
-  width:72px;
-  height:72px;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
+  inset:0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255,255,255,.50), transparent 22%),
+    radial-gradient(circle at 86% 78%, rgba(244,214,234,.28), transparent 28%);
   pointer-events:none;
 }
 
-#tab-trabajar .section:nth-of-type(1)::after{
-  background-image:url("images/Anxiety.png");
+.workCardIcon,
+.workCardContent{
+  position:relative;
+  z-index:1;
 }
 
-#tab-trabajar .section:nth-of-type(2)::after{
-  background-image:url("images/Depression.png");
+.workCardIcon{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-#tab-trabajar .section:nth-of-type(3)::after{
-  background-image:url("images/Regulation.png");
+.workCardIconCircle{
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  position:relative;
+  background:rgba(234,221,235,.88);
+  border:1px solid rgba(196,171,196,.34);
+  box-shadow:inset 0 0 0 1px rgba(122,63,99,.05);
 }
 
-#tab-trabajar .section:nth-of-type(4)::after{
-  background-image:url("images/Grief.png");
+.workCardIconCircle::before,
+.workCardIconCircle::after{
+  content:"";
+  position:absolute;
+  display:block;
+  box-sizing:border-box;
 }
 
-#tab-trabajar .section:nth-of-type(5)::after{
-  background-image:url("images/Breakup.png");
-}
-
-#tab-trabajar .section h3{
+.workCardContent h3{
   margin:0 0 10px;
   font-family:Georgia, "Times New Roman", serif;
   font-size:24px;
-  line-height:1.22;
+  line-height:1.2;
   color:#6d3557;
 }
 
-#tab-trabajar .cols1{
-  margin-top:0;
-}
-
-#tab-trabajar .item{
-  display:block;
-}
-
-#tab-trabajar .chev{
-  display:none;
-}
-
-#tab-trabajar .item span{
-  display:block;
-  max-width:78ch;
+.workCardContent p{
+  margin:0;
+  max-width:70ch;
   color:rgba(93,74,87,.95);
   font-size:15.8px;
   line-height:1.85;
+}
+
+.workClosing{
+  padding:2px 28px 34px;
+  text-align:center;
+}
+
+.workClosingIcon{
+  color:#c9a1bd;
+  font-size:24px;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.workClosing p{
+  margin:0;
+  color:rgba(93,74,87,.95);
+  font-size:16px;
+  line-height:1.7;
+}
+
+.workClosing strong{
+  color:#6d3557;
+}
+
+/* Dibujos */
+.workIconAnxiety::before{
+  left:35px;
+  top:35px;
+  width:42px;
+  height:42px;
+  border:2.5px solid #8b5a78;
+  border-radius:50% 50% 46% 46%;
+}
+
+.workIconAnxiety::after{
+  left:30px;
+  top:22px;
+  width:52px;
+  height:28px;
+  border-top:2.5px solid #8b5a78;
+  border-left:2.5px solid transparent;
+  border-radius:50%;
+  transform:rotate(-12deg);
+}
+
+.workIconDepression::before{
+  left:28px;
+  top:28px;
+  width:56px;
+  height:34px;
+  border:2.5px solid #8b5a78;
+  border-radius:30px;
+  border-bottom-color:transparent;
+}
+
+.workIconDepression::after{
+  left:37px;
+  top:65px;
+  width:38px;
+  height:18px;
+  border-left:2.5px solid #8b5a78;
+  border-bottom:2.5px solid #8b5a78;
+  border-radius:0 0 0 20px;
+  transform:rotate(-8deg);
+}
+
+.workIconRegulation::before{
+  left:28px;
+  top:24px;
+  width:44px;
+  height:58px;
+  border:2.5px solid #8b5a78;
+  border-radius:50%;
+}
+
+.workIconRegulation::after{
+  left:48px;
+  top:32px;
+  width:34px;
+  height:34px;
+  border:2.5px solid #8b5a78;
+  border-radius:50%;
+  box-shadow:
+    -8px 6px 0 -5px #8b5a78,
+    8px -6px 0 -5px #8b5a78;
+}
+
+.workIconGrief::before{
+  left:53px;
+  top:22px;
+  width:2.5px;
+  height:68px;
+  background:#8b5a78;
+  border-radius:4px;
+}
+
+.workIconGrief::after{
+  left:34px;
+  top:38px;
+  width:36px;
+  height:36px;
+  border-left:2.5px solid #8b5a78;
+  border-bottom:2.5px solid #8b5a78;
+  border-radius:0 0 0 28px;
+  transform:rotate(-38deg);
+}
+
+.workIconBreakup::before{
+  left:32px;
+  top:29px;
+  width:48px;
+  height:48px;
+  border:2.5px solid #8b5a78;
+  border-radius:50% 50% 45% 45%;
+  transform:rotate(-45deg);
+}
+
+.workIconBreakup::after{
+  left:54px;
+  top:32px;
+  width:2.5px;
+  height:48px;
+  background:#f4edf2;
+  transform:rotate(20deg);
 }
 
 /* WHATSAPP */
@@ -1148,67 +1309,43 @@ footer{
   stroke:none !important;
 }
 
-@media (max-width:860px){
-  #tab-trabajar.isActive{
-    gap:18px;
-  }
+/* CORREÇÃO FINAL DOS DESENHOS - PODEMOS TRABAJAR EN */
+/* Colar no fim do components.css */
 
-  #tab-trabajar .section{
-    min-height:auto;
-    padding:136px 22px 26px;
-    text-align:center;
-  }
-
-  #tab-trabajar .section::before{
-    left:50%;
-    top:32px;
-    transform:translateX(-50%);
-    width:92px;
-    height:92px;
-  }
-
-  #tab-trabajar .section::after{
-    left:50%;
-    top:42px;
-    transform:translateX(-50%);
-    width:62px;
-    height:62px;
-  }
-
-  #tab-trabajar .section h3{
-    font-size:22px;
-  }
-
-  #tab-trabajar .item span{
-    max-width:none;
-    font-size:15.4px;
-  }
+.workCardIconCircle::before,
+.workCardIconCircle::after{
+  content:none !important;
+  display:none !important;
 }
 
-@media (max-width:520px){
-  #tab-trabajar .section{
-    border-radius:20px;
-    padding:126px 18px 24px;
-  }
+.workCardIconCircle{
+  background-color:rgba(234,221,235,.88) !important;
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:74px 74px !important;
+}
 
-  #tab-trabajar .section::before{
-    top:30px;
-    width:86px;
-    height:86px;
-  }
+/* Ansiedad: persona sentada con pensamiento */
+.workIconAnxiety{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M45 35c8 0 14 6 14 14'/%3E%3Cpath d='M39 48c-8 5-12 14-11 25'/%3E%3Cpath d='M43 50c-7 7-11 15-12 24'/%3E%3Cpath d='M31 75h34'/%3E%3Cpath d='M39 59l18 14'/%3E%3Cpath d='M56 73l12 8'/%3E%3Cpath d='M39 48c-5-6-4-15 2-20 7-6 17-4 22 3 4 5 4 11 1 17'/%3E%3Cpath d='M63 18c2-5 9-6 12-2 5-3 10 2 8 7 5 2 5 9-1 10 0 6-8 8-12 4-5 3-11-1-10-7-5-3-3-10 3-12z'/%3E%3C/svg%3E") !important;
+}
 
-  #tab-trabajar .section::after{
-    top:40px;
-    width:58px;
-    height:58px;
-  }
+/* Depresión: persona sentada bajo nube */
+.workIconDepression{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 28c0-7 6-13 14-13 6 0 10 3 13 7 2-2 5-3 9-3 8 0 14 6 14 13s-6 13-14 13H35c-5 0-9-4-9-9 0-4 3-8 7-8'/%3E%3Cpath d='M37 55c-7 5-10 13-9 23'/%3E%3Cpath d='M43 56c-8 7-12 15-12 24'/%3E%3Cpath d='M33 78h34'/%3E%3Cpath d='M42 63l16 13'/%3E%3Cpath d='M57 76l11 6'/%3E%3Cpath d='M44 53c-4-5-2-11 3-14 6-3 13 0 15 6'/%3E%3Cpath d='M37 51l-2 7'/%3E%3Cpath d='M51 50l-2 7'/%3E%3Cpath d='M65 51l-2 7'/%3E%3C/svg%3E") !important;
+}
 
-  #tab-trabajar .section h3{
-    font-size:20px;
-  }
+/* Regulación emocional: perfil con nudo mental */
+.workIconRegulation{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M55 16c-15 0-27 12-27 28 0 10-7 16-10 21h14v13c0 5 4 8 9 8h18'/%3E%3Cpath d='M50 33c5-8 19-5 17 5 8 1 9 13 1 16 1 9-12 12-17 5-8 4-17-5-12-13-7-8 3-19 11-13z'/%3E%3Cpath d='M49 43c5-5 12 2 7 7 7-2 10 8 2 10'/%3E%3Cpath d='M42 53c-6 0-8-8-3-11'/%3E%3Cpath d='M47 77c3-6 12-5 12 2 0-7 10-8 12-1 2 8-12 15-12 15s-13-7-12-16z'/%3E%3C/svg%3E") !important;
+}
 
-  #tab-trabajar .item span{
-    font-size:15px;
-    line-height:1.8;
-  }
+/* Duelo: flor caída */
+.workIconGrief{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M54 22c3 17 0 36-13 54'/%3E%3Cpath d='M42 76h26'/%3E%3Cpath d='M47 34c-10-10-25-2-25 11 11 1 22-1 25-11z'/%3E%3Cpath d='M49 34c-2-16 13-24 23-15-4 11-11 18-23 15z'/%3E%3Cpath d='M48 36c8 7 8 19-2 27-8-6-10-18 2-27z'/%3E%3Cpath d='M37 60c-8 4-12 10-13 18'/%3E%3Cpath d='M41 72c-9 1-15 4-20 10'/%3E%3C/svg%3E") !important;
+}
+
+/* Rupturas: coração partido */
+.workIconBreakup{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none' stroke='%238b5a78' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M48 78S18 58 18 36c0-10 8-18 18-18 6 0 11 3 14 8 3-5 8-8 14-8 10 0 18 8 18 18 0 22-34 42-34 42z'/%3E%3Cpath d='M50 26l-8 17 12 6-10 24'/%3E%3C/svg%3E") !important;
 }
