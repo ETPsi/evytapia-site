@@ -33,7 +33,7 @@
       <div class="navRow">
         <nav class="tabs" aria-label="Navegación">
           <button class="tab isActive" data-tab="inicio" type="button">Inicio</button>
-          <button class="tab" data-tab="terapias" type="button">Terapias</button>
+          <button class="tab" data-tab="formacion" type="button">Mi formación</button>
           <button class="tab" data-tab="sobre" type="button">Sobre mí</button>
           <button class="tab" data-tab="trabajar" type="button">Podemos trabajar en</button>
           <button class="tab" data-tab="contacto" type="button">Contacto</button>
@@ -160,27 +160,26 @@
       </div>
 
       <div class="card">
-        <div class="panel" id="tab-terapias">
-          <div class="section noTop">
-            <h3>Terapias</h3>
-            <p><b>Terapia:</b> Familiar, Individual. <b>Dirigido a:</b> Adolescentes, jóvenes y adultos</p>
-          </div>
-
+        <div class="panel" id="tab-formacion">
+          
+          <div class="eduTitle">Mi formación</div>
           <div class="section">
-            <h3>Enfoque</h3>
-            <p>
-              Psicoterapeuta cognitivo-conductual y contextual. Especialista en ACT (Terapia de aceptación y compromiso).
-              Especialista en Activación conductual para la depresión (AC). Mindfulness. Intervención basada en ciencia desde
-              el enfoque contextual con amplia experiencia y excelentes resultados en casos de:
-            </p>
 
-            <ul class="bullets">
-              <li>Trastornos de ansiedad, ataques de pánico, ansiedad social, ansiedad generalizada, rumia compleja.</li>
-              <li>Cuadros depresivos leves y severos abordados desde el modelo con mayor eficacia de efectividad y con bases científicas, la terapia de Activación Conductual (AC).</li>
-              <li>Intervención en casos de dependencia emocional, rupturas de pareja, duelo por separación o pérdidas familiares.</li>
-              <li>Asesoría a padres para manejo en la crianza y modificación de conducta.</li>
-              <li>Intervención en casos de desregulación emocional con herramientas de la DBT.</li>
-            </ul>
+            <div class="eduCard" aria-label="Formación">
+              
+              <ul class="eduList">
+                <li>LICENCIA EN PSICOLOGÍA CON ESPECIALIDAD EN PSICOLOGÍA CLÍNICA por la Universidad Nacional Federico Villarreal (Perú)</li>
+                <li>ESPECIALISTA EN TERAPIA COGNITIVO-CONDUCTUAL de niños y adolescentes - Ipsicoc (Perú)</li>
+                <li>ESPECIALISTA EN TERAPIAS CONTEXTUALES - Universidad de Almería (España)</li>
+                <li>FORMACIÓN EN TERAPIA DE ACEPTACIÓN Y COMPROMISO - Instituto Liceo por el Dr. Fabián Oláz</li>
+                <li>ENTRENAMIENTO EN ACTIVACIÓN CONDUCTUAL PARA LA DEPRESIÓN con el Dr. Jorge Barraca en España y Perú - Almería y por el Instituto peruano de análisis conductual</li>
+                <li>ENTRENAMIENTO EN PSICOTERAPIA ANALÍTICA FUNCIONAL con el Dr. Michel Reyes - Instituto Liceo</li>
+                <li>CURSO INTERNACIONAL DE TERAPIA DE ACEPTACIÓN Y COMPROMISO EN ADOLESCENTES con el Ps. Javier Mandil.</li>
+                <li>CURSO INTERNACIONAL TERAPIA DIALÉCTICA CONDUCTUAL PARA NIÑOS Y ADOLESCENTES – Edilibros</li>
+                <li>CURSO INTERNACIONAL ACT EN LA ADOLESCENCIA con la Dra. Bárbara Gil-Luciano</li>
+              </ul>
+            </div>
+            
           </div>
         </div>
 
@@ -204,20 +203,7 @@
               </p>
             </div>
 
-            <div class="eduCard" aria-label="Formación">
-              <div class="eduTitle">Mi formación</div>
-              <ul class="eduList">
-                <li>LICENCIA EN PSICOLOGÍA CON ESPECIALIDAD EN PSICOLOGÍA CLÍNICA por la Universidad Nacional Federico Villarreal (Perú)</li>
-                <li>ESPECIALISTA EN TERAPIA COGNITIVO-CONDUCTUAL de niños y adolescentes - Ipsicoc (Perú)</li>
-                <li>ESPECIALISTA EN TERAPIAS CONTEXTUALES - Universidad de Almería (España)</li>
-                <li>FORMACIÓN EN TERAPIA DE ACEPTACIÓN Y COMPROMISO - Instituto Liceo por el Dr. Fabián Oláz</li>
-                <li>ENTRENAMIENTO EN ACTIVACIÓN CONDUCTUAL PARA LA DEPRESIÓN con el Dr. Jorge Barraca en España y Perú - Almería y por el Instituto peruano de análisis conductual</li>
-                <li>ENTRENAMIENTO EN PSICOTERAPIA ANALÍTICA FUNCIONAL con el Dr. Michel Reyes - Instituto Liceo</li>
-                <li>CURSO INTERNACIONAL DE TERAPIA DE ACEPTACIÓN Y COMPROMISO EN ADOLESCENTES con el Ps. Javier Mandil.</li>
-                <li>CURSO INTERNACIONAL TERAPIA DIALÉCTICA CONDUCTUAL PARA NIÑOS Y ADOLESCENTES – Edilibros</li>
-                <li>CURSO INTERNACIONAL ACT EN LA ADOLESCENCIA con la Dra. Bárbara Gil-Luciano</li>
-              </ul>
-            </div>
+            
           </div>
         </div>
 
@@ -554,7 +540,7 @@
     const tabLinks = document.querySelectorAll("[data-tab-link]");
     const panels = {
       inicio: document.getElementById("tab-inicio"),
-      terapias: document.getElementById("tab-terapias"),
+      formacion: document.getElementById("tab-formacion"),
       sobre: document.getElementById("tab-sobre"),
       trabajar: document.getElementById("tab-trabajar"),
       condiciones: document.getElementById("tab-condiciones"),
