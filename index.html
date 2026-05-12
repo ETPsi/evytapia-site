@@ -145,20 +145,48 @@
         </div>
 
         <div class="googleReviews">
-          <section class="google-reviews" aria-labelledby="googleReviewsTitle">
-            <div class="google-reviews-inner">
-              <h2 id="googleReviewsTitle">Opiniones reales en Google</h2>
-              <p>
-                Estas son algunas experiencias compartidas por personas que ya iniciaron su proceso terapéutico.
-              </p>
-      
-              <div class="google-reviews-widget">
-                <script defer async src="https://cdn.trustindex.io/loader.js?ce5cef570384992ff206fdf01e1"></script>
+          <section class="section google-reviews">
+            <h3>Opiniones reales en Google</h3>
+            <p>Estas son algunas experiencias compartidas por personas que ya iniciaron su proceso terapéutico.</p>
+            
+            <div class="custom-slider-wrapper">
+              <!-- Setas de Navegação -->
+              <button class="slider-arrow prev" onclick="moveSlider(-1)">‹</button>
+              <button class="slider-arrow next" onclick="moveSlider(1)">›</button>
+          
+              <div id="googleSlider" class="reviews-slider">
+                <!-- Card 1 -->
+                <div class="review-card">
+                  <div class="card-header">
+                    <div class="user-avatar" style="background: #014332;">A</div>
+                    <div class="user-info">
+                      <strong>Annabel</strong>
+                      <span>hace 1 mes</span>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Color_Icon.svg" class="g-icon">
+                  </div>
+                  <div class="stars">★★★★★</div>
+                  <p>"Creo que para las personas vulnerables... es importante caer en manos de una profesional como Evy."</p>
+                </div>
+          
+                <!-- Card 2 -->
+                <div class="review-card">
+                  <div class="card-header">
+                    <div class="user-avatar" style="background: #7b1fa2;">Q</div>
+                    <div class="user-info">
+                      <strong>Quintiliano Rojas</strong>
+                      <span>hace 1 mes</span>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Color_Icon.svg" class="g-icon">
+                  </div>
+                  <div class="stars">★★★★★</div>
+                  <p>"Llevé a mi hija con Evy, ella le dió mucha confianza... salimos orientados y más tranquilos."</p>
+                </div>
+          
+                <!-- Adicione mais cards aqui seguindo o mesmo padrão -->
               </div>
             </div>
-          </section>
-        </div>
-        
+          </section>        
       </div>
 
       <div class="card">
