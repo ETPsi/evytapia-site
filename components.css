@@ -1031,71 +1031,84 @@ footer{
 }
 
 /* Google Reviews */
-.custom-slider-wrapper {
-  position: relative;
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+.testimonials-section {
+  padding: 40px 0;
+  max-width: 100%;
 }
-
-.reviews-slider {
+.testimonials-title {
+  text-align: center;
+  color: #2b1f27;
+  margin-bottom: 25px;
+  font-family: sans-serif;
+}
+.testimonials-viewport {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.testimonials-track {
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Esconde a barra no Firefox */
+  gap: 15px;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  width: max-content;
 }
-
-.reviews-slider::-webkit-scrollbar {
-  display: none; /* Esconde a barra no Chrome/Safari */
-}
-
-.review-card {
+.testimonial-card {
+  width: 300px;
   min-width: 300px;
-  flex: 0 0 300px;
-  scroll-snap-align: start;
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
+  height: auto;
 }
-
-.card-header {
+.google-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.author-info {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
-  position: relative;
 }
-
-.user-avatar {
-  width: 40px; height: 40px;
+.author-avatar {
+  width: 35px; height: 35px;
   border-radius: 50%;
-  color: white;
+  color: #fff;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  align-items: center; justify-content: center;
+  font-weight: bold; font-size: 14px;
+}
+.author-name {
+  font-weight: 500; font-size: 14px; color: #3c4043;
+}
+.review-date {
+  font-size: 11px; color: #70757a; display: block;
+}
+.google-icon {
+  width: 16px; height: 16px;
+}
+.google-stars {
+  color: #fbbc04;
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+.testimonial-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3c4043;
+  margin: 0;
 }
 
-.g-icon { width: 18px; position: absolute; right: 0; top: 0; }
-
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
-  background: white;
-  cursor: pointer;
-  z-index: 5;
-  font-size: 24px;
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: calc(100vw - 40px);
+    min-width: calc(100vw - 40px);
+  }
 }
-.prev { left: -20px; }
-.next { right: -20px; }
 
 /* WHATSAPP */
 .waWidget{
