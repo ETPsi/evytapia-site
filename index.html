@@ -161,9 +161,19 @@
                 Estas son algunas experiencias compartidas por personas que ya iniciaron su proceso terapéutico.
               </p>
       
-              <div class="google-reviews-widget">
-                <script defer async src="https://cdn.trustindex.io/loader.js?ce5cef570384992ff206fdf01e1"></script>
-              </div>
+              <div id="google-reviews"></div>
+
+				<script>
+				  // Inicialização do script do GitHub
+				  new GooglePlacesWidget('google-reviews', {
+				    placeId: 'ChIJeZf8ZqC3BZERAcolO51oL1U',
+				    maxReviews: 9,
+				    minRating: 4,
+				    showDots: true,
+				    autoplay: true,
+				    autoplayTimeout: 5000
+				  });
+				</script>
             </div>
           </section>
         </div>
