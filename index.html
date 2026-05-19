@@ -600,6 +600,30 @@
   </div>
 
   <script>
+	  let currentIndex = 0;
+	  const track = document.getElementById('testimonialTrack');
+	  
+	  function startAutoScroll() {
+	    setInterval(() => {
+	      const cards = document.querySelectorAll('.testimonial-card');
+	      const cardsVisible = window.innerWidth > 768 ? 3 : 1;
+	      const maxIndex = cards.length - cardsVisible;
+	
+	      currentIndex++;
+	      if (currentIndex > maxIndex) {
+	        currentIndex = 0;
+	      }
+	
+	      const cardWidth = cards[0].offsetWidth + 15; // Largura + gap
+	      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+	    }, 5000);
+	  }
+	
+	  // Inicia quando a página carregar
+	  window.onload = startAutoScroll;
+  </script>
+	
+  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const tabs = document.querySelectorAll(".tab");
