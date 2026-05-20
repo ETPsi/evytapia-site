@@ -1124,7 +1124,7 @@ footer{
 .testimonials-section {
     width: 100%;
     max-width: 100vw;
-    overflow: hidden; /* Evita que o conteúdo interno empurre a largura da página */
+    overflow: hidden !important; /* Evita que o conteúdo interno empurre a largura da página */
     box-sizing: border-box;
 }
 
@@ -1132,7 +1132,7 @@ footer{
 .testimonials-viewport {
     width: 100%;
     max-width: 100%;
-    overflow: hidden; /* Esconde os cards que estão fora da área visível */
+    overflow: hidden !important; /* Esconde os cards que estão fora da área visível */
     position: relative;
 }
 
