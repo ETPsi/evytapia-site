@@ -1120,6 +1120,29 @@ footer{
   object-fit: cover; /* Faz com que a foto preencha o círculo sem deformar */
 }
 
+/* 1. Limita a seção principal à largura da tela */
+.testimonials-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden; /* Evita que o conteúdo interno empurre a largura da página */
+    box-sizing: border-box;
+}
+
+/* 2. Garante que o viewport respeite o limite do pai e esconda os cards extras */
+.testimonials-viewport {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden; /* Esconde os cards que estão fora da área visível */
+    position: relative;
+}
+
+/* 3. Opcional: Garante que os cards não forcem uma largura mínima indesejada */
+#testimonialTrack {
+    display: flex;
+    flex-wrap: nowrap; /* Mantém os cards em linha para o carrossel */
+    /* A largura aqui geralmente é controlada via JavaScript no carrossel */
+}
+
 @media (max-width: 768px) {
   .testimonial-card {
     width: calc(100vw - 40px);
