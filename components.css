@@ -1036,7 +1036,7 @@ footer{
   max-width: 100vw;
   overflow: hidden !important;
   box-sizing: border-box;
-  padding: 40px 0;
+  padding: 10px 0 20px;
 }
 
 /* Container próprio das avaliações */
