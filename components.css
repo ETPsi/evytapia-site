@@ -558,11 +558,11 @@ h1{
 }
 
 .conditionsBlock h3{
-  margin:0 0 14px;
-  font-size:18px;
+  margin:0 0 10px;
+  font-size:16.5px;
   line-height:1.35;
   color:var(--accentDark);
-  font-weight:900;
+  font-weight:800;
 }
 
 .conditionsBlock p{
@@ -571,6 +571,12 @@ h1{
   font-size:14.8px;
   line-height:1.75;
   max-width:85ch;
+}
+
+.conditionsBlock p strong,
+.conditionsBlock p b{
+  color:var(--accentDark);
+  font-weight:700;
 }
 
 footer{
