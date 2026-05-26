@@ -557,7 +557,7 @@ h1{
   background:rgba(255,255,255,.10);
 }
 
-.conditionsBlock h4{
+.conditionsBlock h3{
   margin:0 0 10px;
   font-size:15.5px;
   color:var(--accentDark);
