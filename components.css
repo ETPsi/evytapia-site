@@ -558,9 +558,11 @@ h1{
 }
 
 .conditionsBlock h3{
-  margin:0 0 10px;
-  font-size:15.5px;
+  margin:0 0 14px;
+  font-size:18px;
+  line-height:1.35;
   color:var(--accentDark);
+  font-weight:900;
 }
 
 .conditionsBlock p{
