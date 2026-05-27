@@ -14,7 +14,8 @@
 
   --shadow: 0 20px 60px rgba(33,18,28,.14);
   --radius: 20px;
-  --max: 980px;
+
+  --max:1100px;
 
   --btn:#7a3f63;
   --btnText:#ffffff;
