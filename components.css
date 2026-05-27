@@ -3,6 +3,8 @@
   max-width:var(--max);
   margin:0 auto;
   padding:0 20px 60px;
+  position:relative;
+  z-index:1;
 }
 
 .headerSpacer{
@@ -12,9 +14,10 @@
 .siteHeader{
   position:fixed;
   top:0;
-  left:0;
-  right:0;
-  width:100%;
+  left:50%;
+  right:auto;
+  transform:translateX(-50%);
+  width:min(100%, var(--max));
   z-index:120;
   background:linear-gradient(180deg, rgba(247,241,247,.97), rgba(247,241,247,.93));
   backdrop-filter:blur(12px);
@@ -24,9 +27,9 @@
 
 .siteHeader .top,
 .siteHeader .navRow{
-  max-width:var(--max);
-  margin-left:auto;
-  margin-right:auto;
+  width:100%;
+  max-width:none;
+  margin:0;
   padding-left:20px;
   padding-right:20px;
   box-sizing:border-box;
