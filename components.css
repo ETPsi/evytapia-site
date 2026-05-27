@@ -678,13 +678,6 @@ footer{
 .panel{display:none;}
 .panel.isActive{display:block;}
 
-/* HERO FULL WIDTH */
-.fullBleed{
-  width:100vw;
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-}
-
 .heroWide{
   position:relative;
   overflow:hidden;
