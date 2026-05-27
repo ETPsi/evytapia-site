@@ -17,7 +17,7 @@
   left:50%;
   right:auto;
   transform:translateX(-50%);
-  width:min(100%, var(--max));
+  width:min(calc(100% - 40px), calc(var(--max) - 40px));
   z-index:120;
   background:linear-gradient(180deg, rgba(247,241,247,.97), rgba(247,241,247,.93));
   backdrop-filter:blur(12px);
@@ -30,8 +30,8 @@
   width:100%;
   max-width:none;
   margin:0;
-  padding-left:20px;
-  padding-right:20px;
+  padding-left:0;
+  padding-right:0;
   box-sizing:border-box;
 }
 
