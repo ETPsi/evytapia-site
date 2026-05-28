@@ -312,10 +312,21 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   margin:0 0 12px;
   font-size:16px;
   letter-spacing:.02em;
-  text-transform: uppercase;
-  color: var(--accentDark);
+  text-transform:uppercase;
+  color:var(--accentDark);
   opacity:.85;
   font-weight:900;
+}
+
+/* Desktop: abre os detalhes ao passar o rato por cima da área dos botões */
+@media (hover:hover) and (pointer:fine){
+
+  .navActions:hover .detailsPopover{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+  }
+
 }
 
 .popupList{
