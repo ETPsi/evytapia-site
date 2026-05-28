@@ -67,6 +67,7 @@
 	<link rel="stylesheet" href="base.css" />
 	<link rel="stylesheet" href="components.css" />
 	<link rel="stylesheet" href="responsive.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 	<!-- Evita que o header fixo tape o conteúdo -->
@@ -657,37 +658,42 @@
 		</footer>
 	</div><!-- wrap -->
 
+	<!-- Widget flutuante do WhatsApp -->
 	<div class="waWidget" id="waWidget">
+		<!-- Painel aberto do WhatsApp -->
 		<div class="waPanel" id="waPanel" aria-hidden="true">
+			
+			<!-- Cabeçalho do painel -->
 			<div class="waHeader">
-				<div class="waHeaderTitle">WhatsApp: +51 999 230 000</div>
+		  		<div class="waHeaderTitle">WhatsApp: +51 999 230 000</div>
+				<!-- Botão para fechar o painel -->
 				<button class="waClose" id="waClose" type="button" aria-label="Cerrar ventana de WhatsApp">
 					<span>×</span>
 				</button>
 			</div> <!-- waHeader -->
 	
+			<!-- Corpo do painel com mensagens iniciais -->
 			<div class="waBody">
 				<div class="waBubble">
-					Hola 👋, soy <strong>Evy Tapia</strong>.<br>Me alegra que estés aquí.
+					Hola 👋, soy <strong>Evy Tapia</strong>.<br>
+					Me alegra que estés aquí.
 				</div>
 				<div class="waBubble">
 					Cuéntame, ¿en qué puedo ayudarte?
 				</div>
+				<!-- Ação principal: abrir conversa no WhatsApp -->
 				<div class="waAction">
 					<a class="waSend" href="https://wa.me/51999230000?text=Hola%2C%20necesito%20m%C3%A1s%20informaci%C3%B3n%20sobre%20terapia." target="_blank" rel="noreferrer">
 						Abrir chat
-						<svg viewBox="0 0 24 24" aria-hidden="true">
-							<path d="M3 20l17-8L3 4v6l12 2-12 2z"></path>
-						</svg>
+						<i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
 					</a>
-				</div>
-			</div> <!-- waBody -->
+				</div> <!-- waAction -->
+			</div> <!-- waBody -->	
 		</div> <!-- waPanel -->
-	
+	  
+		<!-- Botão circular fixo que abre o painel -->
 		<button class="waToggle" id="waToggle" type="button" aria-label="Abrir WhatsApp" aria-expanded="false" aria-controls="waPanel" title="Escribir por WhatsApp">
-			<svg viewBox="0 0 32 32" aria-hidden="true">
-				<path d="M19.11 17.21c-.27-.13-1.58-.78-1.82-.87-.24-.09-.41-.13-.59.14-.17.27-.68.86-.83 1.04-.15.18-.3.2-.56.07-.27-.13-1.12-.41-2.14-1.3-.79-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.41.11-.54.12-.12.27-.3.41-.45.14-.15.18-.26.27-.43.09-.18.04-.33-.02-.46-.07-.13-.59-1.42-.81-1.95-.21-.5-.43-.43-.59-.44h-.5c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2 0 1.29.94 2.54 1.07 2.72.13.18 1.85 2.82 4.48 3.95.63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.06-.11-.24-.18-.5-.31zM16.27 27.2h-.01a11.1 11.1 0 0 1-5.65-1.55l-.4-.24-4.2 1.1 1.12-4.09-.26-.42a11.08 11.08 0 1 1 9.4 5.2zm9.44-20.48A13.38 13.38 0 0 0 16.28 2.8C8.94 2.8 2.98 8.76 2.98 16.1c0 2.35.61 4.64 1.78 6.66L2.8 29.2l6.6-1.73a13.29 13.29 0 0 0 6.87 1.89h.01c7.34 0 13.3-5.96 13.3-13.3 0-3.55-1.38-6.88-3.87-9.37z"/>
-			</svg>
+			<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 		</button>
 	</div> <!-- waWidget -->
 
