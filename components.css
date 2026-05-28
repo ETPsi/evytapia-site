@@ -14,7 +14,7 @@
 .siteHeader{
   position:fixed;
   top:0;
-  left:calc(var(--pageLeft) + var(--headerShift));  left:var(--pageLeft);
+  left:var(--pageLeft);
   right:auto;
   width:var(--pageWidth);
 
