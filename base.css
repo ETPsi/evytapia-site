@@ -16,6 +16,9 @@
   --radius: 20px;
 
   --max:1100px;
+  --pageGap:20px;
+  --pageWidth:min(var(--max), calc(100vw - (var(--pageGap) * 2)));
+  --pageLeft:max(var(--pageGap), calc((100vw - var(--max)) / 2));
 
   --btn:#7a3f63;
   --btnText:#ffffff;
