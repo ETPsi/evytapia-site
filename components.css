@@ -717,7 +717,8 @@ footer{
   position:relative;
   z-index:1;
 
-  width:min(calc(100% - 40px), calc(var(--max) - 40px));
+  width:min(var(--max), calc(100% - 40px));
+  max-width:none;
   margin:0 auto;
   padding:0;
 
