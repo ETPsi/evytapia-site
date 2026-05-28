@@ -26,10 +26,13 @@
     height:168px !important;
   }
 
+  .heroWide{
+    padding:44px 30px;
+  }
+
   .heroWideInner{
     grid-template-columns:260px minmax(0, 1fr);
     gap:40px;
-    padding:44px 30px;
   }
 
   .heroPhotoCircle{
@@ -87,11 +90,14 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .heroWide{
+    padding:38px 22px;
+  }
+
   .heroWideInner{
     grid-template-columns:1fr;
     gap:30px;
     text-align:center;
-    padding:38px 22px;
   }
 
   .heroWideTextCol{
@@ -204,7 +210,7 @@
     height:58px;
   }
 
-  .heroWideInner{
+  .heroWide{
     padding:30px 16px;
   }
 
