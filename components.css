@@ -585,9 +585,29 @@ h1{
   border-color: rgba(122,63,99,.26);
 }
 
-.contactItem:active{transform:scale(.995)}
-.contactItem small{color:var(--muted)}
-.arrow{opacity:.75; color: var(--accentDark);}
+.contactItem:active{
+  transform:scale(.995);
+}
+
+.contactItem small{
+  color:var(--muted);
+}
+
+.arrow{
+  opacity:.75;
+  color: var(--accentDark);
+}
+
+/* Ícone Font Awesome do WhatsApp na área de contacto */
+.contactWhatsappIcon{
+  font-size:20px;
+  line-height:1;
+  color:var(--wa);
+  display:block;
+  flex:0 0 20px;
+  width:20px;
+  text-align:center;
+}
 
 .conditionsWrap{
   display:grid;
