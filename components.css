@@ -1212,6 +1212,7 @@ footer{
   pointer-events:auto;
 }
 
+/* Botão circular flutuante do WhatsApp */
 .waToggle{
   width:60px;
   height:60px;
@@ -1233,22 +1234,19 @@ footer{
   box-shadow:0 20px 40px rgba(37, 211, 102, .40);
 }
 
-.waToggle:active{transform:scale(.97)}
-
-.waToggle svg{
-  width:30px !important;
-  height:30px !important;
-  min-width:30px;
-  min-height:30px;
-  display:block !important;
-  flex:0 0 30px !important;
+.waToggle:active{
+  transform:scale(.97);
 }
 
-.waToggle svg path{
-  fill:#fff !important;
-  stroke:none !important;
+/* Ícone principal do WhatsApp no botão flutuante */
+.waToggle i{
+  font-size:32px;
+  color:#fff;
+  line-height:1;
+  display:block;
 }
 
+/* Painel aberto do WhatsApp */
 .waPanel{
   width:340px;
   max-width:calc(100vw - 24px);
@@ -1268,6 +1266,7 @@ footer{
   pointer-events:auto;
 }
 
+/* Cabeçalho do painel */
 .waHeader{
   background:var(--wa);
   color:var(--waText);
@@ -1285,6 +1284,7 @@ footer{
   color:#fff;
 }
 
+/* Botão de fechar */
 .waClose{
   width:42px;
   height:42px;
@@ -1305,7 +1305,9 @@ footer{
   background:rgba(0,0,0,.26);
 }
 
-.waClose:active{transform:scale(.96)}
+.waClose:active{
+  transform:scale(.96);
+}
 
 .waClose span{
   font-size:28px;
@@ -1315,11 +1317,13 @@ footer{
   color:#fff;
 }
 
+/* Corpo do painel */
 .waBody{
   padding:18px;
   background:linear-gradient(180deg, #edf4ef 0%, #e6eeea 100%);
 }
 
+/* Balões de mensagem */
 .waBubble{
   position:relative;
   background:var(--waBubble);
@@ -1345,12 +1349,14 @@ footer{
   box-shadow:6px 6px 12px rgba(0,0,0,.03);
 }
 
+/* Área do botão de ação */
 .waAction{
   display:flex;
   justify-content:flex-start;
   margin-top:8px;
 }
 
+/* Botão "Abrir chat" */
 .waSend{
   display:inline-flex;
   align-items:center;
@@ -1374,18 +1380,14 @@ footer{
   box-shadow:0 16px 32px rgba(37, 211, 102, .34);
 }
 
-.waSend:active{transform:scale(.98)}
-
-.waSend svg{
-  width:24px !important;
-  height:24px !important;
-  min-width:24px;
-  min-height:24px;
-  flex:0 0 24px !important;
-  display:block !important;
+.waSend:active{
+  transform:scale(.98);
 }
 
-.waSend svg path{
-  fill:#fff !important;
-  stroke:none !important;
+/* Ícone do botão "Abrir chat" dentro do painel */
+.waSend i{
+  font-size:22px;
+  color:#fff;
+  line-height:1;
+  display:block;
 }
