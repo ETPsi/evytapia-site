@@ -18,7 +18,7 @@
   right:auto;
   transform:translateX(-50%);
 
-  width:min(var(--max), calc(100% - 40px));
+  width:min(calc(var(--max) - 40px), calc(100% - 40px));
 
   z-index:120;
   background:linear-gradient(180deg, rgba(247,241,247,.97), rgba(247,241,247,.93));
@@ -721,12 +721,10 @@ footer{
 .heroWideInner{
   position:relative;
   z-index:1;
-
   width:min(var(--max), calc(100% - 40px));
   max-width:none;
   margin:0 auto;
   padding:0;
-
   display:grid;
   grid-template-columns:320px minmax(0, 1fr);
   align-items:center;
