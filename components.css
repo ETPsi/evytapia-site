@@ -723,7 +723,9 @@ footer{
   width:var(--pageWidth);
   max-width:none;
   margin:0 auto;
-  padding:0;
+  padding-left:20px;
+  padding-right:20px;
+  box-sizing:border-box;
 
   display:grid;
   grid-template-columns:320px minmax(0, 1fr);
