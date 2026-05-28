@@ -299,7 +299,15 @@ svg.ico path, svg.ico rect, svg.ico circle, svg.ico line{
   visibility:hidden;
   transform:translateY(8px) scale(.98);
   transition:opacity .2s ease, transform .2s ease, visibility .2s ease;
-  z-index:80;
+  z-index:9999;
+}
+
+/* Permite que a caixa de detalhes apareça fora da barra/header */
+.siteHeader,
+.navRow,
+.navCta,
+.navActions{
+  overflow:visible;
 }
 
 .detailsPopover.isOpen{
