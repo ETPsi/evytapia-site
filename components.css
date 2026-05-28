@@ -685,13 +685,20 @@ footer{
 .heroWide{
   position:relative;
   overflow:hidden;
-  width:100%;
-  padding:42px 56px;
+
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+
+  padding:42px 0;
+
   background:
     linear-gradient(90deg, rgba(255,255,255,.14), rgba(255,255,255,.08)),
     #efe4f1;
-  border:1px solid rgba(122,63,99,.08);
-  border-radius:24px;
+
+  border-top:1px solid rgba(122,63,99,.08);
+  border-bottom:1px solid rgba(122,63,99,.08);
+  border-radius:0;
 }
 
 .heroWide::before{
@@ -709,10 +716,11 @@ footer{
 .heroWideInner{
   position:relative;
   z-index:1;
-  width:100%;
-  max-width:100%;
+
+  width:min(calc(100% - 40px), calc(var(--max) - 40px));
   margin:0 auto;
   padding:0;
+
   display:grid;
   grid-template-columns:320px minmax(0, 1fr);
   align-items:center;
