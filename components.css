@@ -754,9 +754,8 @@ footer{
   position:relative;
   overflow:hidden;
 
-  width:100vw;
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
+  width:100%;
+  margin:0;
 
   padding:42px 0;
 
@@ -764,9 +763,9 @@ footer{
     linear-gradient(90deg, rgba(255,255,255,.14), rgba(255,255,255,.08)),
     #efe4f1;
 
-  border-top:1px solid rgba(122,63,99,.08);
+  border-top:0;
   border-bottom:1px solid rgba(122,63,99,.08);
-  border-radius:0;
+  border-radius:24px 24px 0 0;
 }
 
 .heroWide::before{
@@ -785,11 +784,11 @@ footer{
   position:relative;
   z-index:1;
 
-  width:var(--pageWidth);
+  width:100%;
   max-width:none;
-  margin:0 auto;
-  padding-left:20px;
-  padding-right:20px;
+  margin:0;
+  padding-left:28px;
+  padding-right:28px;
   box-sizing:border-box;
 
   display:grid;
@@ -894,8 +893,8 @@ footer{
 
 .homeInner{
   width:100%;
-  max-width:var(--max);
-  margin:20px auto 20px;
+  max-width:none;
+  margin:20px 0 20px;
   padding:0;
 }
 
