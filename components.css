@@ -784,11 +784,12 @@ footer{
   position:relative;
   z-index:1;
 
-  width:100%;
+  width:var(--pageWidth);
   max-width:none;
-  margin:0;
-  padding-left:28px;
-  padding-right:28px;
+  margin-left:var(--pageLeft);
+  margin-right:auto;
+  padding-left:20px;
+  padding-right:20px;
   box-sizing:border-box;
 
   display:grid;
