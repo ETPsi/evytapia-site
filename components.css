@@ -1456,3 +1456,42 @@ footer{
   line-height:1;
   display:block;
 }
+
+/* =========================================================
+   CORREÇÃO DE ALINHAMENTO — APENAS TAB INÍCIO
+   Mantém o header/nav/wrap iguais às restantes páginas.
+   Corrige o hero da página inicial, que antes usava 100vw
+   e podia criar deslocamento visual em relação ao menu.
+========================================================= */
+
+#tab-inicio{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+/* 
+   A página Início está dentro do .wrap, que tem padding lateral de 20px.
+   Por isso o hero precisa de compensar esses 20px de cada lado para alinhar
+   com a largura visual do header, sem mexer nas outras tabs.
+*/
+#tab-inicio .heroWide{
+  width:calc(100% + 40px);
+  margin-left:-20px;
+  margin-right:-20px;
+}
+
+/*
+   O conteúdo interno do hero deixa de se recentrar com 100vw/pageWidth.
+   Agora ocupa exatamente a largura corrigida do hero e mantém o mesmo
+   padding interno de 20px usado no header/nav.
+*/
+#tab-inicio .heroWideInner{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding-left:20px;
+  padding-right:20px;
+  box-sizing:border-box;
+}
+
