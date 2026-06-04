@@ -81,6 +81,12 @@
 
 .brand small{color:var(--muted)}
 
+.mobileMenuToggle,
+.mobileMenuPanel{
+  display:none;
+}
+
+
 .ico, .iconSvg{
   width:18px;
   height:18px;
