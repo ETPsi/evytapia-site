@@ -1,0 +1,9 @@
+Backup reference before correcting responsive.css for the mobile/tablet menu.
+
+Repository: ETPsi/evytapia-site
+Branch: main
+Previous state identified from GitHub code search/ref: cfaf33eb45ee256e1faebe3ca0204333297966ec
+Affected file before correction: responsive.css
+Observed issue: responsive.css contained component/base header styles starting with `.wrap{...}` instead of the expected responsive media queries.
+
+This file was created before replacing responsive.css with the corrected responsive stylesheet for the mobile/tablet hamburger menu.
