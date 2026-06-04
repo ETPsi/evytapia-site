@@ -78,6 +78,11 @@
 		<header class="siteHeader" id="siteHeader">
 			<!-- Marca / identidade -->
 			<div class="top" id="siteTop">
+				<button class="mobileMenuToggle mobileMenuToggleTop" id="mobileMenuToggleTop" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenuPanel">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
 				<div class="brand">
 					<img class="avatar" src="images/evy-avatar.jpg" alt="Foto de perfil de Evy Tapia, psicóloga clínica" />
 					<div>
@@ -99,12 +104,17 @@
 		
 				<div class="navCta">
 					<div class="navActions" id="detailsWrap">
+						<button class="mobileMenuToggle mobileMenuToggleCompact" id="mobileMenuToggleCompact" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenuPanel">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
 		            	<a class="btn btnPrimary btnTopCta" href="https://wa.me/51999230000?text=Hola%2C%20quiero%20agendar%20mi%20primera%20sesi%C3%B3n." target="_blank" rel="noreferrer"	aria-label="Agendar mi primera sesión por WhatsApp">
 							Agendar mi primera sesión
 							<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 						</a>
 		            	<button class="btn btnDetails" id="detailsToggle" type="button" aria-expanded="false" aria-controls="detailsPopover">
-							Detalles
+							<span class="detailsLabel">Detalles</span>
 							<span class="detailsArrow">▽</span>
 		            	</button>
 						<div class="detailsPopover" id="detailsPopover" aria-hidden="true">
@@ -139,6 +149,14 @@
 					</div>
 				</div>
 			</div>
+
+			<nav class="mobileMenuPanel" id="mobileMenuPanel" aria-label="Menú móvil" aria-hidden="true">
+				<button class="mobileMenuItem isActive" data-mobile-tab="inicio" type="button">Inicio</button>
+				<button class="mobileMenuItem" data-mobile-tab="formacion" type="button">Mi formación</button>
+				<button class="mobileMenuItem" data-mobile-tab="sobre" type="button">Sobre mí</button>
+				<button class="mobileMenuItem" data-mobile-tab="trabajar" type="button">Podemos trabajar en</button>
+				<button class="mobileMenuItem" data-mobile-tab="contacto" type="button">Contacto</button>
+			</nav>
 		</header>
 		<!-- Estrutura principal das secções -->
 		<div class="grid">
@@ -733,6 +751,7 @@
 		
 		function setActive(name){
 		  tabs.forEach(t => t.classList.toggle("isActive", t.dataset.tab === name));
+		  document.querySelectorAll(".mobileMenuItem").forEach(item => item.classList.toggle("isActive", item.dataset.mobileTab === name));
 		  Object.keys(panels).forEach(k => panels[k].classList.toggle("isActive", k === name));
 		}
 		
@@ -850,6 +869,54 @@
 		
 		const siteHeader = document.getElementById("siteHeader");
 		const headerSpacer = document.getElementById("headerSpacer");
+		const mobileMenuPanel = document.getElementById("mobileMenuPanel");
+		const mobileMenuToggles = document.querySelectorAll(".mobileMenuToggle");
+		const mobileMenuItems = document.querySelectorAll(".mobileMenuItem");
+		const mobileBreakpoint = window.matchMedia("(max-width: 860px)");
+		
+		function setMobileMenuState(isOpen){
+		  siteHeader.classList.toggle("mobileMenuOpen", isOpen);
+		  mobileMenuToggles.forEach(toggle => {
+			toggle.classList.toggle("isOpen", isOpen);
+			toggle.setAttribute("aria-expanded", String(isOpen));
+		  });
+		  if(mobileMenuPanel){
+			mobileMenuPanel.setAttribute("aria-hidden", String(!isOpen));
+		  }
+		  syncHeaderHeight();
+		}
+		
+		function toggleMobileMenu(e){
+		  e.stopPropagation();
+		  if(!mobileBreakpoint.matches) return;
+		  setMobileMenuState(!siteHeader.classList.contains("mobileMenuOpen"));
+		}
+		
+		mobileMenuToggles.forEach(toggle => {
+		  toggle.addEventListener("click", toggleMobileMenu);
+		});
+		
+		mobileMenuItems.forEach(item => {
+		  item.addEventListener("click", () => {
+			const name = item.dataset.mobileTab;
+			setActive(name);
+			location.hash = name;
+			setMobileMenuState(false);
+		  });
+		});
+		
+		document.addEventListener("click", function(e){
+		  if(mobileBreakpoint.matches && !siteHeader.contains(e.target)){
+			setMobileMenuState(false);
+		  }
+		});
+		
+		mobileBreakpoint.addEventListener("change", function(e){
+		  if(!e.matches){
+			setMobileMenuState(false);
+		  }
+		});
+
 		
 		function syncHeaderHeight(){
 		  headerSpacer.style.height = siteHeader.offsetHeight + "px";
@@ -857,9 +924,10 @@
 		
 		function updateStickyHeader(){
 		  if(window.scrollY > 40){
-			siteHeader.classList.add("isCompact");
+			siteHeader.classList.add("isCompact", "is-scrolled");
 		  }else{
-			siteHeader.classList.remove("isCompact");
+			siteHeader.classList.remove("isCompact", "is-scrolled");
+			setMobileMenuState(false);
 		  }
 		  syncHeaderHeight();
 		}
