@@ -1467,39 +1467,40 @@ footer{
 @media (min-width: 861px){
   .homeInfoCardProcess{
     margin-top:18px;
-    padding:26px 178px 26px 30px;
+    padding:26px 30px 26px 178px;
     text-align:left;
   }
-
-  .homeInfoCardProcess::before{
-    left:auto;
-    right:30px;
-  }
-
-  .homeInfoCardProcess::after{
-    left:auto;
-    right:55px;
-    background-image:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:"Font Awesome 6 Free";
-    font-weight:900;
-    content:"\f0c0";
-    font-size:38px;
-    line-height:1;
-    color:#834a70;
-  }
-
-  .homeInfoCardProcess h2,
-  .homeInfoCardProcess p{
-    margin-left:0;
-    margin-right:auto;
-    text-align:left;
-  }
-
-  .homeInfoCardProcess p + p{
-    margin-top:16px;
+  
+    .homeInfoCardProcess::before{
+      left:30px;
+      right:auto;
+    }
+  
+    .homeInfoCardProcess::after{
+      left:55px;
+      right:auto;
+      background-image:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:"Font Awesome 6 Free";
+      font-weight:900;
+      content:"\f0c0";
+      font-size:38px;
+      line-height:1;
+      color:#834a70;
+    }
+  
+    .homeInfoCardProcess h2,
+    .homeInfoCardProcess p{
+      margin-left:0;
+      margin-right:auto;
+      text-align:left;
+    }
+  
+    .homeInfoCardProcess p + p{
+      margin-top:16px;
+    }
   }
 }
 
