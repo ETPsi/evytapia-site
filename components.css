@@ -1484,7 +1484,8 @@ footer{
 
   .homeInfoCardProcess h2,
   .homeInfoCardProcess p{
-    margin-left:auto;
+    margin-left:0;
+    margin-right:auto;
     text-align:left;
   }
 
