@@ -1,0 +1,143 @@
+name: Apply team process card
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  apply-card:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Apply structured site changes
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          index_path = Path('index.html')
+          components_path = Path('components.css')
+          responsive_path = Path('responsive.css')
+          workflow_path = Path('.github/workflows/apply-team-card.yml')
+
+          index = index_path.read_text(encoding='utf-8')
+          if 'homeInfoCardProcess' not in index:
+              marker = '\t\t\t\t\t</section>\n\t\t\t\t</div>\n\t\t\t\t<!-- Bloco de avaliações do Google -->'
+              insert = '''\t\t\t\t\t</section>
+
+\t\t\t\t\t<section class="section homeInfoCard homeInfoCardProcess">
+\t\t\t\t\t\t<h2>Sobre tu proceso</h2>
+\t\t\t\t\t\t<p>
+\t\t\t\t\t\t\tEste espacio ha crecido con el propósito de ofrecer una atención psicológica online seria, cercana y basada en evidencia. Actualmente cuento con un equipo de psicólogas y psicoterapeutas que trabajan de manera articulada conmigo, reciben supervisión continua y comparten una misma línea de trabajo ética y profesional.
+\t\t\t\t\t\t</p>
+\t\t\t\t\t\t<p>
+\t\t\t\t\t\t\tAl iniciar tu proceso, la atención puede ser realizada por mí o por una profesional miembro del equipo, según el motivo de consulta, la disponibilidad y las necesidades de cada caso.
+\t\t\t\t\t\t</p>
+\t\t\t\t\t</section>
+\t\t\t\t</div>
+\t\t\t\t<!-- Bloco de avaliações do Google -->'''
+              if marker not in index:
+                  raise SystemExit('No se encontró el bloque homeInner esperado en index.html')
+              index = index.replace(marker, insert, 1)
+              index_path.write_text(index, encoding='utf-8')
+
+          components = components_path.read_text(encoding='utf-8')
+          component_css = '''
+
+/* =========================================================
+   CARD COMPLEMENTARIO: SOBRE TU PROCESO
+========================================================= */
+
+.homeInfoCardProcess{
+  margin-top:18px;
+  padding:26px 178px 26px 30px;
+  text-align:right;
+}
+
+.homeInfoCardProcess::before{
+  left:auto;
+  right:30px;
+}
+
+.homeInfoCardProcess::after{
+  left:auto;
+  right:55px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23834a70' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='24' cy='24' r='8'/><path d='M12 46c3.5-7 20.5-7 24 0'/><circle cx='43' cy='23' r='6'/><path d='M38 43c3-4.5 11-4.5 14 0'/><path d='M32 15c3-5 12-5 15 0'/></svg>");
+}
+
+.homeInfoCardProcess h2,
+.homeInfoCardProcess p{
+  margin-left:auto;
+  text-align:right;
+}
+
+.homeInfoCardProcess p + p{
+  margin-top:16px;
+}
+'''
+          if 'CARD COMPLEMENTARIO: SOBRE TU PROCESO' not in components:
+              components_path.write_text(components.rstrip() + component_css + '\n', encoding='utf-8')
+
+          responsive = responsive_path.read_text(encoding='utf-8')
+          responsive_css = '''
+
+/* Card Sobre tu proceso en móviles */
+@media (max-width: 860px){
+  .homeInfoCardProcess{
+    padding:132px 24px 28px;
+    text-align:center;
+  }
+
+  .homeInfoCardProcess::before{
+    left:50%;
+    right:auto;
+    top:34px;
+    transform:translateX(-50%);
+  }
+
+  .homeInfoCardProcess::after{
+    left:50%;
+    right:auto;
+    top:55px;
+    transform:translateX(-50%);
+  }
+
+  .homeInfoCardProcess h2,
+  .homeInfoCardProcess p{
+    margin-left:0;
+    text-align:center;
+  }
+}
+
+@media (max-width: 520px){
+  .homeInfoCardProcess{
+    padding:126px 18px 24px;
+  }
+}
+'''
+          if 'Card Sobre tu proceso en móviles' not in responsive:
+              responsive_path.write_text(responsive.rstrip() + responsive_css + '\n', encoding='utf-8')
+
+          if workflow_path.exists():
+              workflow_path.unlink()
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html components.css responsive.css .github/workflows/apply-team-card.yml
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add Sobre tu proceso card"
+            git push
+          fi
