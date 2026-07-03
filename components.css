@@ -1468,7 +1468,7 @@ footer{
   .homeInfoCardProcess{
     margin-top:18px;
     padding:26px 178px 26px 30px;
-    text-align:right;
+    text-align:left;
   }
 
   .homeInfoCardProcess::before{
@@ -1485,7 +1485,7 @@ footer{
   .homeInfoCardProcess h2,
   .homeInfoCardProcess p{
     margin-left:auto;
-    text-align:right;
+    text-align:left;
   }
 
   .homeInfoCardProcess p + p{
