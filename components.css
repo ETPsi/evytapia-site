@@ -1459,3 +1459,37 @@ footer{
   line-height:1;
   display:block;
 }
+
+/* =========================================================
+   CARD COMPLEMENTARIO: SOBRE TU PROCESO
+========================================================= */
+
+@media (min-width: 861px){
+  .homeInfoCardProcess{
+    margin-top:18px;
+    padding:26px 178px 26px 30px;
+    text-align:right;
+  }
+
+  .homeInfoCardProcess::before{
+    left:auto;
+    right:30px;
+  }
+
+  .homeInfoCardProcess::after{
+    left:auto;
+    right:55px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23834a70' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='24' cy='24' r='8'/><path d='M12 46c3.5-7 20.5-7 24 0'/><circle cx='43' cy='23' r='6'/><path d='M38 43c3-4.5 11-4.5 14 0'/><path d='M32 15c3-5 12-5 15 0'/></svg>");
+  }
+
+  .homeInfoCardProcess h2,
+  .homeInfoCardProcess p{
+    margin-left:auto;
+    text-align:right;
+  }
+
+  .homeInfoCardProcess p + p{
+    margin-top:16px;
+  }
+}
+
