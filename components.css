@@ -1483,12 +1483,12 @@ footer{
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#834a70;
     font-family:"Font Awesome 6 Free";
     font-weight:900;
     content:"\f0c0";
     font-size:38px;
     line-height:1;
+    color:#834a70;
   }
 
   .homeInfoCardProcess h2,
