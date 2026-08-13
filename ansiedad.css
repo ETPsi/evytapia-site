@@ -973,28 +973,30 @@ h1 {
 
 
 /* =========================================================
-   FOTO HERO
+   HERO - IMAGEM REPRESENTATIVA
+   Foto frontal + cartão decorativo bege atrás
    ========================================================= */
 
 .portrait-wrap {
-  position:relative;
-
-  min-height:540px;
-
-  display:grid;
-
-  place-items:center;
-
-  isolation:isolate;
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 34px 42px 18px;
 }
 
+/* Card decorativo atrás da fotografia */
 .shape {
-  position:absolute;
+  position: absolute;
 
-  inset:
-    5% 0 1% 7%;
+  width: 82%;
+  height: 88%;
 
-  border-radius:38px;
+  right: 2%;
+  bottom: 2%;
+
+  border-radius: 46px;
 
   background:
     linear-gradient(
@@ -1004,82 +1006,157 @@ h1 {
       #c9aba4
     );
 
-  transform:
-    rotate(2deg);
+  transform: rotate(3deg);
 
-  opacity:.58;
-
-  z-index:0;
-}
-
-.portrait {
-  position:relative;
-
-  z-index:1;
-
-  display:block;
-
-  width:
-    min(500px,100%);
-
-  aspect-ratio:
-    4 / 5;
-
-  object-fit:cover;
-
-  object-position:center;
-
-  border-radius:34px;
+  opacity: .82;
 
   box-shadow:
-    var(--shadow);
+    0 20px 45px rgba(61,48,52,.10);
+
+  z-index: 0;
+}
+
+/* Fotografia principal */
+.portrait {
+  position: relative;
+
+  z-index: 1;
+
+  width: 88%;
+  max-width: 455px;
+
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+  object-position: center center;
+
+  border-radius: 42px;
+
+  box-shadow:
+    0 22px 55px rgba(61,48,52,.16);
 
   filter:
-    saturate(.88)
+    saturate(.92)
     contrast(.98);
+
+  margin-right: auto;
 }
 
+/* Crédito da fotografia */
 .image-credit {
-  position:absolute;
+  position: absolute;
 
-  z-index:2;
+  z-index: 2;
 
-  top:28px;
-  left:22px;
+  top: 45px;
+  left: 38px;
 
-  max-width:
-    calc(100% - 44px);
+  padding: 8px 14px;
 
-  padding:
-    9px 13px;
+  border-radius: 999px;
 
-  border:
-    1px solid
-    rgba(61,48,52,.10);
+  background: rgba(255,253,249,.92);
 
-  border-radius:999px;
+  border: 1px solid rgba(61,48,52,.10);
 
-  background:
-    rgba(255,253,249,.92);
+  color: var(--muted);
 
-  color:
-    var(--muted);
+  font-size: 12px;
 
-  font-size:12px;
-
-  line-height:1.25;
+  backdrop-filter: blur(7px);
 
   box-shadow:
-    0 8px 24px
-    rgba(61,48,52,.08);
-
-  backdrop-filter:
-    blur(8px);
-
-  -webkit-backdrop-filter:
-    blur(8px);
+    0 5px 18px rgba(61,48,52,.07);
 }
 
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .portrait-wrap {
+    min-height: 500px;
+    max-width: 560px;
+    margin: 20px auto 0;
+    padding: 26px 38px 44px 18px;
+  }
+
+  .portrait {
+    width: 87%;
+    max-width: 430px;
+  }
+
+  .shape {
+    width: 82%;
+    height: 87%;
+    right: 3%;
+    bottom: 2%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .portrait-wrap {
+    min-height: auto;
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding:
+      18px
+      24px
+      34px
+      6px;
+  }
+
+  .portrait {
+    width: 91%;
+    max-width: none;
+
+    aspect-ratio: 4 / 5;
+
+    border-radius: 30px;
+
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .shape {
+    width: 87%;
+    height: 88%;
+
+    right: 1px;
+    bottom: 3px;
+
+    border-radius: 34px;
+
+    transform: rotate(2.5deg);
+  }
+
+  .image-credit {
+    top: 32px;
+    left: 20px;
+
+    max-width: calc(100% - 60px);
+
+    padding: 7px 11px;
+
+    font-size: 11px;
+
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+}
 
 /* =========================================================
    SECÇÕES
