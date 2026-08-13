@@ -10,8 +10,8 @@
   const WHATSAPP_NUMBER = "51999230000";
 
   /*
-   * Podemos adicionar aqui mensagens diferentes
-   * para futuras landing pages.
+   * Configuração específica por página.
+   * Podemos adicionar futuras landing pages aqui.
    */
   const PAGE_CONFIG = {
     default: {
@@ -46,14 +46,15 @@
     const container =
       document.getElementById("header-container");
 
+
     /*
-     * Se a página ainda não tiver:
+     * Todas as páginas que utilizem este header
+     * precisam de:
      *
      * <div id="header-container"></div>
-     *
-     * não fazemos nada.
      */
     if (!container) {
+
       console.warn(
         'Header: não foi encontrado "#header-container".'
       );
@@ -64,15 +65,18 @@
 
     try {
 
-      const response = await fetch(HEADER_URL, {
-        cache: "no-cache"
-      });
+      const response =
+        await fetch(HEADER_URL, {
+          cache: "no-cache"
+        });
 
 
       if (!response.ok) {
+
         throw new Error(
           `Erro HTTP ${response.status}`
         );
+
       }
 
 
@@ -107,29 +111,63 @@
     const siteHeader =
       document.getElementById("siteHeader");
 
-    const headerSpacer =
-      document.getElementById("headerSpacer");
 
     const mobileMenuPanel =
       document.getElementById("mobileMenuPanel");
 
+
     const mobileMenuToggleTop =
       document.getElementById("mobileMenuToggleTop");
+
 
     const mobileMenuToggleCompact =
       document.getElementById("mobileMenuToggleCompact");
 
+
+    const mobileMenuToggles = [
+      mobileMenuToggleTop,
+      mobileMenuToggleCompact
+    ].filter(Boolean);
+
+
     const detailsWrap =
       document.getElementById("detailsWrap");
 
+
     const detailsToggle =
       document.getElementById("detailsToggle");
+
 
     const detailsPopover =
       document.getElementById("detailsPopover");
 
 
+    /*
+     * Breakpoint utilizado pelo menu mobile.
+     * Deve coincidir com o breakpoint do CSS.
+     */
+    const mobileBreakpoint =
+      window.matchMedia(
+        "(max-width: 860px)"
+      );
+
+
+    /*
+     * Permite hover apenas em computadores
+     * com rato/trackpad.
+     */
+    const desktopHover =
+      window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      );
+
+
     if (!siteHeader) {
+
+      console.warn(
+        'Header: não foi encontrado "#siteHeader".'
+      );
+
       return;
     }
 
@@ -148,15 +186,17 @@
     updateActiveNavigation();
 
 
-    /* -------------------------------------------------------
+    /* =======================================================
        MENU MOBILE
-    -------------------------------------------------------- */
+    ======================================================== */
 
     function isMobileMenuOpen() {
 
-      return (
+      return Boolean(
         mobileMenuPanel &&
-        mobileMenuPanel.classList.contains("isOpen")
+        mobileMenuPanel.classList.contains(
+          "isOpen"
+        )
       );
 
     }
@@ -164,33 +204,29 @@
 
     function openMobileMenu() {
 
-      if (!mobileMenuPanel) {
+      if (
+        !mobileMenuPanel ||
+        !mobileBreakpoint.matches
+      ) {
         return;
       }
 
 
       /*
-       * Fecha Detalles antes de abrir menu.
+       * Não queremos Detalles e menu
+       * abertos ao mesmo tempo.
        */
       closeDetails();
 
 
-      mobileMenuPanel.classList.add("isOpen");
+      mobileMenuPanel.classList.add(
+        "isOpen"
+      );
+
 
       mobileMenuPanel.setAttribute(
         "aria-hidden",
         "false"
-      );
-
-
-      mobileMenuToggleTop?.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-      mobileMenuToggleCompact?.setAttribute(
-        "aria-expanded",
-        "true"
       );
 
 
@@ -199,7 +235,20 @@
       );
 
 
-      updateSpacerHeight();
+      mobileMenuToggles.forEach(
+        (toggle) => {
+
+          toggle.classList.add(
+            "isOpen"
+          );
+
+          toggle.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+        }
+      );
 
     }
 
@@ -215,20 +264,10 @@
         "isOpen"
       );
 
+
       mobileMenuPanel.setAttribute(
         "aria-hidden",
         "true"
-      );
-
-
-      mobileMenuToggleTop?.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      mobileMenuToggleCompact?.setAttribute(
-        "aria-expanded",
-        "false"
       );
 
 
@@ -237,7 +276,20 @@
       );
 
 
-      updateSpacerHeight();
+      mobileMenuToggles.forEach(
+        (toggle) => {
+
+          toggle.classList.remove(
+            "isOpen"
+          );
+
+          toggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+      );
 
     }
 
@@ -245,8 +297,12 @@
     function toggleMobileMenu(event) {
 
       event?.preventDefault();
-
       event?.stopPropagation();
+
+
+      if (!mobileBreakpoint.matches) {
+        return;
+      }
 
 
       if (isMobileMenuOpen()) {
@@ -262,26 +318,32 @@
     }
 
 
-    mobileMenuToggleTop?.addEventListener(
-      "click",
-      toggleMobileMenu
-    );
+    /*
+     * Botões hambúrguer.
+     */
+    mobileMenuToggles.forEach(
+      (toggle) => {
 
+        toggle.addEventListener(
+          "click",
+          toggleMobileMenu
+        );
 
-    mobileMenuToggleCompact?.addEventListener(
-      "click",
-      toggleMobileMenu
+      }
     );
 
 
     /*
-     * Fecha menu depois de escolher uma opção.
+     * Fecha o menu depois de clicar
+     * numa opção.
      */
     mobileMenuPanel
-      ?.querySelectorAll("a")
-      .forEach((link) => {
+      ?.querySelectorAll(
+        ".mobileMenuItem"
+      )
+      .forEach((item) => {
 
-        link.addEventListener(
+        item.addEventListener(
           "click",
           () => {
 
@@ -299,9 +361,11 @@
 
     function isDetailsOpen() {
 
-      return (
+      return Boolean(
         detailsPopover &&
-        detailsPopover.classList.contains("isOpen")
+        detailsPopover.classList.contains(
+          "isOpen"
+        )
       );
 
     }
@@ -318,8 +382,7 @@
 
 
       /*
-       * Evita menu mobile e Detalles
-       * abertos ao mesmo tempo.
+       * Fecha o menu mobile.
        */
       closeMobileMenu();
 
@@ -328,20 +391,21 @@
         "isOpen"
       );
 
+
       detailsPopover.setAttribute(
         "aria-hidden",
         "false"
       );
 
 
-      detailsToggle.setAttribute(
-        "aria-expanded",
-        "true"
+      detailsToggle.classList.add(
+        "isOpen"
       );
 
 
-      detailsToggle.classList.add(
-        "isOpen"
+      detailsToggle.setAttribute(
+        "aria-expanded",
+        "true"
       );
 
 
@@ -352,7 +416,9 @@
 
 
       if (arrow) {
+
         arrow.textContent = "△";
+
       }
 
     }
@@ -372,20 +438,21 @@
         "isOpen"
       );
 
+
       detailsPopover.setAttribute(
         "aria-hidden",
         "true"
       );
 
 
-      detailsToggle.setAttribute(
-        "aria-expanded",
-        "false"
+      detailsToggle.classList.remove(
+        "isOpen"
       );
 
 
-      detailsToggle.classList.remove(
-        "isOpen"
+      detailsToggle.setAttribute(
+        "aria-expanded",
+        "false"
       );
 
 
@@ -396,7 +463,9 @@
 
 
       if (arrow) {
+
         arrow.textContent = "▽";
+
       }
 
     }
@@ -404,9 +473,8 @@
 
     function toggleDetails(event) {
 
-      event.preventDefault();
-
-      event.stopPropagation();
+      event?.preventDefault();
+      event?.stopPropagation();
 
 
       if (isDetailsOpen()) {
@@ -422,15 +490,58 @@
     }
 
 
+    /*
+     * Em telemóvel/tablet:
+     * abre através de clique.
+     */
     detailsToggle?.addEventListener(
       "click",
-      toggleDetails
+      (event) => {
+
+        /*
+         * Em computadores com hover,
+         * continuamos a permitir clique,
+         * mas o hover também funciona.
+         */
+        toggleDetails(event);
+
+      }
     );
 
 
     /*
-     * Evita que clicar dentro do popover
-     * o feche imediatamente.
+     * Em desktop:
+     * abre também quando o rato entra
+     * na zona do botão.
+     */
+    if (
+      desktopHover.matches &&
+      detailsWrap
+    ) {
+
+      detailsWrap.addEventListener(
+        "mouseenter",
+        openDetails
+      );
+
+
+      detailsWrap.addEventListener(
+        "mouseleave",
+        closeDetails
+      );
+
+
+      detailsToggle?.addEventListener(
+        "focus",
+        openDetails
+      );
+
+    }
+
+
+    /*
+     * Clicar dentro do popover
+     * não deve fechá-lo.
      */
     detailsPopover?.addEventListener(
       "click",
@@ -450,7 +561,9 @@
       "click",
       (event) => {
 
-        const target = event.target;
+        const target =
+          event.target;
+
 
         if (!(target instanceof Node)) {
           return;
@@ -458,7 +571,7 @@
 
 
         /*
-         * Fecha Detalles se clicar fora.
+         * Fecha Detalles ao clicar fora.
          */
         if (
           isDetailsOpen() &&
@@ -472,7 +585,8 @@
 
 
         /*
-         * Fecha menu mobile se clicar fora.
+         * Fecha menu mobile
+         * ao clicar fora do header.
          */
         if (
           isMobileMenuOpen() &&
@@ -500,9 +614,8 @@
         }
 
 
-        closeDetails();
-
         closeMobileMenu();
+        closeDetails();
 
       }
     );
@@ -512,52 +625,53 @@
        HEADER COMPACTO AO FAZER SCROLL
     ======================================================== */
 
-    let lastCompactState = null;
+    let compactState = null;
 
 
     function updateCompactHeader() {
 
-      /*
-       * Ponto a partir do qual o header encolhe.
-       */
       const shouldCompact =
-        window.scrollY > 45;
+        window.scrollY > 40;
 
 
       /*
-       * Evita manipular classes desnecessariamente
-       * a cada pixel de scroll.
+       * Só altera o DOM quando realmente
+       * muda de estado.
        */
       if (
-        shouldCompact ===
-        lastCompactState
+        compactState === shouldCompact
       ) {
         return;
       }
 
 
-      lastCompactState =
+      compactState =
         shouldCompact;
 
 
+      /*
+       * Mantemos as duas classes para
+       * compatibilidade com o CSS antigo
+       * da página principal.
+       */
       siteHeader.classList.toggle(
         "isCompact",
         shouldCompact
       );
 
 
-      /*
-       * Fechamos os elementos flutuantes
-       * durante a mudança de estado.
-       */
-      closeDetails();
-
-      closeMobileMenu();
-
-
-      requestAnimationFrame(
-        updateSpacerHeight
+      siteHeader.classList.toggle(
+        "is-scrolled",
+        shouldCompact
       );
+
+
+      /*
+       * Fecha menus quando ocorre
+       * a transição normal -> compacto.
+       */
+      closeMobileMenu();
+      closeDetails();
 
     }
 
@@ -572,78 +686,101 @@
 
 
     /* =======================================================
-       ALTURA DO HEADER / SPACER
+       ALTERAÇÃO DE TAMANHO / ORIENTAÇÃO
     ======================================================== */
 
-    function updateSpacerHeight() {
+    function handleResize() {
 
-      if (!headerSpacer) {
-        return;
+      /*
+       * Se deixarmos de estar em mobile,
+       * garantimos que o painel não fica
+       * artificialmente aberto.
+       */
+      if (!mobileBreakpoint.matches) {
+
+        closeMobileMenu();
+
       }
 
 
-      /*
-       * O header está fixed, por isso o spacer
-       * ocupa exatamente o espaço necessário
-       * antes do conteúdo da página.
-       */
-      const headerHeight =
-        siteHeader.offsetHeight;
-
-
-      headerSpacer.style.height =
-        `${headerHeight}px`;
+      closeDetails();
 
     }
 
 
-    /*
-     * Atualiza também se o browser/mobile
-     * mudar a largura.
-     */
     window.addEventListener(
       "resize",
-      () => {
-
-        closeDetails();
-
-        closeMobileMenu();
-
-        updateSpacerHeight();
-
-      }
+      handleResize
     );
 
 
     /*
-     * ResizeObserver é especialmente útil
-     * quando o header muda de tamanho
-     * entre normal e compacto.
+     * Mudança direta do breakpoint.
      */
-    if ("ResizeObserver" in window) {
+    const handleBreakpointChange =
+      (event) => {
 
-      const resizeObserver =
-        new ResizeObserver(() => {
+        if (!event.matches) {
 
-          updateSpacerHeight();
+          closeMobileMenu();
 
-        });
+        }
+
+      };
 
 
-      resizeObserver.observe(
-        siteHeader
+    /*
+     * Browsers modernos.
+     */
+    if (
+      typeof mobileBreakpoint.addEventListener ===
+      "function"
+    ) {
+
+      mobileBreakpoint.addEventListener(
+        "change",
+        handleBreakpointChange
+      );
+
+    } else {
+
+      /*
+       * Compatibilidade com browsers antigos.
+       */
+      mobileBreakpoint.addListener(
+        handleBreakpointChange
       );
 
     }
 
 
     /* =======================================================
+       MUDANÇA DE HASH
+    ======================================================== */
+
+    window.addEventListener(
+      "hashchange",
+      updateActiveNavigation
+    );
+
+
+    /* =======================================================
        ESTADO INICIAL
     ======================================================== */
 
-    updateCompactHeader();
+    /*
+     * Muito importante:
+     * o menu começa SEMPRE fechado.
+     */
+    closeMobileMenu();
+    closeDetails();
 
-    updateSpacerHeight();
+
+    /*
+     * Verifica se a página já foi aberta
+     * numa posição de scroll mais baixa.
+     */
+    updateCompactHeader();
 
   }
 
@@ -665,14 +802,18 @@
 
 
     /*
-     * Funciona tanto com:
+     * Landing de ansiedade.
      *
+     * Funciona:
      * /ansiedad
+     * /ansiedad/
      * /ansiedad.html
      */
     if (
       pathname === "/ansiedad" ||
-      pathname.endsWith("/ansiedad.html")
+      pathname.endsWith(
+        "/ansiedad.html"
+      )
     ) {
 
       config =
@@ -732,16 +873,19 @@
 
     const pathname =
       window.location.pathname
-        .toLowerCase();
+        .toLowerCase()
+        .replace(/\/+$/, "");
 
 
     const hash =
       window.location.hash
-        .replace("#", "");
+        .replace("#", "")
+        .toLowerCase();
 
 
     /*
-     * Remove primeiro qualquer estado anterior.
+     * Primeiro retiramos qualquer
+     * estado ativo anterior.
      */
     document
       .querySelectorAll(
@@ -757,14 +901,18 @@
 
 
     /*
-     * Nas landing pages, como /ansiedad,
-     * não marcamos nenhum item como ativo,
-     * porque o utilizador não está numa secção
-     * da homepage.
+     * Só marcamos uma tab como ativa
+     * quando estamos na homepage.
+     *
+     * Em /ansiedad não fica nenhuma
+     * opção falsamente selecionada.
      */
     const isHomepage =
+      pathname === "" ||
       pathname === "/" ||
-      pathname.endsWith("/index.html");
+      pathname.endsWith(
+        "/index.html"
+      );
 
 
     if (!isHomepage) {
@@ -772,6 +920,10 @@
     }
 
 
+    /*
+     * Se não existir hash:
+     * Inicio é a secção ativa.
+     */
     const activeTab =
       hash || "inicio";
 
