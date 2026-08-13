@@ -637,231 +637,505 @@
 		</button>
 	</div> <!-- waWidget -->
 
-	<script>
-		let currentIndex = 0;
-		const track = document.getElementById('testimonialTrack');
-		
-		function startAutoScroll() {
-		setInterval(() => {
-		  const cards = document.querySelectorAll('.testimonial-card');
-		  const cardsVisible = window.innerWidth > 768 ? 3 : 1;
-		  const maxIndex = cards.length - cardsVisible;
-		
-		  currentIndex++;
-		  if (currentIndex > maxIndex) {
-			currentIndex = 0;
-		  }
-		
-		  const cardWidth = cards[0].offsetWidth + 15; // Largura + gap
-		  track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-		}, 10000);
-		}
-		
-		// Inicia quando a página carregar
-		window.onload = startAutoScroll;
-	</script>
-	
-	<script>
-		document.getElementById("year").textContent = new Date().getFullYear();
-		
-		const tabs = document.querySelectorAll(".tab");
-		const tabLinks = document.querySelectorAll("[data-tab-link]");
-		const panels = {
-		  inicio: document.getElementById("tab-inicio"),
-		  formacion: document.getElementById("tab-formacion"),
-		  sobre: document.getElementById("tab-sobre"),
-		  trabajar: document.getElementById("tab-trabajar"),
-		  condiciones: document.getElementById("tab-condiciones"),
-		  contacto: document.getElementById("tab-contacto"),
-		};
-		
-		function setActive(name){
-		  tabs.forEach(t => t.classList.toggle("isActive", t.dataset.tab === name));
-		  document.querySelectorAll(".mobileMenuItem").forEach(item => item.classList.toggle("isActive", item.dataset.mobileTab === name));
-		  Object.keys(panels).forEach(k => panels[k].classList.toggle("isActive", k === name));
-		}
-		
-		tabs.forEach(t => {
-		  t.addEventListener("click", () => {
-			const name = t.dataset.tab;
-			setActive(name);
-			location.hash = name;
-		  });
-		});
-		
-		tabLinks.forEach(link => {
-		  link.addEventListener("click", (e) => {
-			e.preventDefault();
-			const name = link.dataset.tabLink;
-			setActive(name);
-			location.hash = name;
-			window.scrollTo({ top: 0, behavior: "smooth" });
-		  });
-		});
-		
-		const initial = (location.hash || "#inicio").replace("#","");
-		if (panels[initial]) setActive(initial);
-		
-		const waWidget = document.getElementById("waWidget");
-		const waToggle = document.getElementById("waToggle");
-		const waPanel = document.getElementById("waPanel");
-		const waClose = document.getElementById("waClose");
-		
-		function openWhatsAppPanel() {
-		  waWidget.classList.add("isOpen");
-		  waToggle.setAttribute("aria-expanded", "true");
-		  waPanel.setAttribute("aria-hidden", "false");
-		}
-		
-		function closeWhatsAppPanel() {
-		  waWidget.classList.remove("isOpen");
-		  waToggle.setAttribute("aria-expanded", "false");
-		  waPanel.setAttribute("aria-hidden", "true");
-		}
-		
-		function toggleWhatsAppPanel() {
-		  if (waWidget.classList.contains("isOpen")) {
-			closeWhatsAppPanel();
-		  } else {
-			openWhatsAppPanel();
-		  }
-		}
-		
-		waToggle.addEventListener("click", toggleWhatsAppPanel);
-		waClose.addEventListener("click", closeWhatsAppPanel);
-		
-		document.addEventListener("click", function(e){
-		  const clickedInside = waWidget.contains(e.target);
-		  if (!clickedInside) {
-			closeWhatsAppPanel();
-		  }
-		});
-		
-		document.addEventListener("keydown", function(e){
-		  if (e.key === "Escape") {
-			closeWhatsAppPanel();
-		  }
-		});
-		
-		const detailsWrap = document.getElementById("detailsWrap");
-		const detailsToggle = document.getElementById("detailsToggle");
-		const detailsPopover = document.getElementById("detailsPopover");
-		const isDesktopHover = window.matchMedia("(hover: hover) and (pointer: fine)");
-		
-		function openDetails(){
-		  detailsPopover.classList.add("isOpen");
-		  detailsToggle.setAttribute("aria-expanded", "true");
-		  detailsPopover.setAttribute("aria-hidden", "false");
-		}
-		
-		function closeDetails(){
-		  detailsPopover.classList.remove("isOpen");
-		  detailsToggle.setAttribute("aria-expanded", "false");
-		  detailsPopover.setAttribute("aria-hidden", "true");
-		}
-		
-		function toggleDetails(){
-		  if(detailsPopover.classList.contains("isOpen")){
-			closeDetails();
-		  }else{
-			openDetails();
-		  }
-		}
-		
-		detailsToggle.addEventListener("click", function(e){
-		  e.stopPropagation();
-		  if(!isDesktopHover.matches){
-			toggleDetails();
-		  }
-		});
-		
-		if(isDesktopHover.matches){
-		  detailsWrap.addEventListener("mouseenter", openDetails);
-		  detailsWrap.addEventListener("mouseleave", closeDetails);
-		  detailsToggle.addEventListener("focus", openDetails);
-		}
-		
-		document.addEventListener("click", function(e){
-		  if(!detailsWrap.contains(e.target) && !isDesktopHover.matches){
-			closeDetails();
-		  }
-		});
-		
-		document.addEventListener("keydown", function(e){
-		  if(e.key === "Escape"){
-			closeDetails();
-		  }
-		});
-		
-		const siteHeader = document.getElementById("siteHeader");
-		const headerSpacer = document.getElementById("headerSpacer");
-		const mobileMenuPanel = document.getElementById("mobileMenuPanel");
-		const mobileMenuToggles = document.querySelectorAll(".mobileMenuToggle");
-		const mobileMenuItems = document.querySelectorAll(".mobileMenuItem");
-		const mobileBreakpoint = window.matchMedia("(max-width: 860px)");
-		
-		function setMobileMenuState(isOpen){
-		  siteHeader.classList.toggle("mobileMenuOpen", isOpen);
-		  mobileMenuToggles.forEach(toggle => {
-			toggle.classList.toggle("isOpen", isOpen);
-			toggle.setAttribute("aria-expanded", String(isOpen));
-		  });
-		  if(mobileMenuPanel){
-			mobileMenuPanel.setAttribute("aria-hidden", String(!isOpen));
-		  }
-		  syncHeaderHeight();
-		}
-		
-		function toggleMobileMenu(e){
-		  e.stopPropagation();
-		  if(!mobileBreakpoint.matches) return;
-		  setMobileMenuState(!siteHeader.classList.contains("mobileMenuOpen"));
-		}
-		
-		mobileMenuToggles.forEach(toggle => {
-		  toggle.addEventListener("click", toggleMobileMenu);
-		});
-		
-		mobileMenuItems.forEach(item => {
-		  item.addEventListener("click", () => {
-			const name = item.dataset.mobileTab;
-			setActive(name);
-			location.hash = name;
-			setMobileMenuState(false);
-		  });
-		});
-		
-		document.addEventListener("click", function(e){
-		  if(mobileBreakpoint.matches && !siteHeader.contains(e.target)){
-			setMobileMenuState(false);
-		  }
-		});
-		
-		mobileBreakpoint.addEventListener("change", function(e){
-		  if(!e.matches){
-			setMobileMenuState(false);
-		  }
-		});
+<!-- ======================================================
+     HEADER GLOBAL
+======================================================= -->
+<script src="/header.js"></script>
 
-		
-		function syncHeaderHeight(){
-		  headerSpacer.style.height = siteHeader.offsetHeight + "px";
-		}
-		
-		function updateStickyHeader(){
-		  if(window.scrollY > 40){
-			siteHeader.classList.add("isCompact", "is-scrolled");
-		  }else{
-			siteHeader.classList.remove("isCompact", "is-scrolled");
-			setMobileMenuState(false);
-		  }
-		}
-		
-		window.addEventListener("load", syncHeaderHeight);
-		window.addEventListener("resize", syncHeaderHeight);
-		window.addEventListener("scroll", updateStickyHeader, { passive:true });
-		
-		updateStickyHeader();
-	</script>
+
+<!-- ======================================================
+     JAVASCRIPT ESPECÍFICO DA HOMEPAGE
+======================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* =====================================================
+     ANO DO FOOTER
+  ====================================================== */
+
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+
+  /* =====================================================
+     SISTEMA DE TABS / SECÇÕES DA HOMEPAGE
+  ====================================================== */
+
+  const panels = {
+    inicio: document.getElementById("tab-inicio"),
+    formacion: document.getElementById("tab-formacion"),
+    sobre: document.getElementById("tab-sobre"),
+    trabajar: document.getElementById("tab-trabajar"),
+    condiciones: document.getElementById("tab-condiciones"),
+    contacto: document.getElementById("tab-contacto")
+  };
+
+
+  function setActive(name) {
+
+    /*
+     * Ativa os botões do header.
+     *
+     * Como o header é carregado dinamicamente,
+     * procuramos os elementos no momento da execução.
+     */
+    document
+      .querySelectorAll(".tab[data-tab]")
+      .forEach(function (tab) {
+
+        tab.classList.toggle(
+          "isActive",
+          tab.dataset.tab === name
+        );
+
+      });
+
+
+    document
+      .querySelectorAll(".mobileMenuItem[data-mobile-tab]")
+      .forEach(function (item) {
+
+        item.classList.toggle(
+          "isActive",
+          item.dataset.mobileTab === name
+        );
+
+      });
+
+
+    /*
+     * Mostra apenas o painel correspondente.
+     */
+    Object.keys(panels).forEach(function (key) {
+
+      const panel = panels[key];
+
+      if (!panel) return;
+
+      panel.classList.toggle(
+        "isActive",
+        key === name
+      );
+
+    });
+
+  }
+
+
+  function activateFromHash() {
+
+    const name =
+      (window.location.hash || "#inicio")
+        .replace("#", "");
+
+
+    if (panels[name]) {
+
+      setActive(name);
+
+    } else {
+
+      setActive("inicio");
+
+    }
+
+  }
+
+
+  /*
+   * EVENT DELEGATION
+   *
+   * Isto é importante porque os botões do header
+   * ainda não existem quando este script é iniciado.
+   *
+   * Quando header.js carregar header.html,
+   * estes cliques funcionarão normalmente.
+   */
+  document.addEventListener("click", function (event) {
+
+    const target = event.target;
+
+    if (!(target instanceof Element)) return;
+
+
+    /* -----------------------------------------------
+       Tabs desktop do header
+    ------------------------------------------------ */
+
+    const desktopTab =
+      target.closest(".tab[data-tab]");
+
+
+    if (desktopTab) {
+
+      const name =
+        desktopTab.dataset.tab;
+
+
+      if (panels[name]) {
+
+        event.preventDefault();
+
+        setActive(name);
+
+        history.pushState(
+          null,
+          "",
+          "#" + name
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       Tabs mobile do header
+    ------------------------------------------------ */
+
+    const mobileTab =
+      target.closest(
+        ".mobileMenuItem[data-mobile-tab]"
+      );
+
+
+    if (mobileTab) {
+
+      const name =
+        mobileTab.dataset.mobileTab;
+
+
+      if (panels[name]) {
+
+        event.preventDefault();
+
+        setActive(name);
+
+        history.pushState(
+          null,
+          "",
+          "#" + name
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       Links internos da página
+       data-tab-link="..."
+    ------------------------------------------------ */
+
+    const tabLink =
+      target.closest("[data-tab-link]");
+
+
+    if (tabLink) {
+
+      const name =
+        tabLink.dataset.tabLink;
+
+
+      if (panels[name]) {
+
+        event.preventDefault();
+
+        setActive(name);
+
+        history.pushState(
+          null,
+          "",
+          "#" + name
+        );
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+
+    }
+
+  });
+
+
+  /*
+   * Back / Forward do navegador
+   */
+  window.addEventListener(
+    "hashchange",
+    activateFromHash
+  );
+
+
+  /*
+   * Estado inicial.
+   */
+  activateFromHash();
+
+
+  /* =====================================================
+     WHATSAPP FLOATING WIDGET
+  ====================================================== */
+
+  const waWidget =
+    document.getElementById("waWidget");
+
+  const waToggle =
+    document.getElementById("waToggle");
+
+  const waPanel =
+    document.getElementById("waPanel");
+
+  const waClose =
+    document.getElementById("waClose");
+
+
+  /*
+   * Só inicializamos se o widget existir.
+   * Assim evitamos erros JavaScript.
+   */
+  if (
+    waWidget &&
+    waToggle &&
+    waPanel &&
+    waClose
+  ) {
+
+    function openWhatsAppPanel() {
+
+      waWidget.classList.add("isOpen");
+
+      waToggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      waPanel.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+    }
+
+
+    function closeWhatsAppPanel() {
+
+      waWidget.classList.remove(
+        "isOpen"
+      );
+
+      waToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      waPanel.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+    }
+
+
+    function toggleWhatsAppPanel() {
+
+      if (
+        waWidget.classList.contains(
+          "isOpen"
+        )
+      ) {
+
+        closeWhatsAppPanel();
+
+      } else {
+
+        openWhatsAppPanel();
+
+      }
+
+    }
+
+
+    waToggle.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+        toggleWhatsAppPanel();
+
+      }
+    );
+
+
+    waClose.addEventListener(
+      "click",
+      function (event) {
+
+        event.stopPropagation();
+
+        closeWhatsAppPanel();
+
+      }
+    );
+
+
+    document.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          !waWidget.contains(event.target)
+        ) {
+
+          closeWhatsAppPanel();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (event.key === "Escape") {
+
+          closeWhatsAppPanel();
+
+        }
+
+      }
+    );
+
+  }
+
+});
+</script>
+
+
+<!-- ======================================================
+     TESTEMUNHOS / CARROSSEL
+======================================================= -->
+<script>
+let currentIndex = 0;
+
+let testimonialTimer = null;
+
+
+function startAutoScroll() {
+
+  const track =
+    document.getElementById(
+      "testimonialTrack"
+    );
+
+
+  const cards =
+    document.querySelectorAll(
+      ".testimonial-card"
+    );
+
+
+  /*
+   * Evita erros se o carrossel
+   * não existir na página.
+   */
+  if (
+    !track ||
+    cards.length === 0
+  ) {
+    return;
+  }
+
+
+  /*
+   * Evita criar vários timers
+   * caso a função seja chamada novamente.
+   */
+  if (testimonialTimer) {
+
+    clearInterval(
+      testimonialTimer
+    );
+
+  }
+
+
+  testimonialTimer =
+    setInterval(function () {
+
+      const cardsVisible =
+        window.innerWidth > 768
+          ? 3
+          : 1;
+
+
+      const maxIndex =
+        Math.max(
+          0,
+          cards.length - cardsVisible
+        );
+
+
+      currentIndex++;
+
+
+      if (
+        currentIndex > maxIndex
+      ) {
+
+        currentIndex = 0;
+
+      }
+
+
+      const firstCard =
+        cards[0];
+
+
+      const cardWidth =
+        firstCard.offsetWidth + 15;
+
+
+      track.style.transform =
+        "translateX(-" +
+        currentIndex * cardWidth +
+        "px)";
+
+
+    }, 10000);
+
+}
+
+
+window.addEventListener(
+  "load",
+  startAutoScroll
+);
+</script>
+
+
 </body>
 </html>
