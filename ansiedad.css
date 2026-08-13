@@ -1,0 +1,1851 @@
+/* =========================================================
+   ANSIEDAD.CSS
+
+   Landing:
+   Ansiedad y ataques de pánico
+
+   ESTRUCTURA:
+   base.css
+   components.css
+   responsive.css
+   ansiedad.css
+
+   IMPORTANTE:
+   Este ficheiro NÃO contém estilos do header partilhado.
+   O header continua a ser controlado exclusivamente por
+   base.css + components.css + responsive.css + header.js.
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES EXCLUSIVAS DA PÁGINA
+   ========================================================= */
+
+body.ansiedadPage {
+
+  --ans-paper: rgba(250, 247, 243, .58);
+  --ans-paper-soft: rgba(244, 237, 237, .60);
+  --ans-white: rgba(255, 253, 249, .62);
+
+  --ans-ink: #3b3034;
+  --ans-muted: #716266;
+
+  --ans-plum: #79566a;
+  --ans-plum-dark: #513c46;
+
+  --ans-rose: #b98f9d;
+  --ans-rose-soft: #eadce2;
+
+  --ans-peach: #e7c9b6;
+  --ans-peach-soft: #f0ded2;
+
+  --ans-line: rgba(83, 58, 69, .14);
+
+  --ans-shadow:
+    0 20px 55px rgba(57, 47, 51, .11);
+
+  --ans-shadow-soft:
+    0 12px 30px rgba(57, 47, 51, .075);
+
+  margin: 0;
+
+  color: var(--ans-ink);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  line-height: 1.65;
+
+}
+
+
+/* =========================================================
+   BASIC
+   ========================================================= */
+
+.ansiedadPage *,
+.ansiedadPage *::before,
+.ansiedadPage *::after {
+
+  box-sizing: border-box;
+
+}
+
+
+.ansiedadMain,
+.ansiedadFooter {
+
+  position: relative;
+  z-index: 1;
+
+}
+
+
+.ansiedadMain {
+
+  overflow: hidden;
+
+}
+
+
+.ansiedadShell {
+
+  width:
+    min(
+      1120px,
+      calc(100% - 36px)
+    );
+
+  margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.ansiedadPage h1,
+.ansiedadPage h2 {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-weight: 500;
+
+  color: var(--ans-ink);
+
+}
+
+
+.ansiedadPage h1 {
+
+  max-width: 780px;
+
+  margin: 20px 0 24px;
+
+  font-size:
+    clamp(
+      42px,
+      5.7vw,
+      70px
+    );
+
+  line-height: 1.025;
+
+  letter-spacing: -.035em;
+
+}
+
+
+.ansiedadPage h1 span {
+
+  color: var(--ans-plum-dark);
+
+}
+
+
+.ansiedadPage h2 {
+
+  margin: 13px 0 17px;
+
+  font-size:
+    clamp(
+      34px,
+      4.6vw,
+      52px
+    );
+
+  line-height: 1.08;
+
+  letter-spacing: -.025em;
+
+}
+
+
+.ansiedadEyebrow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--ans-plum);
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  font-weight: 800;
+
+}
+
+
+.ansiedadEyebrow::before {
+
+  content: "";
+
+  width: 34px;
+
+  height: 1px;
+
+  flex: 0 0 auto;
+
+  background: var(--ans-plum);
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.ansiedadBtn {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 15px 22px;
+
+  border: 1px solid transparent;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+
+}
+
+
+.ansiedadBtn:hover {
+
+  transform: translateY(-1px);
+
+}
+
+
+.ansiedadBtnPrimary {
+
+  background: var(--ans-plum-dark);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 12px 27px
+    rgba(81, 60, 70, .20);
+
+}
+
+
+.ansiedadBtnPrimary:hover {
+
+  background: var(--ans-plum);
+
+}
+
+
+.ansiedadBtnSecondary {
+
+  border-color: var(--ans-line);
+
+  background: rgba(255, 255, 255, .44);
+
+  color: var(--ans-ink);
+
+  backdrop-filter: blur(7px);
+
+}
+
+
+.ansiedadBtnSecondary:hover {
+
+  background: rgba(255, 255, 255, .68);
+
+  box-shadow: var(--ans-shadow-soft);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.ansiedadHero {
+
+  position: relative;
+
+  padding: 74px 0 65px;
+
+  background:
+    radial-gradient(
+      circle at 91% 18%,
+      rgba(185, 143, 157, .15),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 4% 90%,
+      rgba(231, 201, 182, .18),
+      transparent 34%
+    ),
+    rgba(250, 247, 243, .22);
+
+}
+
+
+.ansiedadHeroGrid {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    minmax(390px, .92fr);
+
+  gap: 58px;
+
+  align-items: center;
+
+}
+
+
+.ansiedadHeroLead {
+
+  max-width: 705px;
+
+  margin: 0 0 29px;
+
+  color: var(--ans-muted);
+
+  font-size:
+    clamp(
+      18px,
+      2vw,
+      21px
+    );
+
+  line-height: 1.68;
+
+}
+
+
+.ansiedadActions {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+}
+
+
+.ansiedadMicrocopy {
+
+  margin: 18px 0 0;
+
+  color: var(--ans-muted);
+
+  font-size: 13px;
+
+}
+
+
+.ansiedadTeamCopy {
+
+  max-width: 720px;
+
+  margin: 4px 0 0;
+
+  color: var(--ans-muted);
+
+  font-size: 13px;
+
+}
+
+
+.ansiedadTrustRow {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 29px;
+
+}
+
+
+.ansiedadTrustChip {
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, .48);
+
+  color: var(--ans-ink);
+
+  font-size: 13px;
+
+  backdrop-filter: blur(7px);
+
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.ansiedadPortraitWrap {
+
+  position: relative;
+
+  min-height: 550px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 0;
+
+  padding:
+    27px
+    35px
+    42px
+    18px;
+
+}
+
+
+.ansiedadPortraitShape {
+
+  position: absolute;
+
+  z-index: 0;
+
+  width: 83%;
+
+  height: 88%;
+
+  right: 1%;
+
+  bottom: 1%;
+
+  border-radius: 46px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e3c8bd,
+      #d8aaa9 58%,
+      #bc9c9e
+    );
+
+  transform: rotate(3deg);
+
+  opacity: .82;
+
+  box-shadow: var(--ans-shadow-soft);
+
+}
+
+
+.ansiedadPortrait {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 89%;
+
+  max-width: 460px;
+
+  aspect-ratio: 4 / 5;
+
+  margin-right: auto;
+
+  border-radius: 42px;
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  filter:
+    saturate(.86)
+    contrast(.97);
+
+  box-shadow: var(--ans-shadow);
+
+}
+
+
+.ansiedadImageCredit {
+
+  position: absolute;
+
+  z-index: 2;
+
+  top: 44px;
+
+  left: 37px;
+
+  padding: 8px 14px;
+
+  border:
+    1px solid
+    rgba(57, 47, 51, .09);
+
+  border-radius: 999px;
+
+  background: rgba(255, 253, 249, .90);
+
+  color: var(--ans-muted);
+
+  font-size: 12px;
+
+  line-height: 1.3;
+
+  backdrop-filter: blur(7px);
+
+  box-shadow:
+    0 5px 18px
+    rgba(57, 47, 51, .07);
+
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.ansiedadSection {
+
+  position: relative;
+
+  padding: 84px 0;
+
+}
+
+
+.ansiedadSectionAlt {
+
+  border-top: 1px solid var(--ans-line);
+
+  border-bottom: 1px solid var(--ans-line);
+
+  background: rgba(255, 255, 255, .24);
+
+  backdrop-filter: blur(3px);
+
+}
+
+
+.ansiedadSectionHead {
+
+  max-width: 780px;
+
+  margin-bottom: 38px;
+
+}
+
+
+.ansiedadSectionHead p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 18px;
+
+}
+
+
+/* =========================================================
+   SYMPTOMS
+   ========================================================= */
+
+.ansiedadSymptoms {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+}
+
+
+.ansiedadCard {
+
+  position: relative;
+
+  padding: 26px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 22px;
+
+  background: rgba(255, 253, 249, .50);
+
+  box-shadow:
+    0 8px 22px
+    rgba(57, 47, 51, .035);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+
+}
+
+
+.ansiedadCard:hover {
+
+  transform: translateY(-2px);
+
+  background: rgba(255, 253, 249, .68);
+
+  box-shadow: var(--ans-shadow-soft);
+
+}
+
+
+.ansiedadIcon {
+
+  width: 44px;
+
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 14px;
+
+  background: rgba(234, 220, 226, .78);
+
+  color: var(--ans-plum-dark);
+
+  font-size: 18px;
+
+}
+
+
+.ansiedadCard h3 {
+
+  margin: 0 0 9px;
+
+  color: var(--ans-ink);
+
+  font-size: 18px;
+
+  line-height: 1.32;
+
+}
+
+
+.ansiedadCard p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 15px;
+
+}
+
+
+/* =========================================================
+   CLINICAL NOTE
+   ========================================================= */
+
+.ansiedadClinicalNote {
+
+  display: grid;
+
+  grid-template-columns:
+    46px 1fr;
+
+  gap: 17px;
+
+  align-items: start;
+
+  max-width: 950px;
+
+  margin-top: 28px;
+
+  padding: 22px 24px;
+
+  border:
+    1px solid
+    rgba(121, 86, 106, .18);
+
+  border-radius: 19px;
+
+  background: rgba(234, 220, 226, .34);
+
+  backdrop-filter: blur(7px);
+
+}
+
+
+.ansiedadClinicalNoteIcon {
+
+  width: 42px;
+
+  height: 42px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 253, 249, .78);
+
+  color: var(--ans-plum);
+
+}
+
+
+.ansiedadClinicalNote strong {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--ans-ink);
+
+}
+
+
+.ansiedadClinicalNote p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.ansiedadProcessGrid {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, .84fr)
+    minmax(0, 1.16fr);
+
+  gap: 48px;
+
+  align-items: start;
+
+}
+
+
+.ansiedadStickyCopy {
+
+  position: sticky;
+
+  top: 118px;
+
+}
+
+
+.ansiedadStickyCopy > p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 18px;
+
+}
+
+
+.ansiedadMethodBox {
+
+  margin-top: 27px;
+
+  padding: 24px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 21px;
+
+  background: rgba(255, 253, 249, .46);
+
+  backdrop-filter: blur(8px);
+
+  box-shadow: var(--ans-shadow-soft);
+
+}
+
+
+.ansiedadMethodLabel {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--ans-plum);
+
+  text-transform: uppercase;
+
+  letter-spacing: .13em;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+}
+
+
+.ansiedadMethodBox strong {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--ans-ink);
+
+  font-size: 17px;
+
+}
+
+
+.ansiedadMethodBox p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 14px;
+
+}
+
+
+.ansiedadQuoteBlock {
+
+  margin-top: 20px;
+
+  padding: 26px;
+
+  border-radius: 22px;
+
+  background: var(--ans-plum-dark);
+
+  color: #ffffff;
+
+  box-shadow: var(--ans-shadow-soft);
+
+}
+
+
+.ansiedadQuoteBlock blockquote {
+
+  margin: 0 0 13px;
+
+  color: #ffffff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 23px;
+
+  line-height: 1.38;
+
+}
+
+
+.ansiedadQuoteBlock small {
+
+  color: rgba(255, 255, 255, .68);
+
+}
+
+
+.ansiedadSteps {
+
+  display: grid;
+
+  gap: 14px;
+
+}
+
+
+.ansiedadStep {
+
+  display: grid;
+
+  grid-template-columns:
+    58px 1fr;
+
+  gap: 18px;
+
+  align-items: start;
+
+  padding: 27px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 26px;
+
+  background: rgba(255, 253, 249, .48);
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 7px 22px
+    rgba(57, 47, 51, .025);
+
+}
+
+
+.ansiedadNum {
+
+  width: 58px;
+
+  height: 58px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--ans-plum);
+
+  color: #ffffff;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 20px;
+
+}
+
+
+.ansiedadStep h3 {
+
+  margin: 4px 0 8px;
+
+  color: var(--ans-ink);
+
+  font-size: 18px;
+
+  line-height: 1.3;
+
+}
+
+
+.ansiedadStep p {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+}
+
+
+.ansiedadProcessCta {
+
+  margin-top: 8px;
+
+}
+
+
+/* =========================================================
+   TEAM
+   ========================================================= */
+
+.ansiedadTeamGrid {
+
+  display: grid;
+
+  grid-template-columns:
+    .72fr 1.28fr;
+
+  gap: 55px;
+
+  align-items: center;
+
+}
+
+
+.ansiedadTeamImageWrap {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 390px;
+
+  margin: auto;
+
+  padding:
+    0
+    23px
+    25px
+    0;
+
+}
+
+
+.ansiedadTeamShape {
+
+  position: absolute;
+
+  z-index: 0;
+
+  width: 88%;
+
+  height: 92%;
+
+  right: 0;
+
+  bottom: 0;
+
+  border-radius: 34px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(234, 220, 226, .92),
+      rgba(240, 222, 210, .92)
+    );
+
+  transform: rotate(3deg);
+
+}
+
+
+.ansiedadTeamImage {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1.15;
+
+  border-radius: 30px;
+
+  object-fit: cover;
+
+  object-position: center 20%;
+
+  filter:
+    saturate(.88)
+    contrast(.98);
+
+  box-shadow: var(--ans-shadow);
+
+}
+
+
+.ansiedadTeamLead {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 18px;
+
+}
+
+
+.ansiedadCredentials {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin: 25px 0 20px;
+
+}
+
+
+.ansiedadCredential {
+
+  padding: 16px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 18px;
+
+  background: rgba(255, 253, 249, .43);
+
+  backdrop-filter: blur(7px);
+
+}
+
+
+.ansiedadCredential strong {
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--ans-ink);
+
+  font-size: 15px;
+
+}
+
+
+.ansiedadCredential span {
+
+  color: var(--ans-muted);
+
+  font-size: 13px;
+
+}
+
+
+.ansiedadTeamNote {
+
+  margin: 0;
+
+  color: var(--ans-muted);
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.ansiedadFaq {
+
+  display: grid;
+
+  gap: 11px;
+
+  max-width: 880px;
+
+}
+
+
+.ansiedadFaq details {
+
+  padding: 0 21px;
+
+  border: 1px solid var(--ans-line);
+
+  border-radius: 18px;
+
+  background: rgba(255, 253, 249, .48);
+
+  backdrop-filter: blur(8px);
+
+}
+
+
+.ansiedadFaq summary {
+
+  cursor: pointer;
+
+  padding: 19px 0;
+
+  color: var(--ans-ink);
+
+  font-weight: 750;
+
+}
+
+
+.ansiedadFaq details p {
+
+  margin: 0;
+
+  padding: 0 0 20px;
+
+  color: var(--ans-muted);
+
+}
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.ansiedadFinalCta {
+
+  position: relative;
+
+  z-index: 1;
+
+  padding: 30px 0 78px;
+
+}
+
+
+.ansiedadCtaBox {
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: grid;
+
+  grid-template-columns:
+    1.25fr .75fr;
+
+  gap: 35px;
+
+  align-items: center;
+
+  padding: 55px;
+
+  border-radius: 32px;
+
+  background: var(--ans-plum-dark);
+
+  color: #ffffff;
+
+  box-shadow: var(--ans-shadow);
+
+}
+
+
+.ansiedadCtaBox::after {
+
+  content: "";
+
+  position: absolute;
+
+  z-index: 0;
+
+  width: 380px;
+
+  height: 380px;
+
+  top: -205px;
+
+  right: -125px;
+
+  border-radius: 50%;
+
+  background: var(--ans-rose);
+
+  opacity: .34;
+
+}
+
+
+.ansiedadCtaContent,
+.ansiedadCtaSide {
+
+  position: relative;
+
+  z-index: 1;
+
+}
+
+
+.ansiedadCtaEyebrow {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: rgba(255, 255, 255, .63);
+
+  text-transform: uppercase;
+
+  letter-spacing: .15em;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+}
+
+
+.ansiedadCtaBox h2 {
+
+  margin: 0 0 14px;
+
+  color: #ffffff;
+
+}
+
+
+.ansiedadCtaBox p {
+
+  max-width: 660px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, .75);
+
+  font-size: 18px;
+
+}
+
+
+.ansiedadCtaSide {
+
+  text-align: center;
+
+}
+
+
+.ansiedadBtnLight {
+
+  width: 100%;
+
+  background: rgba(255, 253, 249, .98);
+
+  color: var(--ans-plum-dark);
+
+}
+
+
+.ansiedadBtnLight:hover {
+
+  background: #ffffff;
+
+}
+
+
+.ansiedadCtaSide small {
+
+  display: block;
+
+  margin-top: 12px;
+
+  color: rgba(255, 255, 255, .66);
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.ansiedadFooter {
+
+  margin: 0;
+
+  padding: 30px 0 96px;
+
+  border-top: 1px solid var(--ans-line);
+
+  color: var(--ans-muted);
+
+  background: rgba(255, 255, 255, .18);
+
+  font-size: 13px;
+
+  backdrop-filter: blur(4px);
+
+}
+
+
+.ansiedadFooterGrid {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  flex-wrap: wrap;
+
+}
+
+
+.ansiedadFooterGrid > div:last-child {
+
+  max-width: 600px;
+
+}
+
+
+/* =========================================================
+   MOBILE FIXED CTA
+   ========================================================= */
+
+.ansiedadMobileBar {
+
+  display: none;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .ansiedadHeroGrid,
+  .ansiedadProcessGrid,
+  .ansiedadTeamGrid,
+  .ansiedadCtaBox {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .ansiedadHero {
+
+    padding-top: 52px;
+
+  }
+
+
+  .ansiedadHeroGrid {
+
+    gap: 35px;
+
+  }
+
+
+  .ansiedadPortraitWrap {
+
+    min-height: 505px;
+
+    width: min(100%, 570px);
+
+    margin: 0 auto;
+
+  }
+
+
+  .ansiedadStickyCopy {
+
+    position: static;
+
+  }
+
+
+  .ansiedadSymptoms {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+  }
+
+
+  .ansiedadProcessGrid {
+
+    gap: 34px;
+
+  }
+
+
+  .ansiedadTeamGrid {
+
+    gap: 38px;
+
+  }
+
+
+  .ansiedadTeamImageWrap {
+
+    max-width: 340px;
+
+    margin-left: 0;
+
+  }
+
+
+  .ansiedadCtaBox {
+
+    padding: 43px;
+
+  }
+
+
+  .ansiedadCtaSide {
+
+    width: min(100%, 420px);
+
+    text-align: left;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .ansiedadShell {
+
+    width:
+      min(
+        calc(100% - 26px),
+        1120px
+      );
+
+  }
+
+
+  .ansiedadHero {
+
+    padding:
+      47px 0 52px;
+
+  }
+
+
+  .ansiedadPage h1 {
+
+    margin-top: 17px;
+
+    font-size: 42px;
+
+    line-height: 1.04;
+
+  }
+
+
+  .ansiedadPage h2 {
+
+    font-size: 34px;
+
+  }
+
+
+  .ansiedadHeroLead {
+
+    font-size: 18px;
+
+  }
+
+
+  .ansiedadActions {
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+  }
+
+
+  .ansiedadActions .ansiedadBtn {
+
+    width: 100%;
+
+  }
+
+
+  .ansiedadPortraitWrap {
+
+    min-height: 430px;
+
+    padding:
+      18px
+      23px
+      31px
+      6px;
+
+  }
+
+
+  .ansiedadPortraitShape {
+
+    width: 88%;
+
+    height: 90%;
+
+    border-radius: 34px;
+
+  }
+
+
+  .ansiedadPortrait {
+
+    width: 92%;
+
+    max-width: none;
+
+    border-radius: 32px;
+
+  }
+
+
+  .ansiedadImageCredit {
+
+    top: 31px;
+
+    left: 19px;
+
+    max-width:
+      calc(100% - 55px);
+
+    padding:
+      7px 11px;
+
+    font-size: 11px;
+
+  }
+
+
+  .ansiedadSection {
+
+    padding: 64px 0;
+
+  }
+
+
+  .ansiedadSymptoms,
+  .ansiedadCredentials {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .ansiedadCard {
+
+    padding: 22px;
+
+  }
+
+
+  .ansiedadClinicalNote {
+
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+
+  }
+
+
+  .ansiedadStep {
+
+    grid-template-columns:
+      48px 1fr;
+
+    gap: 14px;
+
+    padding: 21px;
+
+    border-radius: 21px;
+
+  }
+
+
+  .ansiedadNum {
+
+    width: 48px;
+
+    height: 48px;
+
+    font-size: 18px;
+
+  }
+
+
+  .ansiedadMethodBox,
+  .ansiedadQuoteBlock {
+
+    padding: 21px;
+
+  }
+
+
+  .ansiedadQuoteBlock blockquote {
+
+    font-size: 21px;
+
+  }
+
+
+  .ansiedadTeamImageWrap {
+
+    max-width: 285px;
+
+  }
+
+
+  .ansiedadCtaBox {
+
+    padding: 35px 24px;
+
+    border-radius: 25px;
+
+  }
+
+
+  .ansiedadCtaBox p {
+
+    font-size: 16px;
+
+  }
+
+
+  .ansiedadFooter {
+
+    padding-bottom: 112px;
+
+  }
+
+
+  .ansiedadMobileBar {
+
+    position: fixed;
+
+    z-index: 99990;
+
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    display: block;
+
+  }
+
+
+  .ansiedadMobileBar a {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 15px 18px;
+
+    border-radius: 999px;
+
+    background: var(--ans-plum-dark);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    box-shadow:
+      0 14px 30px
+      rgba(57, 47, 51, .28);
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .ansiedadPage h1 {
+
+    font-size: 38px;
+
+  }
+
+
+  .ansiedadEyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: .12em;
+
+  }
+
+
+  .ansiedadTrustRow {
+
+    gap: 8px;
+
+  }
+
+
+  .ansiedadTrustChip {
+
+    font-size: 12px;
+
+  }
+
+
+  .ansiedadStep {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .ansiedadNum {
+
+    margin-bottom: 2px;
+
+  }
+
+}
