@@ -1,0 +1,719 @@
+@media (hover: none), (pointer: coarse){
+  .navActions{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:10px;
+    width:100%;
+  }
+
+  .btnDetails{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .detailsPopover{
+    left:0;
+    right:auto;
+    width:100%;
+    max-width:none;
+  }
+}
+
+@media (max-width: 1100px){
+  .headerSpacer{
+    height:168px !important;
+  }
+
+  .heroWide{
+    padding:44px 0;
+  }
+
+  .heroWideInner{
+    grid-template-columns:260px minmax(0, 1fr);
+    gap:40px;
+  }
+
+  .heroPhotoCircle{
+    width:244px;
+    height:244px;
+    flex-basis:244px;
+  }
+
+  .heroWideTitle{
+    font-size:clamp(28px, 3.6vw, 44px);
+  }
+
+  .homeInfoCard{
+    padding-left:170px;
+  }
+
+  .homeInfoCard::before{
+    left:26px;
+    width:96px;
+    height:96px;
+  }
+
+  .homeInfoCard::after{
+    left:49px;
+    width:50px;
+    height:50px;
+  }
+}
+
+@media (max-width: 860px){
+  .headerSpacer{
+    height:250px !important;
+  }
+
+  .siteHeader{
+    width:min(calc(100% - 24px), var(--max));
+    border-radius:0 0 22px 22px;
+    background:linear-gradient(180deg, rgba(247,241,247,.98), rgba(247,241,247,.94));
+  }
+
+  .siteHeader .top,
+  .siteHeader .navRow{
+    max-width:none;
+    width:100%;
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .top{
+    justify-content:flex-start;
+    gap:12px;
+  }
+
+  .mobileMenuToggle{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border:0;
+    border-radius:14px;
+    background:transparent;
+    color:var(--accentDark);
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    padding:0;
+    cursor:pointer;
+    transition:background .2s ease, transform .08s ease;
+  }
+
+  .mobileMenuToggle:hover{
+    background:rgba(122,63,99,.08);
+  }
+
+  .mobileMenuToggle:active{
+    transform:scale(.97);
+  }
+
+  .mobileMenuToggle span{
+    display:block;
+    width:24px;
+    height:3px;
+    border-radius:999px;
+    background:var(--accentDark);
+    transition:transform .22s ease, opacity .18s ease;
+  }
+
+  .mobileMenuToggle.isOpen span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+  }
+
+  .mobileMenuToggle.isOpen span:nth-child(2){
+    opacity:0;
+  }
+
+  .mobileMenuToggle.isOpen span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+  }
+
+  .mobileMenuToggleCompact{
+    display:none;
+  }
+
+  .brand{
+    gap:12px;
+    min-width:0;
+  }
+
+  .brand .avatar{
+    width:40px;
+    height:40px;
+    flex-basis:40px;
+  }
+
+  .brand strong{
+    font-size:15.5px;
+  }
+
+  .brand small{
+    font-size:13px;
+  }
+
+  .siteHeader.isCompact .top,
+  .siteHeader.is-scrolled .top{
+    max-height:0;
+    opacity:0;
+    padding-top:0;
+    padding-bottom:0;
+    margin:0;
+    pointer-events:none;
+  }
+
+  .navRow{
+    display:block;
+    gap:0;
+    padding-top:0;
+    padding-bottom:18px;
+  }
+
+  .navRow .tabs{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:12px;
+  }
+
+  .tab{
+    padding:9px 14px;
+    font-size:14px;
+  }
+
+  .navCta{
+    width:100%;
+  }
+
+  .navActions{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    gap:10px;
+    width:100%;
+    align-items:center;
+  }
+
+  .btnTopCta{
+    width:100%;
+    min-height:48px;
+    border-radius:16px;
+    padding-left:16px;
+    padding-right:16px;
+    font-size:15.5px;
+  }
+
+  .btnDetails{
+    display:inline-flex;
+    width:48px;
+    min-width:48px;
+    height:48px;
+    padding:0;
+    border-radius:16px;
+  }
+
+  .btnDetails .detailsLabel{
+    display:none;
+  }
+
+  .detailsArrow{
+    font-size:15px;
+  }
+
+  .detailsPopover{
+    top:calc(100% + 10px);
+    left:0;
+    right:auto;
+    width:100%;
+    max-width:none;
+  }
+
+  .mobileMenuPanel{
+    position:absolute;
+    left:14px;
+    right:14px;
+    top:calc(100% + 10px);
+    display:grid;
+    gap:8px;
+    padding:12px;
+    border:1px solid rgba(122,63,99,.18);
+    border-radius:20px;
+    background:linear-gradient(180deg, rgba(247,241,247,.92), rgba(239,228,241,.84));
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 20px 46px rgba(33,18,28,.18);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-8px) scale(.98);
+    pointer-events:none;
+    transition:opacity .22s ease, transform .22s ease, visibility .22s ease;
+    z-index:9998;
+  }
+
+  .siteHeader.mobileMenuOpen .mobileMenuPanel{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+
+  .mobileMenuItem{
+    appearance:none;
+    border:1px solid rgba(122,63,99,.16);
+    border-radius:14px;
+    padding:13px 14px;
+    background:rgba(255,255,255,.46);
+    color:var(--muted);
+    text-align:left;
+    font-weight:750;
+    font-size:14px;
+    cursor:pointer;
+    transition:background .2s ease, border-color .2s ease, transform .08s ease;
+  }
+
+  .mobileMenuItem:hover{
+    background:rgba(255,255,255,.66);
+    border-color:rgba(122,63,99,.24);
+  }
+
+  .mobileMenuItem:active{
+    transform:scale(.99);
+  }
+
+  .mobileMenuItem.isActive{
+    color:var(--accentDark);
+    background:rgba(122,63,99,.12);
+    border-color:rgba(122,63,99,.28);
+  }
+
+  .siteHeader.is-scrolled{
+    width:100%;
+    border-radius:0 0 18px 18px;
+    background:linear-gradient(180deg, rgba(247,241,247,.60), rgba(247,241,247,.52));
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 10px 26px rgba(33,18,28,.10);
+  }
+
+  .siteHeader.is-scrolled .navRow{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+
+  .siteHeader.is-scrolled .navActions{
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr) auto;
+    gap:10px;
+    align-items:center;
+  }
+
+  .siteHeader.is-scrolled .mobileMenuToggleCompact{
+    display:inline-flex;
+  }
+
+  .siteHeader.is-scrolled .tabs{
+    display:none;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta{
+    min-height:42px;
+    padding:10px 14px;
+    border-radius:15px;
+    font-size:0;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta::before{
+    content:"Agendar";
+    font-size:14.5px;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta i{
+    font-size:17px;
+  }
+
+  .siteHeader.is-scrolled .btnDetails{
+    width:42px;
+    min-width:42px;
+    height:42px;
+    border-radius:15px;
+  }
+
+  .siteHeader.is-scrolled .mobileMenuPanel{
+    left:12px;
+    right:12px;
+  }
+
+  .cols3{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroWide{
+    padding:38px 0;
+  }
+
+  .heroWideInner{
+    grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
+  }
+
+  .heroWideTextCol{
+    align-items:center;
+  }
+
+  .heroWideTitle{
+    max-width:none;
+    font-size:clamp(28px, 6vw, 42px);
+  }
+
+  .heroWideDivider{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .homeInner{
+    padding:0 16px 6px;
+  }
+
+  .homeInfoCard{
+    padding:132px 24px 28px;
+    min-height:auto;
+    text-align:center;
+  }
+
+  .homeInfoCard::before{
+    left:50%;
+    top:34px;
+    transform:translateX(-50%);
+    width:92px;
+    height:92px;
+  }
+
+  .homeInfoCard::after{
+    left:50%;
+    top:55px;
+    transform:translateX(-50%);
+    width:44px;
+    height:44px;
+  }
+
+  .homeInfoCard h3{
+    font-size:22px;
+  }
+
+  .homeInfoCard p{
+    max-width:none;
+  }
+}
+
+/* MOBILE — Cards "Podemos trabajar en" */
+@media (max-width: 768px){
+  .workCard{
+    grid-template-columns:1fr;
+    gap:18px;
+    padding:26px 22px;
+    text-align:center;
+    justify-items:center;
+  }
+
+  .workCardLink{
+    padding-right:22px;
+  }
+
+  .workCardLink::after{
+    top:18px;
+    right:22px;
+    font-size:27px;
+  }
+
+  .workCardIcon{
+    justify-content:center;
+    width:100%;
+  }
+
+  .workCardIconCircle{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .workCardContent{
+    width:100%;
+  }
+
+  .workCardContent h3{
+    text-align:center;
+  }
+
+  .workCardContent p{
+    max-width:none;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media (max-width: 640px){
+  .headerSpacer{
+    height:270px !important;
+  }
+
+  .siteHeader .top,
+  .siteHeader .navRow{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .waWidget{
+    right:16px;
+    bottom:28px;
+  }
+
+  .waPanel{
+    width:min(340px, calc(100vw - 16px));
+  }
+
+  .waToggle{
+    width:58px;
+    height:58px;
+  }
+
+  .heroWide{
+    padding:30px 0;
+  }
+
+  .heroPhotoCircle{
+    width:210px;
+    height:210px;
+    flex-basis:210px;
+    border-width:2px;
+    box-shadow:
+      0 0 0 7px rgba(255,255,255,.18),
+      0 0 0 1px rgba(122,63,99,.05),
+      0 12px 28px rgba(55,33,47,.08);
+  }
+
+  .heroWideTitle{
+    font-size:clamp(26px, 8vw, 38px);
+    line-height:1.12;
+  }
+
+  .heroWideEyebrow{
+    font-size:12px;
+    letter-spacing:.09em;
+  }
+
+  .heroWideDivider{
+    width:170px;
+  }
+
+  .heroWideTag{
+    font-size:15px;
+  }
+}
+
+@media (max-width: 560px){
+  .headerSpacer{
+    height:282px !important;
+  }
+
+  .contactGrid{
+    grid-template-columns:1fr;
+  }
+
+  .footerRow{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+}
+
+@media (max-width: 520px){
+  .headerSpacer{
+    height:290px !important;
+  }
+
+  .cols3{
+    grid-template-columns: 1fr;
+  }
+
+  .cols1{
+    grid-template-columns: 1fr;
+  }
+
+  .hero{
+    padding:22px 28px 26px;
+  }
+
+  .lead{
+    font-size:17px;
+    line-height:1.85;
+  }
+
+  .homeInfoCard{
+    border-radius:18px;
+    padding:126px 18px 24px;
+  }
+
+  .homeInfoCard h3{
+    font-size:20px;
+  }
+
+  .homeInfoCard p{
+    font-size:15px;
+    line-height:1.8;
+  }
+}
+
+/* MOBILE PEQUENO — Cards "Podemos trabajar en" */
+@media (max-width: 480px){
+  .workCard{
+    gap:16px;
+    padding:24px 18px;
+    border-radius:22px;
+  }
+
+  .workCardLink{
+    padding-right:18px;
+  }
+
+  .workCardLink::after{
+    top:14px;
+    right:18px;
+    font-size:25px;
+  }
+
+  .workCardIconCircle{
+    width:104px;
+    height:104px;
+    background-size:76px 76px;
+  }
+
+  .workCardContent h3{
+    font-size:22px;
+  }
+
+  .workCardContent p{
+    font-size:15.2px;
+    line-height:1.75;
+  }
+
+  .workCardAction{
+    width:100%;
+    justify-content:center;
+    margin-top:16px;
+    padding:10px 14px;
+  }
+}
+
+@media (max-width: 420px){
+  .siteHeader.is-scrolled .navActions{
+    grid-template-columns:42px minmax(0, 1fr) 42px;
+    gap:8px;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta i{
+    font-size:17px;
+  }
+}
+
+/* =========================================================
+   AJUSTE FINAL — HEADER COMPACTO FIXO E ALINHADO EM MOBILE/TABLET
+   Corrige o pequeno desvio horizontal e garante que o header
+   compacto fica preso ao topo também na tab Inicio.
+========================================================= */
+@media (max-width: 860px){
+  .siteHeader{
+    position:fixed !important;
+    top:0 !important;
+    left:12px !important;
+    right:12px !important;
+    transform:none !important;
+    width:auto !important;
+    max-width:none !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .siteHeader.isCompact,
+  .siteHeader.is-scrolled{
+    position:fixed !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    border-radius:0 0 18px 18px !important;
+  }
+
+  .siteHeader.is-scrolled .navRow,
+  .siteHeader.isCompact .navRow{
+    padding-left:14px !important;
+    padding-right:14px !important;
+    box-sizing:border-box !important;
+  }
+
+  .siteHeader.is-scrolled .navCta,
+  .siteHeader.isCompact .navCta{
+    width:100% !important;
+    display:block !important;
+  }
+
+  .siteHeader.is-scrolled .navActions,
+  .siteHeader.isCompact .navActions{
+    display:grid !important;
+    grid-template-columns:42px minmax(0, 1fr) 42px !important;
+    align-items:center !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+
+  .siteHeader.is-scrolled .mobileMenuToggleCompact,
+  .siteHeader.isCompact .mobileMenuToggleCompact{
+    display:inline-flex !important;
+    justify-self:start !important;
+  }
+
+  .siteHeader.is-scrolled .tabs,
+  .siteHeader.isCompact .tabs{
+    display:none !important;
+  }
+
+  .siteHeader.is-scrolled .btnTopCta,
+  .siteHeader.isCompact .btnTopCta{
+    width:100% !important;
+    min-width:0 !important;
+    justify-self:stretch !important;
+  }
+
+  .siteHeader.is-scrolled .btnDetails,
+  .siteHeader.isCompact .btnDetails{
+    justify-self:end !important;
+  }
+
+  .siteHeader.mobileMenuOpen .mobileMenuPanel{
+    position:absolute !important;
+    left:12px !important;
+    right:12px !important;
+    top:calc(100% + 8px) !important;
+    margin:0 !important;
+  }
+}
+
+@media (max-width: 420px){
+  .siteHeader.is-scrolled .navActions,
+  .siteHeader.isCompact .navActions{
+    grid-template-columns:42px minmax(0, 1fr) 42px !important;
+    gap:8px !important;
+  }
+}
